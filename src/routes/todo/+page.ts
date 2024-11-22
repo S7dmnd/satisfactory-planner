@@ -1,14 +1,17 @@
+// src/routes/your-route/+page.ts
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = async () => {
-	// const response = await fetch('/api/todos');
-	// const data = await response.json();
-	const factoryName = [
-		'본공장',
-		'뒷공장',
-		'앞공장'
-	];
-
-	// 정확히는 data가 아니라 data.factories나 getFactories(data)일듯
-	return { factoryList: factoryName };
+export const load: PageLoad = async ({ fetch }) => {
+  try {
+    const response = await fetch('/api/todo', {method: 'GET'});
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const todos = await response.json();
+	//console.log(todos);
+    return { todos };
+  } catch (err) {
+    console.error('Error fetching todos:', err);
+    return { todos: [], error: err.message };
+  }
 };

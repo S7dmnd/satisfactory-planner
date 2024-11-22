@@ -3,9 +3,14 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+	//console.log(data.todos);
 </script>
 
-<h1>Todos</h1>
+{#if data.error}
+	<p>Error: {data.error}</p>
+{/if}
 
-<FactoryTodos factoryList={data.factoryList} />
+<div class=todo-page-container>
+	<FactoryTodos todos={data.todos} />
+</div>
 
