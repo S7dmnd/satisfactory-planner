@@ -2,6 +2,14 @@
 	let { todos } = $props();
 	let checkedTodoList = $state([]);
 
+	const toggleChecked = (todoId) => {
+		if (checkedTodoList.includes(todoId)) {
+			checkedTodoList = checkedTodoList.filter((id) => id !== todoId);
+		} else {
+			checkedTodoList.push(todoId);
+		}
+	};
+
 	const handleSave = () => {
 		alert(`Checked TODOs: ${checkedTodoList.join(', ')}`);
 		// 체크된 항목들에 대한 처리 로직 추가
@@ -27,18 +35,12 @@
 		</thead>
 		<tbody class="todo-table-body">
 			{#each todos.todos as todo}
-				<tr class="todo-row">
+				<tr class="todo-row {checkedTodoList.includes(todo.ROWID) ? 'checked' : ''}">
 					<td class="checkbox-cell">
 						<input
 							type="checkbox"
 							class="todo-checkbox"
-							onclick={() => {
-								if (checkedTodoList.includes(todo.ROWID)) {
-									checkedTodoList = checkedTodoList.filter((ROWID) => ROWID !== todo.ROWID);
-								} else {
-									checkedTodoList.push(todo.ROWID);
-								}
-							}}
+							onclick={() => toggleChecked(todo.ROWID)}
 						/>
 					</td>
 					<td class="input-cell">{todo.INITEMNAME1} {todo.INAMOUNT1}</td>
@@ -153,6 +155,11 @@
 
 	.todo-checkbox:focus-visible {
 		outline: 2px solid rgba(250, 149, 73, 0.8);
+	}
+
+	.todo-row.checked {
+		text-decoration: line-through;
+		opacity: 0.6;
 	}
 
 	/* Input and Output Cells Styling */
