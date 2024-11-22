@@ -1,5 +1,5 @@
 // src/routes/api/getTodo/+server.js
-import pool from '$lib/db.js';
+import pool from '$lib/server/db.js';
 
 export async function GET() {
     try {

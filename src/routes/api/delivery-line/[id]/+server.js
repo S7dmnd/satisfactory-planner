@@ -1,4 +1,4 @@
-import { getSingleItem, updateItem, deleteItem } from '$lib/utils/crud.js';
+import { getSingleItem, updateItem, deleteItem } from '$lib/server/crud.js';
 
 export async function GET(event) {
 	return await getSingleItem({

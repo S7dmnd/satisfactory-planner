@@ -1,5 +1,5 @@
 // src/lib/utils/crud.js
-import pool from '$lib/db.js';
+import pool from '$lib/server/db.js';
 
 const allowedTables = ['ITEMLIST', 'FACTORYLIST', 'RECEIPTLIST', 'FACTORYLINE', 'DELIVERYLINE'];
 

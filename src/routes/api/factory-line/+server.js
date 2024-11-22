@@ -1,4 +1,4 @@
-import { getAllItems, createItem } from '$lib/utils/crud.js';
+import { getAllItems, createItem } from '$lib/server/crud.js';
 
 export async function GET() {
 	return await getAllItems({ tableName: 'FACTORYLINE' });
