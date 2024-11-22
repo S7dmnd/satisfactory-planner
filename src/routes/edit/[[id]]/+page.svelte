@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-    import { goto } from '$app/navigation';
+	import { goto } from '$app/navigation';
 
 	let factoryList = $state([]);
 	let receiptList = $state([]);
 	let selectedFactory = $state(null);
-    let selectedReceipt = $state(null);
+	let selectedReceipt = $state(null);
 	let filteredReceipts = $state([]);
 	let row = $state({
 		FACTORYID: '',
@@ -23,16 +23,16 @@
 		OUTITEMNAME2: '',
 		OUTAMOUNT2: '',
 		LINEAMOUNT: 0,
-		TODOAMOUNT: 0,
+		TODOAMOUNT: 0
 	});
-    // [POST] /api/factory-line
-    let output = $state({
+	// [POST] /api/factory-line
+	let output = $state({
 		FACTORYID: null,
-        RECEIPTID: null,
-        LINEAMOUNT: 0,
-        TODOAMOUNT: 0,
-        EXTRAAMOUNT1: 0,
-        EXTRAAMOUNT2: 0
+		RECEIPTID: null,
+		LINEAMOUNT: 0,
+		TODOAMOUNT: 0,
+		EXTRAAMOUNT1: 0,
+		EXTRAAMOUNT2: 0
 	});
 
 	onMount(async () => {
@@ -44,8 +44,8 @@
 			// 레시피 목록 가져오기
 			const receiptResponse = await fetch('/api/receipt-view');
 			receiptList = await receiptResponse.json();
-            
-            filteredReceipts = receiptList;
+
+			filteredReceipts = receiptList;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -53,7 +53,7 @@
 
 	// 레시피 필터링
 	function filterReceipts(text) {
-		if (!text || text.trim() === "") {
+		if (!text || text.trim() === '') {
 			// 검색어가 비어있으면 전체 레시피 반환
 			filteredReceipts = receiptList;
 			return;
@@ -66,7 +66,7 @@
 				receipt.INITEMNAME1,
 				receipt.INITEMNAME2,
 				receipt.INITEMNAME3,
-				receipt.INITEMNAME4,
+				receipt.INITEMNAME4
 			];
 			const outItems = [receipt.OUTITEMNAME1, receipt.OUTITEMNAME2];
 
@@ -78,7 +78,7 @@
 		});
 	}
 
-    // Row 데이터를 업데이트하는 함수
+	// Row 데이터를 업데이트하는 함수
 	function updateRowWithReceipt(receipt) {
 		// row의 RECEIPTID와 기타 필드를 업데이트
 		row.RECEIPTID = receipt.RECEIPTID;
@@ -88,16 +88,16 @@
 		row.INITEMNAME4 = receipt.INITEMNAME4 || '';
 		row.OUTITEMNAME1 = receipt.OUTITEMNAME1 || '';
 		row.OUTITEMNAME2 = receipt.OUTITEMNAME2 || '';
-        row.INAMOUNT1 = receipt.INAMOUNT1 || '';
-        row.INAMOUNT2 = receipt.INAMOUNT2 || '';
-        row.INAMOUNT3 = receipt.INAMOUNT3 || '';
-        row.INAMOUNT4 = receipt.INAMOUNT4 || '';
-        row.OUTAMOUNT1 = receipt.OUTAMOUNT1 || '';
-        row.OUTAMOUNT2 = receipt.OUTAMOUNT2 || '';
+		row.INAMOUNT1 = receipt.INAMOUNT1 || '';
+		row.INAMOUNT2 = receipt.INAMOUNT2 || '';
+		row.INAMOUNT3 = receipt.INAMOUNT3 || '';
+		row.INAMOUNT4 = receipt.INAMOUNT4 || '';
+		row.OUTAMOUNT1 = receipt.OUTAMOUNT1 || '';
+		row.OUTAMOUNT2 = receipt.OUTAMOUNT2 || '';
 		console.log('Updated row:', row);
 	}
 
-    function calculateAmount(amount) {
+	function calculateAmount(amount) {
 		return amount * (row.LINEAMOUNT + row.TODOAMOUNT);
 	}
 
@@ -107,14 +107,14 @@
 			alert('Error: FACTORYID or RECEIPTID is missing.');
 			return;
 		}
-        
+
 		convertRowToOutput();
 
 		try {
 			const response = await fetch('/api/factory-line', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(output),
+				body: JSON.stringify(output)
 			});
 
 			if (!response.ok) {
@@ -130,40 +130,40 @@
 		}
 	}
 
-    function formatReceiptText(receipt) {
-        // IN 아이템 텍스트 구성
-        const inItems = [];
-        if (receipt.INITEMNAME1) inItems.push(`${receipt.INITEMNAME1} * ${receipt.INAMOUNT1}`);
-        if (receipt.INITEMNAME2) inItems.push(`${receipt.INITEMNAME2} * ${receipt.INAMOUNT2}`);
-        if (receipt.INITEMNAME3) inItems.push(`${receipt.INITEMNAME3} * ${receipt.INAMOUNT3}`);
-        if (receipt.INITEMNAME4) inItems.push(`${receipt.INITEMNAME4} * ${receipt.INAMOUNT4}`);
+	function formatReceiptText(receipt) {
+		// IN 아이템 텍스트 구성
+		const inItems = [];
+		if (receipt.INITEMNAME1) inItems.push(`${receipt.INITEMNAME1} * ${receipt.INAMOUNT1}`);
+		if (receipt.INITEMNAME2) inItems.push(`${receipt.INITEMNAME2} * ${receipt.INAMOUNT2}`);
+		if (receipt.INITEMNAME3) inItems.push(`${receipt.INITEMNAME3} * ${receipt.INAMOUNT3}`);
+		if (receipt.INITEMNAME4) inItems.push(`${receipt.INITEMNAME4} * ${receipt.INAMOUNT4}`);
 
-        // OUT 아이템 텍스트 구성
-        const outItems = [];
-        if (receipt.OUTITEMNAME1) outItems.push(`${receipt.OUTITEMNAME1} * ${receipt.OUTAMOUNT1}`);
-        if (receipt.OUTITEMNAME2) outItems.push(`${receipt.OUTITEMNAME2} * ${receipt.OUTAMOUNT2}`);
+		// OUT 아이템 텍스트 구성
+		const outItems = [];
+		if (receipt.OUTITEMNAME1) outItems.push(`${receipt.OUTITEMNAME1} * ${receipt.OUTAMOUNT1}`);
+		if (receipt.OUTITEMNAME2) outItems.push(`${receipt.OUTITEMNAME2} * ${receipt.OUTAMOUNT2}`);
 
-        // 텍스트를 "(INITEM) --> (OUTITEM)" 형식으로 반환
-        return `${inItems.join(' + ')} --> ${outItems.join(' + ')}`;
-    }
+		// 텍스트를 "(INITEM) --> (OUTITEM)" 형식으로 반환
+		return `${inItems.join(' + ')} --> ${outItems.join(' + ')}`;
+	}
 
-    function convertRowToOutput() {
-        //에러핸들링 추가: 예를 들어, Factory가 선택되지 않았을 때
-        output.FACTORYID = row.FACTORYID;
-        output.RECEIPTID = row.RECEIPTID;
-        output.LINEAMOUNT = row.LINEAMOUNT;
-        output.TODOAMOUNT = row.TODOAMOUNT;
-        output.EXTRAAMOUNT1 = 0;
-        output.EXTRAAMOUNT2 = 0;
-    }
+	function convertRowToOutput() {
+		//에러핸들링 추가: 예를 들어, Factory가 선택되지 않았을 때
+		output.FACTORYID = row.FACTORYID;
+		output.RECEIPTID = row.RECEIPTID;
+		output.LINEAMOUNT = row.LINEAMOUNT;
+		output.TODOAMOUNT = row.TODOAMOUNT;
+		output.EXTRAAMOUNT1 = 0;
+		output.EXTRAAMOUNT2 = 0;
+	}
 
-    const handleSelectFactory = (e) => {
-        selectedFactory = e.target.value;
-        row.FACTORYID = selectedFactory;
-        //alert(row.FACTORYID);
-    }
+	const handleSelectFactory = (e) => {
+		selectedFactory = e.target.value;
+		row.FACTORYID = selectedFactory;
+		//alert(row.FACTORYID);
+	};
 
-    const handleSelectReceipt = (e) => {
+	const handleSelectReceipt = (e) => {
 		selectedReceipt = parseInt(e.target.value); // 선택된 RECEIPTID
 		const receipt = receiptList.find((r) => r.RECEIPTID === selectedReceipt);
 
@@ -180,10 +180,10 @@
 <!-- 공장 선택 드롭다운 -->
 <div class="dropdown">
 	<label for="factory-select">Select Factory:</label>
-	<select id="factory-select" onchange="{handleSelectFactory}">
+	<select id="factory-select" onchange={handleSelectFactory}>
 		<option value="">-- Select a Factory --</option>
 		{#each factoryList as factory}
-			<option value="{factory.FACTORYID}">{factory.FACTORYNAME}</option>
+			<option value={factory.FACTORYID}>{factory.FACTORYNAME}</option>
 		{/each}
 	</select>
 </div>
@@ -200,79 +200,79 @@
 
 <div class="dropdown">
 	<label for="receipt-select">Select Receipt:</label>
-	<select id="receipt-select" onchange="{handleSelectReceipt}">
+	<select id="receipt-select" onchange={handleSelectReceipt}>
 		<option value="">-- Select a Receipt --</option>
 		{#each filteredReceipts as receipt}
-            <option value="{receipt.RECEIPTID}">
-                {formatReceiptText(receipt)}
-            </option>
+			<option value={receipt.RECEIPTID}>
+				{formatReceiptText(receipt)}
+			</option>
 		{/each}
 	</select>
 </div>
 
 <h3>Input & Output Items</h3>
 <table class="io-table">
-    <thead>
-        <tr>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Calculated Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- IN ITEMS -->
-        {#if row.INITEMNAME1}
-            <tr>
-                <td>IN</td>
-                <td>{row.INITEMNAME1}</td>
-                <td>{row.INAMOUNT1}</td>
-                <td>{calculateAmount(row.INAMOUNT1)}</td>
-            </tr>
-        {/if}
-        {#if row.INITEMNAME2}
-            <tr>
-                <td>IN</td>
-                <td>{row.INITEMNAME2}</td>
-                <td>{row.INAMOUNT2}</td>
-                <td>{calculateAmount(row.INAMOUNT2)}</td>
-            </tr>
-        {/if}
-        {#if row.INITEMNAME3}
-            <tr>
-                <td>IN</td>
-                <td>{row.INITEMNAME3}</td>
-                <td>{row.INAMOUNT3}</td>
-                <td>{calculateAmount(row.INAMOUNT3)}</td>
-            </tr>
-        {/if}
-        {#if row.INITEMNAME4}
-            <tr>
-                <td>IN</td>
-                <td>{row.INITEMNAME4}</td>
-                <td>{row.INAMOUNT4}</td>
-                <td>{calculateAmount(row.INAMOUNT4)}</td>
-            </tr>
-        {/if}
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Calculated Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- IN ITEMS -->
+		{#if row.INITEMNAME1}
+			<tr>
+				<td>IN</td>
+				<td>{row.INITEMNAME1}</td>
+				<td>{row.INAMOUNT1}</td>
+				<td>{calculateAmount(row.INAMOUNT1)}</td>
+			</tr>
+		{/if}
+		{#if row.INITEMNAME2}
+			<tr>
+				<td>IN</td>
+				<td>{row.INITEMNAME2}</td>
+				<td>{row.INAMOUNT2}</td>
+				<td>{calculateAmount(row.INAMOUNT2)}</td>
+			</tr>
+		{/if}
+		{#if row.INITEMNAME3}
+			<tr>
+				<td>IN</td>
+				<td>{row.INITEMNAME3}</td>
+				<td>{row.INAMOUNT3}</td>
+				<td>{calculateAmount(row.INAMOUNT3)}</td>
+			</tr>
+		{/if}
+		{#if row.INITEMNAME4}
+			<tr>
+				<td>IN</td>
+				<td>{row.INITEMNAME4}</td>
+				<td>{row.INAMOUNT4}</td>
+				<td>{calculateAmount(row.INAMOUNT4)}</td>
+			</tr>
+		{/if}
 
-        <!-- OUT ITEMS -->
-        {#if row.OUTITEMNAME1}
-            <tr>
-                <td>OUT</td>
-                <td>{row.OUTITEMNAME1}</td>
-                <td>{row.OUTAMOUNT1}</td>
-                <td>{calculateAmount(row.OUTAMOUNT1)}</td>
-            </tr>
-        {/if}
-        {#if row.OUTITEMNAME2}
-            <tr>
-                <td>OUT</td>
-                <td>{row.OUTITEMNAME2}</td>
-                <td>{row.OUTAMOUNT2}</td>
-                <td>{calculateAmount(row.OUTAMOUNT2)}</td>
-            </tr>
-        {/if}
-    </tbody>
+		<!-- OUT ITEMS -->
+		{#if row.OUTITEMNAME1}
+			<tr>
+				<td>OUT</td>
+				<td>{row.OUTITEMNAME1}</td>
+				<td>{row.OUTAMOUNT1}</td>
+				<td>{calculateAmount(row.OUTAMOUNT1)}</td>
+			</tr>
+		{/if}
+		{#if row.OUTITEMNAME2}
+			<tr>
+				<td>OUT</td>
+				<td>{row.OUTITEMNAME2}</td>
+				<td>{row.OUTAMOUNT2}</td>
+				<td>{calculateAmount(row.OUTAMOUNT2)}</td>
+			</tr>
+		{/if}
+	</tbody>
 </table>
 
 <!-- Row 데이터 입력 -->
@@ -281,197 +281,190 @@
 	<form>
 		<div>
 			<label for="lineamount">LINE AMOUNT:</label>
-			<input
-				id="lineamount"
-				type="number"
-				bind:value={row.LINEAMOUNT}
-			/>
+			<input id="lineamount" type="number" bind:value={row.LINEAMOUNT} />
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
-			<input
-				id="todoamount"
-				type="number"
-				bind:value={row.TODOAMOUNT}
-			/>
+			<input id="todoamount" type="number" bind:value={row.TODOAMOUNT} />
 		</div>
 		<button type="button" onclick={saveRow}>Save Row</button>
 	</form>
 </div>
 
 <style>
-h1,
-h3 {
-  text-align: center;
-  color: rgba(250, 149, 73, 255);
-  margin-top: 20px;
-}
+	h1,
+	h3 {
+		text-align: center;
+		color: rgba(250, 149, 73, 255);
+		margin-top: 20px;
+	}
 
-/* Dropdown Styling */
-.dropdown {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+	/* Dropdown Styling */
+	.dropdown {
+		margin: 20px auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-.dropdown label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+	.dropdown label {
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
 
-.dropdown select {
-  padding: 10px;
-  font-size: 1rem;
-  background-color: rgba(250, 149, 73, 0.2);
-  color: black;
-  border: 1px solid rgba(250, 149, 73, 255);
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
+	.dropdown select {
+		padding: 10px;
+		font-size: 1rem;
+		background-color: rgba(250, 149, 73, 0.2);
+		color: black;
+		border: 1px solid rgba(250, 149, 73, 255);
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+	}
 
-.dropdown select:hover {
-  background-color: rgba(250, 149, 73, 0.3);
-}
+	.dropdown select:hover {
+		background-color: rgba(250, 149, 73, 0.3);
+	}
 
-/* Search Bar Styling */
-.search-bar {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
+	/* Search Bar Styling */
+	.search-bar {
+		display: flex;
+		justify-content: center;
+		margin: 20px;
+	}
 
-.search-bar input {
-  padding: 10px;
-  width: 50%;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid rgba(250, 149, 73, 255);
-  background-color: rgba(250, 149, 73, 0.2);
-  color: black;
-}
+	.search-bar input {
+		padding: 10px;
+		width: 50%;
+		font-size: 1rem;
+		border-radius: 5px;
+		border: 1px solid rgba(250, 149, 73, 255);
+		background-color: rgba(250, 149, 73, 0.2);
+		color: black;
+	}
 
-.search-bar input::placeholder {
-  color: rgba(14, 14, 14, 0.7);
-}
+	.search-bar input::placeholder {
+		color: rgba(14, 14, 14, 0.7);
+	}
 
-/* Row Form Styling */
-.row-form {
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgba(14, 14, 14, 255);
-  border: 1px solid rgba(250, 149, 73, 255);
-}
+	/* Row Form Styling */
+	.row-form {
+		margin: 20px;
+		padding: 20px;
+		border-radius: 10px;
+		background-color: rgba(14, 14, 14, 255);
+		border: 1px solid rgba(250, 149, 73, 255);
+	}
 
-.row-form h3 {
-  color: rgba(250, 149, 73, 255);
-  text-align: center;
-  margin-bottom: 20px;
-}
+	.row-form h3 {
+		color: rgba(250, 149, 73, 255);
+		text-align: center;
+		margin-bottom: 20px;
+	}
 
-.row-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+	.row-form form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
 
-.row-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+	.row-form label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
 
-.row-form input[type="text"],
-.row-form input[type="number"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid rgba(250, 149, 73, 255);
-  background-color: rgba(250, 149, 73, 0.2);
-  color: black;
-  width: calc(100% - 22px);
-}
+	.row-form input[type='text'],
+	.row-form input[type='number'] {
+		padding: 10px;
+		border-radius: 5px;
+		border: 1px solid rgba(250, 149, 73, 255);
+		background-color: rgba(250, 149, 73, 0.2);
+		color: black;
+		width: calc(100% - 22px);
+	}
 
-/* Save Button Styling */
-.row-form button {
-  padding: 10px;
-  background-color: rgba(250, 149, 73, 255);
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  align-self: center;
-}
+	/* Save Button Styling */
+	.row-form button {
+		padding: 10px;
+		background-color: rgba(250, 149, 73, 255);
+		color: white;
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+		align-self: center;
+	}
 
-.row-form button:hover {
-  background-color: rgba(250, 149, 73, 0.8);
-}
+	.row-form button:hover {
+		background-color: rgba(250, 149, 73, 0.8);
+	}
 
-.row-form button:active {
-  transform: scale(0.98);
-}
+	.row-form button:active {
+		transform: scale(0.98);
+	}
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .search-bar input {
-    width: 80%;
-  }
+	/* Responsive Styling */
+	@media (max-width: 768px) {
+		.search-bar input {
+			width: 80%;
+		}
 
-  .row-form {
-    padding: 15px;
-  }
+		.row-form {
+			padding: 15px;
+		}
 
-  .dropdown select {
-    width: 80%;
-  }
-} 
+		.dropdown select {
+			width: 80%;
+		}
+	}
 
-/* Input & Output Items Table Styling */
-.io-table {
-  width: 80%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  background-color: rgba(14, 14, 14, 255);
-  border: 1px solid rgba(250, 149, 73, 255);
-  color: white;
-}
+	/* Input & Output Items Table Styling */
+	.io-table {
+		width: 80%;
+		margin: 20px auto;
+		border-collapse: collapse;
+		background-color: rgba(14, 14, 14, 255);
+		border: 1px solid rgba(250, 149, 73, 255);
+		color: white;
+	}
 
-.io-table thead {
-  background-color: rgba(250, 149, 73, 255);
-  color: black;
-}
+	.io-table thead {
+		background-color: rgba(250, 149, 73, 255);
+		color: black;
+	}
 
-.io-table th, .io-table td {
-  border: 1px solid rgba(250, 149, 73, 255);
-  padding: 10px;
-  text-align: center;
-}
+	.io-table th,
+	.io-table td {
+		border: 1px solid rgba(250, 149, 73, 255);
+		padding: 10px;
+		text-align: center;
+	}
 
-.io-table tbody tr:nth-child(even) {
-  background-color: rgba(250, 149, 73, 0.1);
-}
+	.io-table tbody tr:nth-child(even) {
+		background-color: rgba(250, 149, 73, 0.1);
+	}
 
-.io-table tbody tr:hover {
-  background-color: rgba(250, 149, 73, 0.2);
-}
+	.io-table tbody tr:hover {
+		background-color: rgba(250, 149, 73, 0.2);
+	}
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .search-bar input {
-    width: 80%;
-  }
+	/* Responsive Styling */
+	@media (max-width: 768px) {
+		.search-bar input {
+			width: 80%;
+		}
 
-  .row-form {
-    padding: 15px;
-  }
+		.row-form {
+			padding: 15px;
+		}
 
-  .dropdown select {
-    width: 80%;
-  }
+		.dropdown select {
+			width: 80%;
+		}
 
-  .io-table {
-    width: 100%;
-  }
-}
+		.io-table {
+			width: 100%;
+		}
+	}
 </style>
