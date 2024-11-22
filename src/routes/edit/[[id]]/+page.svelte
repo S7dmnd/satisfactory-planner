@@ -3,10 +3,13 @@
 	import { goto } from '$app/navigation';
 
 	let factoryList = $state([]);
-	let receiptList = $state([]);
 	let selectedFactory = $state(null);
 	let selectedReceipt = $state(null);
-	let filteredReceipts = $state([]);
+
+	let receiptList = $state([]); // 사실 state가 아니라 fetch 하면 상수 되는거 아님??
+	let searchText = $state('');
+	let filteredReceipts = $derived(filterReceipts(searchText, receiptList));
+
 	let row = $state({
 		FACTORYID: '',
 		RECEIPTID: '',
@@ -44,23 +47,20 @@
 			// 레시피 목록 가져오기
 			const receiptResponse = await fetch('/api/receipt-view');
 			receiptList = await receiptResponse.json();
-
-			filteredReceipts = receiptList;
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
 	});
 
 	// 레시피 필터링
-	function filterReceipts(text) {
+	function filterReceipts(text, receiptList) {
 		if (!text || text.trim() === '') {
 			// 검색어가 비어있으면 전체 레시피 반환
-			filteredReceipts = receiptList;
-			return;
+			return receiptList;
 		}
 
 		// 검색어와 일치하는 INITEMNAME 또는 OUTITEMNAME이 있는 레시피 필터링
-		filteredReceipts = receiptList.filter((receipt) => {
+		return receiptList.filter((receipt) => {
 			// INITEMNAME(1~4)과 OUTITEMNAME(1~2) 모두를 검사
 			const inItems = [
 				receipt.INITEMNAME1,
@@ -194,7 +194,7 @@
 	<input
 		type="text"
 		placeholder="Search receipts by INITEMNAME or OUTITEMNAME"
-		oninput={(e) => filterReceipts(e.target.value)}
+		bind:value={searchText}
 	/>
 </div>
 
