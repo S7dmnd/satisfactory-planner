@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { factoryName } = $props();
+	let { factoryList } = $props();
 
 	// const response = await fetch('/api/todos');
 	// const todos = await response.json();
@@ -9,7 +9,7 @@
 			inItem1: '철 주괴',
 			inAmount1: 420,
 			outItem1: '철판',
-			outamount1: 280,
+			outAmount1: 280,
 			count: 14
 		},
 		{
@@ -37,45 +37,58 @@
 			count: 2
 		}
 	]);
-</script>
+	let checkedTodoList = $state([]);
 
-<div>
-	<h3>{factoryName}</h3>
-	<table>
-		<thead>
-			<tr>
-				<th></th>
-				<th>In 1</th>
-				<th>In 2</th>
-				<th>In 3</th>
-				<th>In 4</th>
-				<th>Out 1</th>
-				<th>Out 2</th>
-				<th>Count</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each todos as todo}
+	const handleSave = () => {
+		alert(`${checkedTodoList}`);
+		//이제 여기서 checkedTodoList DELETE API fetch하고 todos 다시 fetch 해오면 됨 ㅇㅇ
+	};
+
+</script>
+<button onclick={handleSave}>
+	Save
+</button>
+{#each factoryList as factoryName}
+	<div>
+		<h3>{factoryName}</h3>
+		<table>
+			<thead>
 				<tr>
-					<td>
-						<input
-							type="checkbox"
-							onclick={() => {
-								// 실제로는 api 호출해서 db에서 삭제
-								// 체크박스 상태가 이상한데 어차피 최종본에선 안 지우니 나중에 해결하자;;
-								todos = todos.filter((x) => x.id !== todo.id);
-							}}
-						/>
-					</td>
-					<td>{todo.inItem1} {todo.inAmount1}</td>
-					<td>{todo.inItem2} {todo.inAmount2}</td>
-					<td>{todo.inItem3} {todo.inAmount3}</td>
-					<td>{todo.inItem4} {todo.inAmount4}</td>
-					<td>{todo.outItem1} {todo.outAmount1}</td>
-					<td>{todo.outItem2} {todo.outAmount2}</td>
-					<td>{todo.count}</td>
+					<th></th>
+					<th>In 1</th>
+					<th>In 2</th>
+					<th>In 3</th>
+					<th>In 4</th>
+					<th>Out 1</th>
+					<th>Out 2</th>
+					<th>Count</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
-</div>
+			</thead>
+			<tbody>
+				{#each todos as todo}
+					<tr>
+						<td>
+							<input
+								type="checkbox"
+								onclick={() => {
+									if (checkedTodoList.includes(todo.id)) {
+										checkedTodoList = checkedTodoList.filter((id) => id !== todo.id);
+									}
+									else {
+										checkedTodoList.push(todo.id);
+									}}}
+							/>
+						</td>
+						<td>{todo.inItem1} {todo.inAmount1}</td>
+						<td>{todo.inItem2} {todo.inAmount2}</td>
+						<td>{todo.inItem3} {todo.inAmount3}</td>
+						<td>{todo.inItem4} {todo.inAmount4}</td>
+						<td>{todo.outItem1} {todo.outAmount1}</td>
+						<td>{todo.outItem2} {todo.outAmount2}</td>
+						<td>{todo.count}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+{/each}

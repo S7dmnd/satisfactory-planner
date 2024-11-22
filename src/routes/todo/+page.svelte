@@ -6,6 +6,6 @@
 </script>
 
 <h1>Todos</h1>
-{#each data.factories as factoryName}
-	<FactoryTodos {factoryName} />
-{/each}
+
+<FactoryTodos factoryList={data.factoryList} />
+
