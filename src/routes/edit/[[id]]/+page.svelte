@@ -29,14 +29,7 @@
 		TODOAMOUNT: 0
 	});
 	// [POST] /api/factory-line
-	let output = $state({
-		FACTORYID: null,
-		RECEIPTID: null,
-		LINEAMOUNT: 0,
-		TODOAMOUNT: 0,
-		EXTRAAMOUNT1: 0,
-		EXTRAAMOUNT2: 0
-	});
+	let output = $derived(convertRowToOutput());
 
 	onMount(async () => {
 		try {
@@ -103,12 +96,11 @@
 
 	// Row 데이터 저장 처리
 	async function saveRow() {
-		if (!row.FACTORYID || !row.RECEIPTID) {
+		if (!output.FACTORYID || !output.RECEIPTID) {
 			alert('Error: FACTORYID or RECEIPTID is missing.');
+			alert(`FACTORYID = ${output.FACTORYID}, RECEIPTID = ${output.RECEIPTID}`);
 			return;
 		}
-
-		convertRowToOutput();
 
 		try {
 			const response = await fetch('/api/factory-line', {
@@ -148,13 +140,15 @@
 	}
 
 	function convertRowToOutput() {
-		//에러핸들링 추가: 예를 들어, Factory가 선택되지 않았을 때
-		output.FACTORYID = row.FACTORYID;
-		output.RECEIPTID = row.RECEIPTID;
-		output.LINEAMOUNT = row.LINEAMOUNT;
-		output.TODOAMOUNT = row.TODOAMOUNT;
-		output.EXTRAAMOUNT1 = 0;
-		output.EXTRAAMOUNT2 = 0;
+		const output = {
+			FACTORYID: row.FACTORYID,
+			RECEIPTID: row.RECEIPTID,
+			LINEAMOUNT: row.LINEAMOUNT,
+			TODOAMOUNT: row.TODOAMOUNT,
+			EXTRAAMOUNT1: 0,
+			EXTRAAMOUNT2: 0
+		};
+		return output;
 	}
 
 	const handleSelectFactory = (e) => {
