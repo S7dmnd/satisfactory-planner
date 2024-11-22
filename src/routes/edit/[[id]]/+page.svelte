@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
 
 	let factoryList = $state([]);
 	let receiptList = $state([]);
@@ -101,12 +102,32 @@
 	}
 
 	// Row 데이터 저장 처리
-	function saveRow() {
-        // 에러핸들링 --> row.FACTORYID나 row.RECEIPTID 가 null이면 raise error
-        convertRowToOutput();
-        // [POST] /api/factory-line
-        // body = output
-        alert(row.LINEAMOUNT);
+	async function saveRow() {
+		if (!row.FACTORYID || !row.RECEIPTID) {
+			alert('Error: FACTORYID or RECEIPTID is missing.');
+			return;
+		}
+        
+		convertRowToOutput();
+
+		try {
+			const response = await fetch('/api/factory-line', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(output),
+			});
+
+			if (!response.ok) {
+				throw new Error(`Failed to save row: ${response.statusText}`);
+			}
+
+			// 4. 성공 시 리다이렉트
+			alert('Row saved successfully!');
+			goto('/todo');
+		} catch (error) {
+			console.error('Error saving row:', error);
+			alert(`Failed to save row: ${error.message}`);
+		}
 	}
 
     function formatReceiptText(receipt) {
