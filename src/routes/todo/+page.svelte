@@ -6,11 +6,6 @@
 	//console.log(data.todos);
 </script>
 
-{#if data.error}
-	<p>Error: {data.error}</p>
-{/if}
-
-<div class=todo-page-container>
+<div class="todo-page-container">
 	<FactoryTodos todos={data.todos} />
 </div>
-

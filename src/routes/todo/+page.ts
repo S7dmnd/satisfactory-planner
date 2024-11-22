@@ -2,16 +2,12 @@
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch }) => {
-  try {
-    const response = await fetch('/api/todo', {method: 'GET'});
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const todos = await response.json();
+	const response = await fetch('/api/todo', { method: 'GET' });
+	if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+
+	const todos = await response.json();
 	//console.log(todos);
-    return { todos };
-  } catch (err) {
-    console.error('Error fetching todos:', err);
-    return { todos: [], error: err.message };
-  }
+	return { todos };
 };
