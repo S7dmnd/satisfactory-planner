@@ -1,6 +1,5 @@
 <script lang="ts">
 	import FactoryLines from '$lib/factory-line/FactoryLines.svelte';
-	import FactoryTodos from '$lib/todo/FactoryTodos.svelte';
 
 	// let { data } = $props();
 	let data = {
@@ -37,6 +36,20 @@
 						TODOAMOUNT: 2
 					}
 				]
+			},
+			{
+				FACTORYNAME: '석유공장',
+				lines: [
+					{
+						ROWID: 5,
+						INITEMNAME1: '물',
+						INAMOUNT1: 1,
+						OUTITEMNAME1: '수소수',
+						OUTAMOUNT1: 1,
+						LINEAMOUNT: 1,
+						TODOAMOUNT: 0
+					}
+				]
 			}
 		]
 	};
@@ -56,9 +69,17 @@
 
 <div>
 	<div>
-		<button>전체</button>
+		<button
+			onclick={() => {
+				chosenFactory = '';
+			}}>전체</button
+		>
 		{#each data.factoryLines as factories}
-			<button>{factories.FACTORYNAME}</button>
+			<button
+				onclick={() => {
+					chosenFactory = factories.FACTORYNAME;
+				}}>{factories.FACTORYNAME}</button
+			>
 		{/each}
 	</div>
 	<FactoryLines lines={factoryLines} />
