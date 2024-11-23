@@ -31,5 +31,16 @@
 			>
 		{/each}
 	</div>
-	<FactoryLines lines={factoryLines} />
+	<!--Item List div-->
+	<div></div>
+	<div>
+		<!-- div for align-->
+		<div>
+			<!-- FactoryLine div -->
+			<a href="/edit">+</a>
+			<FactoryLines lines={factoryLines} />
+		</div>
+		<!-- Delivery div -->
+		<div></div>
+	</div>
 </div>
