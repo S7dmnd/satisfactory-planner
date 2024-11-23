@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
-	let factoryList = $state([]);
+	let { data } = $props();
+	let factoryList = data.factoryList;
+	let receiptList = data.receiptList;
+
 	let selectedFactory = $state(null);
 	let selectedReceipt = $state(null);
 
-	let receiptList = $state([]); // 사실 state가 아니라 fetch 하면 상수 되는거 아님??
 	let searchText = $state('');
 	let filteredReceipts = $derived(filterReceipts(searchText, receiptList));
 
@@ -30,20 +31,6 @@
 	});
 	// [POST] /api/factory-line
 	let output = $derived(convertRowToOutput());
-
-	onMount(async () => {
-		try {
-			// 공장 목록 가져오기
-			const factoryResponse = await fetch('/api/factory-list');
-			factoryList = await factoryResponse.json();
-
-			// 레시피 목록 가져오기
-			const receiptResponse = await fetch('/api/receipt-view');
-			receiptList = await receiptResponse.json();
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		}
-	});
 
 	// 레시피 필터링
 	function filterReceipts(text, receiptList) {
