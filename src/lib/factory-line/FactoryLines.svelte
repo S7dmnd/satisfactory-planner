@@ -35,3 +35,65 @@
 		</tbody>
 	</table>
 </div>
+
+<style>
+	/* Table Container Styling */
+	div {
+		margin: 20px auto;
+		width: 90%;
+		background-color: rgba(14, 14, 14, 255);
+		border-radius: 10px;
+		border: 1px solid rgba(250, 149, 73, 255);
+		padding: 20px;
+	}
+
+	/* Table Styling */
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 10px;
+	}
+
+	th,
+	td {
+		border: 1px solid rgba(250, 149, 73, 255);
+		padding: 10px;
+		text-align: center;
+	}
+
+	th {
+		background-color: rgba(250, 149, 73, 255);
+		color: black;
+		font-weight: bold;
+	}
+
+	tbody tr:nth-child(even) {
+		background-color: rgba(250, 149, 73, 0.1);
+	}
+
+	tbody tr:hover {
+		background-color: rgba(250, 149, 73, 0.2);
+	}
+
+	/* Highlight TODO Amount Styling */
+	span {
+		color: red;
+		font-weight: bold;
+	}
+
+	/* Responsive Styling */
+	@media (max-width: 768px) {
+		div {
+			padding: 15px;
+		}
+
+		th,
+		td {
+			padding: 8px;
+		}
+
+		table {
+			width: 100%;
+		}
+	}
+</style>
