@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 
 	let { children } = $props();
-	let activePage = $derived($page.route.id);
+	let activePage = $derived($page.url.pathname);
 </script>
 
 <nav class="navigation">
@@ -11,7 +11,11 @@
 	<a href="/factory-line" class="nav-link {activePage.startsWith('/factory-line') ? 'active' : ''}"
 		>Lines</a
 	>
-	<a href="/edit" class="nav-link {activePage.startsWith('/edit') ? 'active' : ''}">Add</a>
+	{#if activePage.startsWith('/edit/')}
+		<a href={activePage} class="nav-link active">Edit</a>
+	{:else}
+		<a href="/edit" class="nav-link {activePage.startsWith('/edit') ? 'active' : ''}">Add</a>
+	{/if}
 </nav>
 {@render children()}
 
