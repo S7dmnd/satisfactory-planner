@@ -1,22 +1,15 @@
 <script lang="ts">
-	let { todos } = $props();
-	let checkedTodoList = $state([]);
+	let { todos, checkedTodoList } = $props();
 
 	const toggleChecked = (todoId) => {
 		if (checkedTodoList.includes(todoId)) {
 			checkedTodoList = checkedTodoList.filter((id) => id !== todoId);
 		} else {
 			checkedTodoList.push(todoId);
+			//alert(`Checked TODOs: ${checkedTodoList.join(', ')}`);
 		}
 	};
-
-	const handleSave = () => {
-		alert(`Checked TODOs: ${checkedTodoList.join(', ')}`);
-		// 체크된 항목들에 대한 처리 로직 추가
-	};
 </script>
-
-<button onclick={handleSave} class="todo-save-button"> Save </button>
 
 <div class="factory-container">
 	<h3 class="factory-title">{todos.FACTORYNAME}</h3>
@@ -57,30 +50,6 @@
 </div>
 
 <style>
-	/* Button Styling */
-
-	.todo-save-button {
-		background-color: rgba(250, 149, 73, 255);
-		color: white;
-		border: none;
-		padding: 10px 20px;
-		cursor: pointer;
-		font-size: 1rem;
-		border-radius: 5px;
-		transition: background-color 0.3s ease;
-		position: absolute;
-		top: 20px;
-		right: 20px;
-	}
-
-	.todo-save-button:hover {
-		background-color: rgba(250, 149, 73, 0.8);
-	}
-
-	.todo-save-button:active {
-		transform: scale(0.98);
-	}
-
 	/* Factory Container Styling */
 
 	.factory-container {

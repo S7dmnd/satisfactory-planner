@@ -5,31 +5,32 @@ export async function GET() {
     try {
         const query = `
         SELECT
-          FL.ROWID,
-          FL.TODOAMOUNT,
-          FAL.FACTORYNAME,
-          IL_IN1.ITEMNAME AS INITEMNAME1,
-          RL.INAMOUNT1,
-          IL_IN2.ITEMNAME AS INITEMNAME2,
-          RL.INAMOUNT2,
-          IL_IN3.ITEMNAME AS INITEMNAME3,
-          RL.INAMOUNT3,
-          IL_IN4.ITEMNAME AS INITEMNAME4,
-          RL.INAMOUNT4,
-          IL_OUT1.ITEMNAME AS OUTITEMNAME1,
-          RL.OUTAMOUNT1,
-          IL_OUT2.ITEMNAME AS OUTITEMNAME2,
-          RL.OUTAMOUNT2
-        FROM FACTORYLINE FL
-        JOIN FACTORYLIST FAL ON FAL.FACTORYID = FL.FACTORYID
-        JOIN RECEIPTLIST RL ON RL.RECEIPTID = FL.RECEIPTID
-        LEFT JOIN ITEMLIST IL_IN1 ON IL_IN1.ITEMID = RL.INITEM1
-        LEFT JOIN ITEMLIST IL_IN2 ON IL_IN2.ITEMID = RL.INITEM2
-        LEFT JOIN ITEMLIST IL_IN3 ON IL_IN3.ITEMID = RL.INITEM3
-        LEFT JOIN ITEMLIST IL_IN4 ON IL_IN4.ITEMID = RL.INITEM4
-        LEFT JOIN ITEMLIST IL_OUT1 ON IL_OUT1.ITEMID = RL.OUTITEM1
-        LEFT JOIN ITEMLIST IL_OUT2 ON IL_OUT2.ITEMID = RL.OUTITEM2
-      `;
+			FL.ROWID,
+			FL.TODOAMOUNT,
+			FAL.FACTORYNAME,
+			IL_IN1.ITEMNAME AS INITEMNAME1,
+			RL.INAMOUNT1,
+			IL_IN2.ITEMNAME AS INITEMNAME2,
+			RL.INAMOUNT2,
+			IL_IN3.ITEMNAME AS INITEMNAME3,
+			RL.INAMOUNT3,
+			IL_IN4.ITEMNAME AS INITEMNAME4,
+			RL.INAMOUNT4,
+			IL_OUT1.ITEMNAME AS OUTITEMNAME1,
+			RL.OUTAMOUNT1,
+			IL_OUT2.ITEMNAME AS OUTITEMNAME2,
+			RL.OUTAMOUNT2
+			FROM FACTORYLINE FL
+			JOIN FACTORYLIST FAL ON FAL.FACTORYID = FL.FACTORYID
+			JOIN RECEIPTLIST RL ON RL.RECEIPTID = FL.RECEIPTID
+			LEFT JOIN ITEMLIST IL_IN1 ON IL_IN1.ITEMID = RL.INITEM1
+			LEFT JOIN ITEMLIST IL_IN2 ON IL_IN2.ITEMID = RL.INITEM2
+			LEFT JOIN ITEMLIST IL_IN3 ON IL_IN3.ITEMID = RL.INITEM3
+			LEFT JOIN ITEMLIST IL_IN4 ON IL_IN4.ITEMID = RL.INITEM4
+			LEFT JOIN ITEMLIST IL_OUT1 ON IL_OUT1.ITEMID = RL.OUTITEM1
+			LEFT JOIN ITEMLIST IL_OUT2 ON IL_OUT2.ITEMID = RL.OUTITEM2
+			WHERE FL.TODOAMOUNT > 0 AND FL.TODOAMOUNT IS NOT NULL;
+      	`;
 
         const [rows] = await pool.query(query);
 
@@ -82,5 +83,34 @@ export async function GET() {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
         });
+    }
+}
+
+export async function PATCH({ request }) {
+    try {
+        // 요청 본문에서 ROWID 리스트를 가져옵니다.
+        const { checkedTodoList } = await request.json();
+
+        if (!Array.isArray(checkedTodoList) || checkedTodoList.length === 0) {
+            return new Response(
+                JSON.stringify({ error: 'Invalid input: checkedTodoList must be a non-empty array.' }), { status: 400, headers: { 'Content-Type': 'application/json' } }
+            );
+        }
+
+        // SQL IN 절에 사용하기 위해 ROWID 리스트를 문자열로 변환합니다.
+        const placeholders = checkedTodoList.map(() => '?').join(', ');
+        const query = `UPDATE FACTORYLINE SET TODOAMOUNT = 0 WHERE ROWID IN (${placeholders})`;
+
+        // 쿼리 실행
+        const [result] = await pool.execute(query, checkedTodoList);
+
+        return new Response(
+            JSON.stringify({ message: 'TODOAMOUNT updated successfully.', affectedRows: result.affectedRows }), { status: 200, headers: { 'Content-Type': 'application/json' } }
+        );
+    } catch (error) {
+        console.error('Error updating TODOAMOUNT:', error);
+        return new Response(
+            JSON.stringify({ error: 'Failed to update TODOAMOUNT.' }), { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
     }
 }
