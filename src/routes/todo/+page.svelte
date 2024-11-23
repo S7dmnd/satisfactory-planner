@@ -30,7 +30,6 @@
 </script>
 
 <div class="todo-page-container">
-	<h1>TODOS</h1>
 	<button onclick={handleSave} class="todo-save-button"> Save </button>
 	{#each data.todos as factoryTodos}
 		<FactoryTodos todos={factoryTodos} {checkedTodoList} />
