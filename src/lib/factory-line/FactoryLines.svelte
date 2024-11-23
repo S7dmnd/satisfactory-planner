@@ -2,7 +2,7 @@
 	let { lines } = $props();
 </script>
 
-<div>
+<div class="table-container">
 	<table>
 		<thead>
 			<tr>
@@ -34,17 +34,50 @@
 			{/each}
 		</tbody>
 	</table>
+	<div class="button-container">
+		<a href="/edit">+</a>
+	</div>
 </div>
 
 <style>
 	/* Table Container Styling */
-	div {
+	.table-container {
 		margin: 20px auto;
 		width: 90%;
 		background-color: rgba(14, 14, 14, 255);
 		border-radius: 10px;
 		border: 1px solid rgba(250, 149, 73, 255);
 		padding: 20px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	/* Button Styling */
+	.button-container {
+		align-self: flex-start;
+	}
+
+	a {
+		background-color: rgba(250, 149, 73, 255);
+		color: white;
+		text-decoration: none;
+		padding: 10px 15px;
+		border-radius: 5px;
+		font-size: 1.5rem;
+		font-weight: bold;
+		transition:
+			background-color 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	a:hover {
+		background-color: rgba(250, 149, 73, 0.8);
+		transform: translateY(-2px);
+	}
+
+	a:active {
+		transform: scale(0.98);
 	}
 
 	/* Table Styling */
