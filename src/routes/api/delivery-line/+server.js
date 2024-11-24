@@ -8,6 +8,6 @@ export async function POST(event) {
 	return await createItem({
 		request: event.request,
 		tableName: 'DELIVERYLINE',
-		columns: ['SOURCEID', 'DESTINATIONID', 'ITEMID', 'METHOD', 'AMOUNT'], // 필요한 컬럼명 배열
+		columns: ['SOURCEID', 'DESTINATIONID', 'ITEMKEY', 'METHOD', 'AMOUNT'], // 필요한 컬럼명 배열
 	});
 }

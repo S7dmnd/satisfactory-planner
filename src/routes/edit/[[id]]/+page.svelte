@@ -6,7 +6,7 @@
 	let factoryList = data.factoryList;
 	let recipeList = data.recipeList;
 
-	let recipeFrame = recipeList.find((r) => r.RECIPEID === rowFrame.RECIPEID) || '';
+	let recipeFrame = recipeList.find((r) => r.RECIPEKEY === rowFrame.RECIPEKEY) || '';
 	let selectedFactory = $state(rowFrame.FACTORYID);
 	let selectedRecipe = $state(rowFrame.FACTORYID);
 
@@ -15,7 +15,7 @@
 
 	let row = $state({
 		FACTORYID: rowFrame.FACTORYID,
-		RECIPEID: rowFrame.RECIPEID,
+		RECIPEKEY: rowFrame.RECIPEKEY,
 		INITEMNAME1: recipeFrame.INITEMNAME1 || '',
 		INAMOUNT1: recipeFrame.INAMOUNT1 || '',
 		INITEMNAME2: recipeFrame.INITEMNAME2 || '',
@@ -62,8 +62,8 @@
 
 	// Row 데이터를 업데이트하는 함수
 	function updateRowWithRecipe(recipe) {
-		// row의 RECIPEID와 기타 필드를 업데이트
-		row.RECIPEID = recipe.RECIPEID;
+		// row의 RECIPEKEY와 기타 필드를 업데이트
+		row.RECIPEKEY = recipe.RECIPEKEY;
 		row.INITEMNAME1 = recipe.INITEMNAME1 || '';
 		row.INITEMNAME2 = recipe.INITEMNAME2 || '';
 		row.INITEMNAME3 = recipe.INITEMNAME3 || '';
@@ -85,9 +85,9 @@
 
 	// Row 데이터 저장 처리
 	async function saveRow() {
-		if (!output.FACTORYID || !output.RECIPEID) {
-			alert('Error: FACTORYID or RECIPEID is missing.');
-			alert(`FACTORYID = ${output.FACTORYID}, RECIPEID = ${output.RECIPEID}`);
+		if (!output.FACTORYID || !output.RECIPEKEY) {
+			alert('Error: FACTORYID or RECIPEKEY is missing.');
+			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
 			return;
 		}
 
@@ -131,7 +131,7 @@
 	function convertRowToOutput() {
 		const output = {
 			FACTORYID: row.FACTORYID,
-			RECIPEID: row.RECIPEID,
+			RECIPEKEY: row.RECIPEKEY,
 			LINEAMOUNT: row.LINEAMOUNT,
 			TODOAMOUNT: row.TODOAMOUNT,
 			EXTRAAMOUNT1: 0,
@@ -147,13 +147,13 @@
 	};
 
 	const handleSelectRecipe = (e) => {
-		selectedRecipe = parseInt(e.target.value); // 선택된 RECIPEID
-		const recipe = recipeList.find((r) => r.RECIPEID === selectedRecipe);
+		selectedRecipe = parseInt(e.target.value); // 선택된 RECIPEKEY
+		const recipe = recipeList.find((r) => r.RECIPEKEY === selectedRecipe);
 
 		if (recipe) {
 			updateRowWithRecipe(recipe); // Row 업데이트
 		} else {
-			console.error(`Recipe with RECIPEID ${selectedRecipe} not found.`);
+			console.error(`Recipe with RECIPEKEY ${selectedRecipe} not found.`);
 		}
 	};
 
@@ -207,10 +207,11 @@
 	<label for="recipe-select">Select Recipe:</label>
 	<select id="recipe-select" onchange={handleSelectRecipe}>
 		<!-- 첫 번째 옵션 동적 설정 -->
-		{#if rowFrame.RECIPEID}
-			<option value={rowFrame.RECIPEID}>
-				{formatRecipeText(filteredRecipes.find((recipe) => recipe.RECIPEID == rowFrame.RECIPEID)) ||
-					'Unknown Recipe'}
+		{#if rowFrame.RECIPEKEY}
+			<option value={rowFrame.RECIPEKEY}>
+				{formatRecipeText(
+					filteredRecipes.find((recipe) => recipe.RECIPEKEY == rowFrame.RECIPEKEY)
+				) || 'Unknown Recipe'}
 			</option>
 		{:else}
 			<option value="">-- Select a Recipe --</option>
@@ -218,7 +219,7 @@
 
 		<!-- 나머지 옵션 비활성화 -->
 		{#each filteredRecipes as recipe}
-			<option value={recipe.RECIPEID} disabled={rowFrame.RECIPEID}>
+			<option value={recipe.RECIPEKEY} disabled={rowFrame.RECIPEKEY}>
 				{formatRecipeText(recipe)}
 			</option>
 		{/each}

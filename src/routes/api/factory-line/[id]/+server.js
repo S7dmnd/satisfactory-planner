@@ -14,7 +14,7 @@ export async function PUT(event) {
 		request: event.request,
 		tableName: 'FACTORYLINE',
 		idColumn: 'ROWID',
-		columns: ['RECIPEID', 'LINEAMOUNT', 'TODOAMOUNT', 'FACTORYID', 'EXTRAAMOUNT1', 'EXTRAAMOUNT2'], // 업데이트할 컬럼명 배열
+		columns: ['RECIPEKEY', 'LINEAMOUNT', 'TODOAMOUNT', 'FACTORYID', 'EXTRAAMOUNT1', 'EXTRAAMOUNT2'], // 업데이트할 컬럼명 배열
 	});
 }
 

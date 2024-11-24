@@ -14,7 +14,7 @@ export async function PUT(event) {
 		request: event.request,
 		tableName: 'DELIVERYLINE',
 		idColumn: 'DELIVERYID',
-		columns: ['SOURCEID', 'DESTINATIONID', 'ITEMID', 'METHOD', 'AMOUNT'], // 업데이트할 컬럼명 배열
+		columns: ['SOURCEID', 'DESTINATIONID', 'ITEMKEY', 'METHOD', 'AMOUNT'], // 업데이트할 컬럼명 배열
 	});
 }
 

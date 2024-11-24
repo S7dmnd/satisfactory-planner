@@ -4,6 +4,6 @@ export async function GET(event) {
     return await getSingleItem({
         params: event.params,
         tableName: 'RECIPEVIEW',
-        idColumn: 'RECIPEID',
+        idColumn: 'RECIPEKEY',
     });
 }
