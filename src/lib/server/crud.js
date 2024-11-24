@@ -288,3 +288,29 @@ export async function uploadItems({ request }) {
         });
     }
 }
+
+export async function updateTodo({ params }) {
+    const { id } = params;
+
+    const query = `UPDATE FACTORYLINE SET TODOAMOUNT = 0 WHERE ROWID = ${id}`;
+
+    try {
+        const [result] = await pool.query(query);
+        if (result.affectedRows === 0) {
+            return new Response(JSON.stringify({ error: 'Row not found' }), {
+                status: 404,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+        return new Response(JSON.stringify({ message: 'Todo updated' }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('Database update error:', error);
+        return new Response(JSON.stringify({ error: 'Failed to update Todo' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}

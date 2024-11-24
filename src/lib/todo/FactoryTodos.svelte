@@ -9,6 +9,15 @@
 			//alert(`Checked TODOs: ${checkedTodoList.join(', ')}`);
 		}
 	};
+
+	const handleSave = async (rowId) => {
+		//alert(rowId);
+		const response = await fetch(`/api/todo/${rowId}`, { method: 'PUT' });
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+		window.location.reload();
+	};
 </script>
 
 <div class="factory-container">
@@ -16,7 +25,6 @@
 	<table class="todo-table">
 		<thead class="todo-table-header">
 			<tr>
-				<th class="checkbox-column"></th>
 				<th class="input-column">In 1</th>
 				<th class="input-column">In 2</th>
 				<th class="input-column">In 3</th>
@@ -24,18 +32,12 @@
 				<th class="output-column">Out 1</th>
 				<th class="output-column">Out 2</th>
 				<th class="count-column">Count</th>
+				<th class="checkbox-column">Completed?</th>
 			</tr>
 		</thead>
 		<tbody class="todo-table-body">
 			{#each todos.todos as todo}
 				<tr class="todo-row {checkedTodoList.includes(todo.ROWID) ? 'checked' : ''}">
-					<td class="checkbox-cell">
-						<input
-							type="checkbox"
-							class="todo-checkbox"
-							onclick={() => toggleChecked(todo.ROWID)}
-						/>
-					</td>
 					<td class="input-cell"
 						>{#if todo.INITEMNAME1}{todo.INITEMNAME1} {todo.INAMOUNT1 * todo.TODOAMOUNT}{/if}</td
 					>
@@ -55,6 +57,11 @@
 						>{#if todo.OUTITEMNAME2}{todo.OUTITEMNAME2} {todo.OUTAMOUNT2 * todo.TODOAMOUNT}{/if}</td
 					>
 					<td class="count-cell">{todo.TODOAMOUNT}</td>
+					<td class="checkbox-cell">
+						<button class="todo-save-button" onclick={(e) => handleSave(todo.ROWID)}
+							>Completed</button
+						>
+					</td>
 				</tr>
 			{/each}
 		</tbody>
@@ -62,6 +69,28 @@
 </div>
 
 <style>
+	/* Button Styling */
+
+	.todo-save-button {
+		background-color: rgba(250, 149, 73, 255);
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		cursor: pointer;
+		font-size: 1rem;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+		max-width: 100%;
+	}
+
+	.todo-save-button:hover {
+		background-color: rgba(250, 149, 73, 0.8);
+	}
+
+	.todo-save-button:active {
+		transform: scale(0.98);
+	}
+
 	/* Factory Container Styling */
 
 	.factory-container {
@@ -98,7 +127,10 @@
 		text-align: center;
 	}
 
-	.checkbox-column,
+	.checkbox-column {
+		width: 150px;
+	}
+
 	.input-column,
 	.output-column,
 	.count-column {

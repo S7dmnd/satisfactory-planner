@@ -28,7 +28,7 @@
 </script>
 
 <div class="todo-page-container">
-	<button onclick={handleSave} class="todo-save-button"> Save </button>
+	<!-- <button onclick={handleSave} class="todo-save-button"> Save </button> -->
 	{#each data.todos as factoryTodos}
 		<FactoryTodos todos={factoryTodos} bind:checkedTodoList />
 	{/each}
