@@ -1,0 +1,4196 @@
+[
+	{
+		"CLASSNAME": "TempRecipe_NuclearWaste_C",
+		"NAME": {
+			"EN": "Uranium Fuel Rod (burning)",
+			"KO": "우라늄 연료봉 (발전)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NuclearFuelRod_C",
+		"INAMOUNT1": 0.2,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 240.0,
+		"OUTITEM1": "Desc_NuclearWaste_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "TempRecipe_PlutoniumWaste_C",
+		"NAME": {
+			"EN": "Plutonium Fuel Rod (burning)",
+			"KO": "플루토늄 연료봉 (발전)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PlutoniumFuelRod_C",
+		"INAMOUNT1": 0.1,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 240.0,
+		"OUTITEM1": "Desc_PlutoniumWaste_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_IronPlate_C",
+		"NAME": {
+			"EN": "Iron Plate",
+			"KO": "철판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_IronPlate_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_IronRod_C",
+		"NAME": {
+			"EN": "Iron Rod",
+			"KO": "철봉"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_IronRod_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_IngotIron_C",
+		"NAME": {
+			"EN": "Iron Ingot",
+			"KO": "철 주괴"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_IronIngot_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_RocketFuel_Nitro_C",
+		"NAME": {
+			"EN": "Nitro Rocket Fuel",
+			"KO": "대체: 니트로 로켓 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_LiquidFuel_C",
+		"INAMOUNT1": 100.0,
+		"INITEM2": "Desc_NitrogenGas_C",
+		"INAMOUNT2": 75.0,
+		"INITEM3": "Desc_Sulfur_C",
+		"INAMOUNT3": 100.0,
+		"INITEM4": "Desc_Coal_C",
+		"INAMOUNT4": 50.0,
+		"OUTITEM1": "Desc_RocketFuel_C",
+		"OUTAMOUNT1": 150.0,
+		"OUTITEM2": "Desc_CompactedCoal_C",
+		"OUTAMOUNT2": 25.0
+	},
+	{
+		"CLASSNAME": "Recipe_RocketFuel_C",
+		"NAME": {
+			"EN": "Rocket Fuel",
+			"KO": "로켓 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidTurboFuel_C",
+		"INAMOUNT1": 60.0,
+		"INITEM2": "Desc_NitricAcid_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_RocketFuel_C",
+		"OUTAMOUNT1": 100.0,
+		"OUTITEM2": "Desc_CompactedCoal_C",
+		"OUTAMOUNT2": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedRocketFuel_C",
+		"NAME": {
+			"EN": "Packaged Rocket Fuel",
+			"KO": "포장된 로켓 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_RocketFuel_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_GasTank_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_PackagedRocketFuel_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageRocketFuel_C",
+		"NAME": {
+			"EN": "Unpackage Rocket Fuel",
+			"KO": "로켓 연료 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedRocketFuel_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_RocketFuel_C",
+		"OUTAMOUNT1": 120.0,
+		"OUTITEM2": "Desc_GasTank_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_IonizedFuel_Dark_C",
+		"NAME": {
+			"EN": "Dark-Ion Fuel",
+			"KO": "대체: 암흑 이온 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_PackagedRocketFuel_C",
+		"INAMOUNT1": 240.0,
+		"INITEM2": "Desc_DarkMatter_C",
+		"INAMOUNT2": 80.0,
+		"OUTITEM1": "Desc_IonizedFuel_C",
+		"OUTAMOUNT1": 200.0,
+		"OUTITEM2": "Desc_CompactedCoal_C",
+		"OUTAMOUNT2": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_DarkEnergy_C",
+		"NAME": {
+			"EN": "Dark Matter Residue",
+			"KO": "암흑 물질 잔여물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 50.0,
+		"OUTITEM1": "Desc_DarkEnergy_C",
+		"OUTAMOUNT1": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_QuantumEnergy_C",
+		"NAME": {
+			"EN": "Excited Photonic Matter",
+			"KO": "들뜬 광자 물질"
+		},
+		"ALTERNATE": false,
+		"OUTITEM1": "Desc_QuantumEnergy_C",
+		"OUTAMOUNT1": 200.0
+	},
+	{
+		"CLASSNAME": "Recipe_DarkMatter_C",
+		"NAME": {
+			"EN": "Dark Matter Crystal",
+			"KO": "암흑 물질 수정"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Diamond_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_DarkEnergy_C",
+		"INAMOUNT2": 150.0,
+		"OUTITEM1": "Desc_DarkMatter_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_SuperpositionOscillator_C",
+		"NAME": {
+			"EN": "Superposition Oscillator",
+			"KO": "중첩 발진기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_DarkMatter_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_CrystalOscillator_C",
+		"INAMOUNT2": 5.0,
+		"INITEM3": "Desc_AluminumPlate_C",
+		"INAMOUNT3": 45.0,
+		"INITEM4": "Desc_QuantumEnergy_C",
+		"INAMOUNT4": 125.0,
+		"OUTITEM1": "Desc_QuantumOscillator_C",
+		"OUTAMOUNT1": 5.0,
+		"OUTITEM2": "Desc_DarkEnergy_C",
+		"OUTAMOUNT2": 125.0
+	},
+	{
+		"CLASSNAME": "Recipe_TemporalProcessor_C",
+		"NAME": {
+			"EN": "Neural-Quantum Processor",
+			"KO": "신경 양자 처리기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_TimeCrystal_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_ComputerSuper_C",
+		"INAMOUNT2": 3.0,
+		"INITEM3": "Desc_FicsiteMesh_C",
+		"INAMOUNT3": 45.0,
+		"INITEM4": "Desc_QuantumEnergy_C",
+		"INAMOUNT4": 75.0,
+		"OUTITEM1": "Desc_TemporalProcessor_C",
+		"OUTAMOUNT1": 3.0,
+		"OUTITEM2": "Desc_DarkEnergy_C",
+		"OUTAMOUNT2": 75.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_12_C",
+		"NAME": {
+			"EN": "AI Expansion Server",
+			"KO": "인공지능 확장 서버"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_6_C",
+		"INAMOUNT1": 4.0,
+		"INITEM2": "Desc_TemporalProcessor_C",
+		"INAMOUNT2": 4.0,
+		"INITEM3": "Desc_QuantumOscillator_C",
+		"INAMOUNT3": 4.0,
+		"INITEM4": "Desc_QuantumEnergy_C",
+		"INAMOUNT4": 100.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_12_C",
+		"OUTAMOUNT1": 4.0,
+		"OUTITEM2": "Desc_DarkEnergy_C",
+		"OUTAMOUNT2": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_IonizedFuel_C",
+		"NAME": {
+			"EN": "Ionized Fuel",
+			"KO": "이온화 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_RocketFuel_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_CrystalShard_C",
+		"INAMOUNT2": 2.5,
+		"OUTITEM1": "Desc_IonizedFuel_C",
+		"OUTAMOUNT1": 40.0,
+		"OUTITEM2": "Desc_CompactedCoal_C",
+		"OUTAMOUNT2": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedIonizedFuel_C",
+		"NAME": {
+			"EN": "Packaged Ionized Fuel",
+			"KO": "포장된 이온화 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IonizedFuel_C",
+		"INAMOUNT1": 80.0,
+		"INITEM2": "Desc_GasTank_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_PackagedIonizedFuel_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageIonizedFuel_C",
+		"NAME": {
+			"EN": "Unpackage Ionized Fuel",
+			"KO": "이온화 연료 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedIonizedFuel_C",
+		"INAMOUNT1": 40.0,
+		"OUTITEM1": "Desc_IonizedFuel_C",
+		"OUTAMOUNT1": 80.0,
+		"OUTITEM2": "Desc_GasTank_C",
+		"OUTAMOUNT2": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Diamond_Turbo_C",
+		"NAME": {
+			"EN": "Turbo Diamonds",
+			"KO": "대체: 터보 다이아몬드"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Coal_C",
+		"INAMOUNT1": 600.0,
+		"INITEM2": "Desc_TurboFuel_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_Diamond_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_SAMFluctuator_C",
+		"NAME": {
+			"EN": "SAM Fluctuator",
+			"KO": "S.A.M. 변동기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 60.0,
+		"INITEM2": "Desc_Wire_C",
+		"INAMOUNT2": 50.0,
+		"INITEM3": "Desc_SteelPipe_C",
+		"INAMOUNT3": 30.0,
+		"OUTITEM1": "Desc_SAMFluctuator_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_FicsiteMesh_C",
+		"NAME": {
+			"EN": "Ficsite Trigon",
+			"KO": "픽사이트 삼각판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_FicsiteIngot_C",
+		"INAMOUNT1": 10.0,
+		"OUTITEM1": "Desc_FicsiteMesh_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_FicsiteIngot_Iron_C",
+		"NAME": {
+			"EN": "Ficsite Ingot (Iron)",
+			"KO": "픽사이트 주괴 (철)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_IronIngot_C",
+		"INAMOUNT2": 240.0,
+		"OUTITEM1": "Desc_FicsiteIngot_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_TimeCrystal_C",
+		"NAME": {
+			"EN": "Time Crystal",
+			"KO": "시간 수정"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Diamond_C",
+		"INAMOUNT1": 12.0,
+		"OUTITEM1": "Desc_TimeCrystal_C",
+		"OUTAMOUNT1": 6.0
+	},
+	{
+		"CLASSNAME": "Recipe_Diamond_C",
+		"NAME": {
+			"EN": "Diamonds",
+			"KO": "다이아몬드"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Coal_C",
+		"INAMOUNT1": 600.0,
+		"OUTITEM1": "Desc_Diamond_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_IngotSAM_C",
+		"NAME": {
+			"EN": "Reanimated SAM",
+			"KO": "재생 S.A.M."
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAM_C",
+		"INAMOUNT1": 120.0,
+		"OUTITEM1": "Desc_SAMIngot_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_10_C",
+		"NAME": {
+			"EN": "Biochemical Sculptor",
+			"KO": "생화학 조형기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_7_C",
+		"INAMOUNT1": 0.5,
+		"INITEM2": "Desc_FicsiteMesh_C",
+		"INAMOUNT2": 40.0,
+		"INITEM3": "Desc_Water_C",
+		"INAMOUNT3": 10.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_10_C",
+		"OUTAMOUNT1": 2.0
+	},
+	{
+		"CLASSNAME": "Recipe_FicsiteIngot_AL_C",
+		"NAME": {
+			"EN": "Ficsite Ingot (Aluminum)",
+			"KO": "픽사이트 주괴 (알루미늄)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 60.0,
+		"INITEM2": "Desc_AluminumIngot_C",
+		"INAMOUNT2": 120.0,
+		"OUTITEM1": "Desc_FicsiteIngot_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_FicsiteIngot_CAT_C",
+		"NAME": {
+			"EN": "Ficsite Ingot (Caterium)",
+			"KO": "픽사이트 주괴 (카테리움)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 45.0,
+		"INITEM2": "Desc_GoldIngot_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_FicsiteIngot_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_Bauxite_Caterium_C",
+		"NAME": {
+			"EN": "Bauxite (Caterium)",
+			"KO": "보크사이트 (카테리움)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreGold_C",
+		"INAMOUNT2": 150.0,
+		"OUTITEM1": "Desc_OreBauxite_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Bauxite_Copper_C",
+		"NAME": {
+			"EN": "Bauxite (Copper)",
+			"KO": "보크사이트 (구리)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreCopper_C",
+		"INAMOUNT2": 180.0,
+		"OUTITEM1": "Desc_OreBauxite_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Caterium_Copper_C",
+		"NAME": {
+			"EN": "Caterium Ore (Copper)",
+			"KO": "카테리움 광석 (구리)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreCopper_C",
+		"INAMOUNT2": 150.0,
+		"OUTITEM1": "Desc_OreGold_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Caterium_Quartz_C",
+		"NAME": {
+			"EN": "Caterium Ore (Quartz)",
+			"KO": "카테리움 광석 (석영)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_RawQuartz_C",
+		"INAMOUNT2": 120.0,
+		"OUTITEM1": "Desc_OreGold_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Coal_Iron_C",
+		"NAME": {
+			"EN": "Coal (Iron)",
+			"KO": "석탄 (철)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreIron_C",
+		"INAMOUNT2": 180.0,
+		"OUTITEM1": "Desc_Coal_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Coal_Limestone_C",
+		"NAME": {
+			"EN": "Coal (Limestone)",
+			"KO": "석탄 (석회석)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 360.0,
+		"OUTITEM1": "Desc_Coal_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Copper_Quartz_C",
+		"NAME": {
+			"EN": "Copper Ore (Quartz)",
+			"KO": "구리 광석 (석영)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_RawQuartz_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_OreCopper_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Copper_Sulfur_C",
+		"NAME": {
+			"EN": "Copper Ore (Sulfur)",
+			"KO": "구리 광석 (황)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Sulfur_C",
+		"INAMOUNT2": 120.0,
+		"OUTITEM1": "Desc_OreCopper_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Iron_Limestone_C",
+		"NAME": {
+			"EN": "Iron Ore (Limestone)",
+			"KO": "철 광석 (석회석)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 240.0,
+		"OUTITEM1": "Desc_OreIron_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Limestone_Sulfur_C",
+		"NAME": {
+			"EN": "Limestone (Sulfur)",
+			"KO": "석회석 (황)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Sulfur_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_Stone_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Nitrogen_Bauxite_C",
+		"NAME": {
+			"EN": "Nitrogen Gas (Bauxite)",
+			"KO": "질소 가스 (보크사이트)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreBauxite_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_NitrogenGas_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Nitrogen_Caterium_C",
+		"NAME": {
+			"EN": "Nitrogen Gas (Caterium)",
+			"KO": "질소 가스 (카테리움)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreGold_C",
+		"INAMOUNT2": 120.0,
+		"OUTITEM1": "Desc_NitrogenGas_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Quartz_Bauxite_C",
+		"NAME": {
+			"EN": "Raw Quartz (Bauxite)",
+			"KO": "석영 원석 (보크사이트)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreBauxite_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_RawQuartz_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Quartz_Coal_C",
+		"NAME": {
+			"EN": "Raw Quartz (Coal)",
+			"KO": "석영 원석 (석탄)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 240.0,
+		"OUTITEM1": "Desc_RawQuartz_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Sulfur_Coal_C",
+		"NAME": {
+			"EN": "Sulfur (Coal)",
+			"KO": "황 (석탄)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 200.0,
+		"OUTITEM1": "Desc_Sulfur_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Sulfur_Iron_C",
+		"NAME": {
+			"EN": "Sulfur (Iron)",
+			"KO": "황 (철)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreIron_C",
+		"INAMOUNT2": 300.0,
+		"OUTITEM1": "Desc_Sulfur_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Uranium_Bauxite_C",
+		"NAME": {
+			"EN": "Uranium Ore (Bauxite)",
+			"KO": "우라늄 광석 (보크사이트)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMIngot_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_OreBauxite_C",
+		"INAMOUNT2": 480.0,
+		"OUTITEM1": "Desc_OreUranium_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Turbofuel_C",
+		"NAME": {
+			"EN": "Turbofuel",
+			"KO": "터보 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_LiquidFuel_C",
+		"INAMOUNT1": 22.5,
+		"INITEM2": "Desc_CompactedCoal_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_LiquidTurboFuel_C",
+		"OUTAMOUNT1": 18.75
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedTurboFuel_C",
+		"NAME": {
+			"EN": "Packaged Turbofuel",
+			"KO": "포장된 터보 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidTurboFuel_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_TurboFuel_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageTurboFuel_C",
+		"NAME": {
+			"EN": "Unpackage Turbofuel",
+			"KO": "터보 연료 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_TurboFuel_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_LiquidTurboFuel_C",
+		"OUTAMOUNT1": 20.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Coal_1_C",
+		"NAME": {
+			"EN": "Charcoal",
+			"KO": "대체: 목탄"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Wood_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_Coal_C",
+		"OUTAMOUNT1": 150.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Coal_2_C",
+		"NAME": {
+			"EN": "Biocoal",
+			"KO": "대체: 유기 석탄"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_GenericBiomass_C",
+		"INAMOUNT1": 37.5,
+		"OUTITEM1": "Desc_Coal_C",
+		"OUTAMOUNT1": 45.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_EnrichedCoal_C",
+		"NAME": {
+			"EN": "Compacted Coal",
+			"KO": "대체: 압축 석탄"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Coal_C",
+		"INAMOUNT1": 25.0,
+		"INITEM2": "Desc_Sulfur_C",
+		"INAMOUNT2": 25.0,
+		"OUTITEM1": "Desc_CompactedCoal_C",
+		"OUTAMOUNT1": 25.0
+	},
+	{
+		"CLASSNAME": "Recipe_CircuitBoard_C",
+		"NAME": {
+			"EN": "Circuit Board",
+			"KO": "회로 기판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperSheet_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_Plastic_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_CircuitBoard_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_LiquidFuel_C",
+		"NAME": {
+			"EN": "Fuel",
+			"KO": "연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_LiquidFuel_C",
+		"OUTAMOUNT1": 40.0,
+		"OUTITEM2": "Desc_PolymerResin_C",
+		"OUTAMOUNT2": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_PetroleumCoke_C",
+		"NAME": {
+			"EN": "Petroleum Coke",
+			"KO": "석유 코크스"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_HeavyOilResidue_C",
+		"INAMOUNT1": 40.0,
+		"OUTITEM1": "Desc_PetroleumCoke_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Plastic_C",
+		"NAME": {
+			"EN": "Plastic",
+			"KO": "플라스틱"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_Plastic_C",
+		"OUTAMOUNT1": 20.0,
+		"OUTITEM2": "Desc_HeavyOilResidue_C",
+		"OUTAMOUNT2": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_Rubber_C",
+		"NAME": {
+			"EN": "Rubber",
+			"KO": "고무"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_Rubber_C",
+		"OUTAMOUNT1": 20.0,
+		"OUTITEM2": "Desc_HeavyOilResidue_C",
+		"OUTAMOUNT2": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_ResidualFuel_C",
+		"NAME": {
+			"EN": "Residual Fuel",
+			"KO": "연료 잔여물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_HeavyOilResidue_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_LiquidFuel_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_ResidualPlastic_C",
+		"NAME": {
+			"EN": "Residual Plastic",
+			"KO": "플라스틱 잔여물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PolymerResin_C",
+		"INAMOUNT1": 60.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_Plastic_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_ResidualRubber_C",
+		"NAME": {
+			"EN": "Residual Rubber",
+			"KO": "고무 잔여물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PolymerResin_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_Rubber_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Diamond_Pink_C",
+		"NAME": {
+			"EN": "Pink Diamonds",
+			"KO": "대체: 분홍 다이아몬드"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Coal_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_QuartzCrystal_C",
+		"INAMOUNT2": 45.0,
+		"OUTITEM1": "Desc_Diamond_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Diamond_Petroleum_C",
+		"NAME": {
+			"EN": "Petroleum Diamonds",
+			"KO": "대체: 석유 다이아몬드"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_PetroleumCoke_C",
+		"INAMOUNT1": 720.0,
+		"OUTITEM1": "Desc_Diamond_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Diamond_OilBased_C",
+		"NAME": {
+			"EN": "Oil-Based Diamonds",
+			"KO": "대체: 기름 기반 다이아몬드"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 200.0,
+		"OUTITEM1": "Desc_Diamond_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Diamond_Cloudy_C",
+		"NAME": {
+			"EN": "Cloudy Diamonds",
+			"KO": "대체: 혼탁한 다이아몬드"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Coal_C",
+		"INAMOUNT1": 240.0,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 480.0,
+		"OUTITEM1": "Desc_Diamond_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_DarkMatter_Trap_C",
+		"NAME": {
+			"EN": "Dark Matter Trap",
+			"KO": "대체: 암흑 물질 트랩"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_TimeCrystal_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_DarkEnergy_C",
+		"INAMOUNT2": 150.0,
+		"OUTITEM1": "Desc_DarkMatter_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_DarkMatter_Crystallization_C",
+		"NAME": {
+			"EN": "Dark Matter Crystallization",
+			"KO": "대체: 암흑 물질 결정화"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_DarkEnergy_C",
+		"INAMOUNT1": 200.0,
+		"OUTITEM1": "Desc_DarkMatter_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_WetConcrete_C",
+		"NAME": {
+			"EN": "Wet Concrete",
+			"KO": "대체: 습식 콘크리트"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Stone_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_Cement_C",
+		"OUTAMOUNT1": 80.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_TurboHeavyFuel_C",
+		"NAME": {
+			"EN": "Turbo Heavy Fuel",
+			"KO": "대체: 터보 중유 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_HeavyOilResidue_C",
+		"INAMOUNT1": 37.5,
+		"INITEM2": "Desc_CompactedCoal_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_LiquidTurboFuel_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelRod_C",
+		"NAME": {
+			"EN": "Steel Rod",
+			"KO": "대체: 강철봉"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelIngot_C",
+		"INAMOUNT1": 12.0,
+		"OUTITEM1": "Desc_IronRod_C",
+		"OUTAMOUNT1": 48.0
+	},
+	{
+		"CLASSNAME": "Recipe_SteelBeam_C",
+		"NAME": {
+			"EN": "Steel Beam",
+			"KO": "강철 빔"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SteelIngot_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_SteelPlate_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_SteelPipe_C",
+		"NAME": {
+			"EN": "Steel Pipe",
+			"KO": "강철 파이프"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SteelIngot_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_SteelPipe_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_IngotSteel_C",
+		"NAME": {
+			"EN": "Steel Ingot",
+			"KO": "강철 주괴"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 45.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 45.0,
+		"OUTITEM1": "Desc_SteelIngot_C",
+		"OUTAMOUNT1": 45.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_2_C",
+		"NAME": {
+			"EN": "Versatile Framework",
+			"KO": "다용도 골조"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_ModularFrame_C",
+		"INAMOUNT1": 2.5,
+		"INITEM2": "Desc_SteelPlate_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_2_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelCanister_C",
+		"NAME": {
+			"EN": "Steel Canister",
+			"KO": "대체: 강철통"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelIngot_C",
+		"INAMOUNT1": 40.0,
+		"OUTITEM1": "Desc_FluidCanister_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_FluidCanister_C",
+		"NAME": {
+			"EN": "Empty Canister",
+			"KO": "빈 통"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Plastic_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_FluidCanister_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Fuel_C",
+		"NAME": {
+			"EN": "Packaged Fuel",
+			"KO": "포장된 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidFuel_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_Fuel_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_LiquidBiofuel_C",
+		"NAME": {
+			"EN": "Liquid Biofuel",
+			"KO": "액체 바이오 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Biofuel_C",
+		"INAMOUNT1": 90.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 45.0,
+		"OUTITEM1": "Desc_LiquidBiofuel_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedBiofuel_C",
+		"NAME": {
+			"EN": "Packaged Liquid Biofuel",
+			"KO": "포장된 액체 바이오 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidBiofuel_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_PackagedBiofuel_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedCrudeOil_C",
+		"NAME": {
+			"EN": "Packaged Oil",
+			"KO": "포장된 원유"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_PackagedOil_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedOilResidue_C",
+		"NAME": {
+			"EN": "Packaged Heavy Oil Residue",
+			"KO": "포장된 중유 잔여물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_HeavyOilResidue_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_PackagedOilResidue_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedWater_C",
+		"NAME": {
+			"EN": "Packaged Water",
+			"KO": "포장된 물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Water_C",
+		"INAMOUNT1": 60.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_PackagedWater_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageBioFuel_C",
+		"NAME": {
+			"EN": "Unpackage Liquid Biofuel",
+			"KO": "액체 바이오 연료 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedBiofuel_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_LiquidBiofuel_C",
+		"OUTAMOUNT1": 60.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageFuel_C",
+		"NAME": {
+			"EN": "Unpackage Fuel",
+			"KO": "연료 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Fuel_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_LiquidFuel_C",
+		"OUTAMOUNT1": 60.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageOil_C",
+		"NAME": {
+			"EN": "Unpackage Oil",
+			"KO": "원유 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedOil_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_LiquidOil_C",
+		"OUTAMOUNT1": 60.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageOilResidue_C",
+		"NAME": {
+			"EN": "Unpackage Heavy Oil Residue",
+			"KO": "중유 잔여물 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedOilResidue_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_HeavyOilResidue_C",
+		"OUTAMOUNT1": 20.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageWater_C",
+		"NAME": {
+			"EN": "Unpackage Water",
+			"KO": "물 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedWater_C",
+		"INAMOUNT1": 120.0,
+		"OUTITEM1": "Desc_Water_C",
+		"OUTAMOUNT1": 120.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteamedCopperSheet_C",
+		"NAME": {
+			"EN": "Steamed Copper Sheet",
+			"KO": "대체: 가압된 구리판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CopperIngot_C",
+		"INAMOUNT1": 22.5,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 22.5,
+		"OUTITEM1": "Desc_CopperSheet_C",
+		"OUTAMOUNT1": 22.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_RubberConcrete_C",
+		"NAME": {
+			"EN": "Rubber Concrete",
+			"KO": "대체: 고무 콘크리트"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Stone_C",
+		"INAMOUNT1": 100.0,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_Cement_C",
+		"OUTAMOUNT1": 90.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_RecycledRubber_C",
+		"NAME": {
+			"EN": "Recycled Rubber",
+			"KO": "대체: 재활용 고무"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Plastic_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_LiquidFuel_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_Rubber_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PureQuartzCrystal_C",
+		"NAME": {
+			"EN": "Pure Quartz Crystal",
+			"KO": "대체: 순수한 석영 수정"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_RawQuartz_C",
+		"INAMOUNT1": 67.5,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 37.5,
+		"OUTITEM1": "Desc_QuartzCrystal_C",
+		"OUTAMOUNT1": 52.5
+	},
+	{
+		"CLASSNAME": "Recipe_QuartzCrystal_C",
+		"NAME": {
+			"EN": "Quartz Crystal",
+			"KO": "석영 수정"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_RawQuartz_C",
+		"INAMOUNT1": 37.5,
+		"OUTITEM1": "Desc_QuartzCrystal_C",
+		"OUTAMOUNT1": 22.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PureIronIngot_C",
+		"NAME": {
+			"EN": "Pure Iron Ingot",
+			"KO": "대체: 순수한 철 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 35.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_IronIngot_C",
+		"OUTAMOUNT1": 65.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PureCopperIngot_C",
+		"NAME": {
+			"EN": "Pure Copper Ingot",
+			"KO": "대체: 순수한 구리 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreCopper_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_CopperIngot_C",
+		"OUTAMOUNT1": 37.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PureCateriumIngot_C",
+		"NAME": {
+			"EN": "Pure Caterium Ingot",
+			"KO": "대체: 순수한 카테리움 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreGold_C",
+		"INAMOUNT1": 24.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 24.0,
+		"OUTITEM1": "Desc_GoldIngot_C",
+		"OUTAMOUNT1": 12.0
+	},
+	{
+		"CLASSNAME": "Recipe_PureAluminumIngot_C",
+		"NAME": {
+			"EN": "Pure Aluminum Ingot",
+			"KO": "대체: 순수한 알루미늄 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumScrap_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_AluminumIngot_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_AluminumCasing_C",
+		"NAME": {
+			"EN": "Aluminum Casing",
+			"KO": "알루미늄 케이스"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumIngot_C",
+		"INAMOUNT1": 90.0,
+		"OUTITEM1": "Desc_AluminumCasing_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_AluminumSheet_C",
+		"NAME": {
+			"EN": "Alclad Aluminum Sheet",
+			"KO": "알클래드 알루미늄 판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumIngot_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_CopperIngot_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_AluminumPlate_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_AluminaSolution_C",
+		"NAME": {
+			"EN": "Alumina Solution",
+			"KO": "알루미나 용액"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_OreBauxite_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 180.0,
+		"OUTITEM1": "Desc_AluminaSolution_C",
+		"OUTAMOUNT1": 120.0,
+		"OUTITEM2": "Desc_Silica_C",
+		"OUTAMOUNT2": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_AluminumScrap_C",
+		"NAME": {
+			"EN": "Aluminum Scrap",
+			"KO": "알루미늄 조각"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminaSolution_C",
+		"INAMOUNT1": 240.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 120.0,
+		"OUTITEM1": "Desc_AluminumScrap_C",
+		"OUTAMOUNT1": 360.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedAlumina_C",
+		"NAME": {
+			"EN": "Packaged Alumina Solution",
+			"KO": "포장된 알루미나 용액"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminaSolution_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 120.0,
+		"OUTITEM1": "Desc_PackagedAlumina_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_IngotAluminum_C",
+		"NAME": {
+			"EN": "Aluminum Ingot",
+			"KO": "알루미늄 주괴"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumScrap_C",
+		"INAMOUNT1": 90.0,
+		"INITEM2": "Desc_Silica_C",
+		"INAMOUNT2": 75.0,
+		"OUTITEM1": "Desc_AluminumIngot_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Silica_C",
+		"NAME": {
+			"EN": "Silica",
+			"KO": "이산화규소"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_RawQuartz_C",
+		"INAMOUNT1": 22.5,
+		"OUTITEM1": "Desc_Silica_C",
+		"OUTAMOUNT1": 37.5
+	},
+	{
+		"CLASSNAME": "Recipe_CrystalOscillator_C",
+		"NAME": {
+			"EN": "Crystal Oscillator",
+			"KO": "수정 발진기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_QuartzCrystal_C",
+		"INAMOUNT1": 18.0,
+		"INITEM2": "Desc_Cable_C",
+		"INAMOUNT2": 14.0,
+		"INITEM3": "Desc_IronPlateReinforced_C",
+		"INAMOUNT3": 2.5,
+		"OUTITEM1": "Desc_CrystalOscillator_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageAlumina_C",
+		"NAME": {
+			"EN": "Unpackage Alumina Solution",
+			"KO": "알루미나 용액 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedAlumina_C",
+		"INAMOUNT1": 120.0,
+		"OUTITEM1": "Desc_AluminaSolution_C",
+		"OUTAMOUNT1": 120.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PolymerResin_C",
+		"NAME": {
+			"EN": "Polymer Resin",
+			"KO": "대체: 폴리머 수지"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_PolymerResin_C",
+		"OUTAMOUNT1": 130.0,
+		"OUTITEM2": "Desc_HeavyOilResidue_C",
+		"OUTAMOUNT2": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PlasticSmartPlating_C",
+		"NAME": {
+			"EN": "Plastic Smart Plating",
+			"KO": "대체: 플라스틱 지능형 도금판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlateReinforced_C",
+		"INAMOUNT1": 2.5,
+		"INITEM2": "Desc_Rotor_C",
+		"INAMOUNT2": 2.5,
+		"INITEM3": "Desc_Plastic_C",
+		"INAMOUNT3": 7.5,
+		"OUTITEM1": "Desc_SpaceElevatorPart_1_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_HighSpeedWiring_C",
+		"NAME": {
+			"EN": "Automated Speed Wiring",
+			"KO": "대체: 자동 고속 전선"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Stator_C",
+		"INAMOUNT1": 3.75,
+		"INITEM2": "Desc_Wire_C",
+		"INAMOUNT2": 75.0,
+		"INITEM3": "Desc_HighSpeedConnector_C",
+		"INAMOUNT3": 1.875,
+		"OUTITEM1": "Desc_SpaceElevatorPart_3_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_EncasedIndustrialBeam_C",
+		"NAME": {
+			"EN": "Encased Industrial Beam",
+			"KO": "포장된 산업용 빔"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SteelPlate_C",
+		"INAMOUNT1": 18.0,
+		"INITEM2": "Desc_Cement_C",
+		"INAMOUNT2": 36.0,
+		"OUTITEM1": "Desc_SteelPlateReinforced_C",
+		"OUTAMOUNT1": 6.0
+	},
+	{
+		"CLASSNAME": "Recipe_Motor_C",
+		"NAME": {
+			"EN": "Motor",
+			"KO": "모터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Rotor_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Stator_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_Motor_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Stator_C",
+		"NAME": {
+			"EN": "Stator",
+			"KO": "고정자"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SteelPipe_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_Wire_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_Stator_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_3_C",
+		"NAME": {
+			"EN": "Automated Wiring",
+			"KO": "자동 배선기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Stator_C",
+		"INAMOUNT1": 2.5,
+		"INITEM2": "Desc_Cable_C",
+		"INAMOUNT2": 50.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_3_C",
+		"OUTAMOUNT1": 2.5
+	},
+	{
+		"CLASSNAME": "Recipe_AILimiter_C",
+		"NAME": {
+			"EN": "AI Limiter",
+			"KO": "인공지능 진폭 제한 회로"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperSheet_C",
+		"INAMOUNT1": 25.0,
+		"INITEM2": "Desc_HighSpeedWire_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_CircuitBoardHighSpeed_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_HeavyOilResidue_C",
+		"NAME": {
+			"EN": "Heavy Oil Residue",
+			"KO": "대체: 중유 잔여물"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_LiquidOil_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_HeavyOilResidue_C",
+		"OUTAMOUNT1": 40.0,
+		"OUTITEM2": "Desc_PolymerResin_C",
+		"OUTAMOUNT2": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_HeavyFlexibleFrame_C",
+		"NAME": {
+			"EN": "Heavy Flexible Frame",
+			"KO": "대체: 고중량 신축성 골조"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_ModularFrame_C",
+		"INAMOUNT1": 18.75,
+		"INITEM2": "Desc_SteelPlateReinforced_C",
+		"INAMOUNT2": 11.25,
+		"INITEM3": "Desc_Rubber_C",
+		"INAMOUNT3": 75.0,
+		"INITEM4": "Desc_IronScrew_C",
+		"INAMOUNT4": 390.0,
+		"OUTITEM1": "Desc_ModularFrameHeavy_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_Computer_C",
+		"NAME": {
+			"EN": "Computer",
+			"KO": "컴퓨터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CircuitBoard_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Cable_C",
+		"INAMOUNT2": 20.0,
+		"INITEM3": "Desc_Plastic_C",
+		"INAMOUNT3": 40.0,
+		"OUTITEM1": "Desc_Computer_C",
+		"OUTAMOUNT1": 2.5
+	},
+	{
+		"CLASSNAME": "Recipe_ModularFrameHeavy_C",
+		"NAME": {
+			"EN": "Heavy Modular Frame",
+			"KO": "고중량 모듈식 골조"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_ModularFrame_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_SteelPipe_C",
+		"INAMOUNT2": 40.0,
+		"INITEM3": "Desc_SteelPlateReinforced_C",
+		"INAMOUNT3": 10.0,
+		"INITEM4": "Desc_IronScrew_C",
+		"INAMOUNT4": 240.0,
+		"OUTITEM1": "Desc_ModularFrameHeavy_C",
+		"OUTAMOUNT1": 2.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_4_C",
+		"NAME": {
+			"EN": "Modular Engine",
+			"KO": "모듈 엔진"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Motor_C",
+		"INAMOUNT1": 2.0,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 15.0,
+		"INITEM3": "Desc_SpaceElevatorPart_1_C",
+		"INAMOUNT3": 2.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_4_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_5_C",
+		"NAME": {
+			"EN": "Adaptive Control Unit",
+			"KO": "적응형 제어 장치"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_3_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_CircuitBoard_C",
+		"INAMOUNT2": 5.0,
+		"INITEM3": "Desc_ModularFrameHeavy_C",
+		"INAMOUNT3": 1.0,
+		"INITEM4": "Desc_Computer_C",
+		"INAMOUNT4": 2.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_5_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_FusedWire_C",
+		"NAME": {
+			"EN": "Fused Wire",
+			"KO": "대체: 융합된 전선"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CopperIngot_C",
+		"INAMOUNT1": 12.0,
+		"INITEM2": "Desc_GoldIngot_C",
+		"INAMOUNT2": 3.0,
+		"OUTITEM1": "Desc_Wire_C",
+		"OUTAMOUNT1": 90.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_FlexibleFramework_C",
+		"NAME": {
+			"EN": "Flexible Framework",
+			"KO": "대체: 유연한 골조"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_ModularFrame_C",
+		"INAMOUNT1": 3.75,
+		"INITEM2": "Desc_SteelPlate_C",
+		"INAMOUNT2": 22.5,
+		"INITEM3": "Desc_Rubber_C",
+		"INAMOUNT3": 30.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_2_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ElectrodeCircuitBoard_C",
+		"NAME": {
+			"EN": "Electrode Circuit Board",
+			"KO": "대체: 전극 회로 기판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Rubber_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_PetroleumCoke_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_CircuitBoard_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ElectroAluminumScrap_C",
+		"NAME": {
+			"EN": "Electrode Aluminum Scrap",
+			"KO": "대체: 전극 알루미늄 조각"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminaSolution_C",
+		"INAMOUNT1": 180.0,
+		"INITEM2": "Desc_PetroleumCoke_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_AluminumScrap_C",
+		"OUTAMOUNT1": 300.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 105.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_DilutedPackagedFuel_C",
+		"NAME": {
+			"EN": "Diluted Packaged Fuel",
+			"KO": "대체: 포장된 희석 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_HeavyOilResidue_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_PackagedWater_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_Fuel_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CopperRotor_C",
+		"NAME": {
+			"EN": "Copper Rotor",
+			"KO": "대체: 구리 회전자"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CopperSheet_C",
+		"INAMOUNT1": 22.5,
+		"INITEM2": "Desc_IronScrew_C",
+		"INAMOUNT2": 195.0,
+		"OUTITEM1": "Desc_Rotor_C",
+		"OUTAMOUNT1": 11.25
+	},
+	{
+		"CLASSNAME": "Recipe_ModularFrame_C",
+		"NAME": {
+			"EN": "Modular Frame",
+			"KO": "모듈식 골조"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronPlateReinforced_C",
+		"INAMOUNT1": 3.0,
+		"INITEM2": "Desc_IronRod_C",
+		"INAMOUNT2": 12.0,
+		"OUTITEM1": "Desc_ModularFrame_C",
+		"OUTAMOUNT1": 2.0
+	},
+	{
+		"CLASSNAME": "Recipe_Rotor_C",
+		"NAME": {
+			"EN": "Rotor",
+			"KO": "회전자"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronRod_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_IronScrew_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_Rotor_C",
+		"OUTAMOUNT1": 4.0
+	},
+	{
+		"CLASSNAME": "Recipe_CopperSheet_C",
+		"NAME": {
+			"EN": "Copper Sheet",
+			"KO": "구리판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperIngot_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_CopperSheet_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_1_C",
+		"NAME": {
+			"EN": "Smart Plating",
+			"KO": "지능형 도금판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronPlateReinforced_C",
+		"INAMOUNT1": 2.0,
+		"INITEM2": "Desc_Rotor_C",
+		"INAMOUNT2": 2.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_1_C",
+		"OUTAMOUNT1": 2.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CopperAlloyIngot_C",
+		"NAME": {
+			"EN": "Copper Alloy Ingot",
+			"KO": "대체: 구리 합금 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreCopper_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_OreIron_C",
+		"INAMOUNT2": 50.0,
+		"OUTITEM1": "Desc_CopperIngot_C",
+		"OUTAMOUNT1": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CokeSteelIngot_C",
+		"NAME": {
+			"EN": "Coke Steel Ingot",
+			"KO": "대체: 코크스 강철 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 75.0,
+		"INITEM2": "Desc_PetroleumCoke_C",
+		"INAMOUNT2": 75.0,
+		"OUTITEM1": "Desc_SteelIngot_C",
+		"OUTAMOUNT1": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CoatedIronPlate_C",
+		"NAME": {
+			"EN": "Coated Iron Plate",
+			"KO": "대체: 코팅된 철판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 37.5,
+		"INITEM2": "Desc_Plastic_C",
+		"INAMOUNT2": 7.5,
+		"OUTITEM1": "Desc_IronPlate_C",
+		"OUTAMOUNT1": 75.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CoatedIronCanister_C",
+		"NAME": {
+			"EN": "Coated Iron Canister",
+			"KO": "대체: 코팅된 철통"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlate_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_CopperSheet_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_FluidCanister_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CoatedCable_C",
+		"NAME": {
+			"EN": "Coated Cable",
+			"KO": "대체: 코팅된 케이블"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Wire_C",
+		"INAMOUNT1": 37.5,
+		"INITEM2": "Desc_HeavyOilResidue_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_Cable_C",
+		"OUTAMOUNT1": 67.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_BoltedFrame_C",
+		"NAME": {
+			"EN": "Bolted Frame",
+			"KO": "대체: 볼트 골조"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlateReinforced_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_IronScrew_C",
+		"INAMOUNT2": 140.0,
+		"OUTITEM1": "Desc_ModularFrame_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_AdheredIronPlate_C",
+		"NAME": {
+			"EN": "Adhered Iron Plate",
+			"KO": "대체: 접착된 철판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlate_C",
+		"INAMOUNT1": 11.25,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 3.75,
+		"OUTITEM1": "Desc_IronPlateReinforced_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_TurboPressureMotor_C",
+		"NAME": {
+			"EN": "Turbo Pressure Motor",
+			"KO": "대체: 압력 터보 모터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Motor_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_PressureConversionCube_C",
+		"INAMOUNT2": 1.875,
+		"INITEM3": "Desc_PackagedNitrogenGas_C",
+		"INAMOUNT3": 45.0,
+		"INITEM4": "Desc_Stator_C",
+		"INAMOUNT4": 15.0,
+		"OUTITEM1": "Desc_MotorLightweight_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_PlutoniumCell_C",
+		"NAME": {
+			"EN": "Encased Plutonium Cell",
+			"KO": "포장된 플루토늄 전지"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PlutoniumPellet_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Cement_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_PlutoniumCell_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_PressureConversionCube_C",
+		"NAME": {
+			"EN": "Pressure Conversion Cube",
+			"KO": "압력 변환 큐브"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_ModularFrameFused_C",
+		"INAMOUNT1": 1.0,
+		"INITEM2": "Desc_ModularFrameLightweight_C",
+		"INAMOUNT2": 2.0,
+		"OUTITEM1": "Desc_PressureConversionCube_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_NitricAcid_C",
+		"NAME": {
+			"EN": "Nitric Acid",
+			"KO": "질산"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NitrogenGas_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 30.0,
+		"INITEM3": "Desc_IronPlate_C",
+		"INAMOUNT3": 10.0,
+		"OUTITEM1": "Desc_NitricAcid_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_NonFissileUranium_C",
+		"NAME": {
+			"EN": "Non-Fissile Uranium",
+			"KO": "비분열성 우라늄"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NuclearWaste_C",
+		"INAMOUNT1": 37.5,
+		"INITEM2": "Desc_Silica_C",
+		"INAMOUNT2": 25.0,
+		"INITEM3": "Desc_NitricAcid_C",
+		"INAMOUNT3": 15.0,
+		"INITEM4": "Desc_SulfuricAcid_C",
+		"INAMOUNT4": 15.0,
+		"OUTITEM1": "Desc_NonFissibleUranium_C",
+		"OUTAMOUNT1": 50.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_CopperDust_C",
+		"NAME": {
+			"EN": "Copper Powder",
+			"KO": "구리 분말"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperIngot_C",
+		"INAMOUNT1": 300.0,
+		"OUTITEM1": "Desc_CopperDust_C",
+		"OUTAMOUNT1": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_Plutonium_C",
+		"NAME": {
+			"EN": "Plutonium Pellet",
+			"KO": "플루토늄 펠릿"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NonFissibleUranium_C",
+		"INAMOUNT1": 100.0,
+		"INITEM2": "Desc_NuclearWaste_C",
+		"INAMOUNT2": 25.0,
+		"OUTITEM1": "Desc_PlutoniumPellet_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_PlutoniumFuelRod_C",
+		"NAME": {
+			"EN": "Plutonium Fuel Rod",
+			"KO": "플루토늄 연료봉"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PlutoniumCell_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_SteelPlate_C",
+		"INAMOUNT2": 4.5,
+		"INITEM3": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT3": 1.5,
+		"INITEM4": "Desc_AluminumPlateReinforced_C",
+		"INAMOUNT4": 2.5,
+		"OUTITEM1": "Desc_PlutoniumFuelRod_C",
+		"OUTAMOUNT1": 0.25
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedNitricAcid_C",
+		"NAME": {
+			"EN": "Packaged Nitric Acid",
+			"KO": "포장된 질산"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NitricAcid_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_GasTank_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_PackagedNitricAcid_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_9_C",
+		"NAME": {
+			"EN": "Nuclear Pasta",
+			"KO": "핵 파스타"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperDust_C",
+		"INAMOUNT1": 100.0,
+		"INITEM2": "Desc_PressureConversionCube_C",
+		"INAMOUNT2": 0.5,
+		"OUTITEM1": "Desc_SpaceElevatorPart_9_C",
+		"OUTAMOUNT1": 0.5
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageNitricAcid_C",
+		"NAME": {
+			"EN": "Unpackage Nitric Acid",
+			"KO": "질산 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedNitricAcid_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_NitricAcid_C",
+		"OUTAMOUNT1": 20.0,
+		"OUTITEM2": "Desc_GasTank_C",
+		"OUTAMOUNT2": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_TurboBlendFuel_C",
+		"NAME": {
+			"EN": "Turbo Blend Fuel",
+			"KO": "대체: 터보 혼합 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_LiquidFuel_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_HeavyOilResidue_C",
+		"INAMOUNT2": 30.0,
+		"INITEM3": "Desc_Sulfur_C",
+		"INAMOUNT3": 22.5,
+		"INITEM4": "Desc_PetroleumCoke_C",
+		"INAMOUNT4": 22.5,
+		"OUTITEM1": "Desc_LiquidTurboFuel_C",
+		"OUTAMOUNT1": 45.0
+	},
+	{
+		"CLASSNAME": "Recipe_UraniumCell_C",
+		"NAME": {
+			"EN": "Encased Uranium Cell",
+			"KO": "포장된 우라늄 전지"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_OreUranium_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_Cement_C",
+		"INAMOUNT2": 15.0,
+		"INITEM3": "Desc_SulfuricAcid_C",
+		"INAMOUNT3": 40.0,
+		"OUTITEM1": "Desc_UraniumCell_C",
+		"OUTAMOUNT1": 25.0,
+		"OUTITEM2": "Desc_SulfuricAcid_C",
+		"OUTAMOUNT2": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_CoolingSystem_C",
+		"NAME": {
+			"EN": "Cooling System",
+			"KO": "냉각 시스템"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumPlateReinforced_C",
+		"INAMOUNT1": 12.0,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 12.0,
+		"INITEM3": "Desc_Water_C",
+		"INAMOUNT3": 30.0,
+		"INITEM4": "Desc_NitrogenGas_C",
+		"INAMOUNT4": 150.0,
+		"OUTITEM1": "Desc_CoolingSystem_C",
+		"OUTAMOUNT1": 6.0
+	},
+	{
+		"CLASSNAME": "Recipe_Battery_C",
+		"NAME": {
+			"EN": "Battery",
+			"KO": "배터리"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SulfuricAcid_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_AluminaSolution_C",
+		"INAMOUNT2": 40.0,
+		"INITEM3": "Desc_AluminumCasing_C",
+		"INAMOUNT3": 20.0,
+		"OUTITEM1": "Desc_Battery_C",
+		"OUTAMOUNT1": 20.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_ComputerSuper_C",
+		"NAME": {
+			"EN": "Supercomputer",
+			"KO": "슈퍼컴퓨터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Computer_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_CircuitBoardHighSpeed_C",
+		"INAMOUNT2": 3.75,
+		"INITEM3": "Desc_HighSpeedConnector_C",
+		"INAMOUNT3": 5.625,
+		"INITEM4": "Desc_Plastic_C",
+		"INAMOUNT4": 52.5,
+		"OUTITEM1": "Desc_ComputerSuper_C",
+		"OUTAMOUNT1": 1.875
+	},
+	{
+		"CLASSNAME": "Recipe_RadioControlUnit_C",
+		"NAME": {
+			"EN": "Radio Control Unit",
+			"KO": "무선 제어 장치"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumCasing_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_CrystalOscillator_C",
+		"INAMOUNT2": 1.25,
+		"INITEM3": "Desc_Computer_C",
+		"INAMOUNT3": 2.5,
+		"OUTITEM1": "Desc_ModularFrameLightweight_C",
+		"OUTAMOUNT1": 2.5
+	},
+	{
+		"CLASSNAME": "Recipe_SulfuricAcid_C",
+		"NAME": {
+			"EN": "Sulfuric Acid",
+			"KO": "황산"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Sulfur_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 50.0,
+		"OUTITEM1": "Desc_SulfuricAcid_C",
+		"OUTAMOUNT1": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedSulfuricAcid_C",
+		"NAME": {
+			"EN": "Packaged Sulfuric Acid",
+			"KO": "포장된 황산"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SulfuricAcid_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_FluidCanister_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_PackagedSulfuricAcid_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_7_C",
+		"NAME": {
+			"EN": "Assembly Director System",
+			"KO": "어셈블리 지휘 시스템"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_5_C",
+		"INAMOUNT1": 1.5,
+		"INITEM2": "Desc_ComputerSuper_C",
+		"INAMOUNT2": 0.75,
+		"OUTITEM1": "Desc_SpaceElevatorPart_7_C",
+		"OUTAMOUNT1": 0.75
+	},
+	{
+		"CLASSNAME": "Recipe_HighSpeedConnector_C",
+		"NAME": {
+			"EN": "High-Speed Connector",
+			"KO": "고속 커넥터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_HighSpeedWire_C",
+		"INAMOUNT1": 210.0,
+		"INITEM2": "Desc_Cable_C",
+		"INAMOUNT2": 37.5,
+		"INITEM3": "Desc_CircuitBoard_C",
+		"INAMOUNT3": 3.75,
+		"OUTITEM1": "Desc_HighSpeedConnector_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageSulfuricAcid_C",
+		"NAME": {
+			"EN": "Unpackage Sulfuric Acid",
+			"KO": "황산 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedSulfuricAcid_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_SulfuricAcid_C",
+		"OUTAMOUNT1": 60.0,
+		"OUTITEM2": "Desc_FluidCanister_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SuperStateComputer_C",
+		"NAME": {
+			"EN": "Super-State Computer",
+			"KO": "대체: 초상태 컴퓨터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Computer_C",
+		"INAMOUNT1": 7.2,
+		"INITEM2": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT2": 2.4,
+		"INITEM3": "Desc_Battery_C",
+		"INAMOUNT3": 24.0,
+		"INITEM4": "Desc_Wire_C",
+		"INAMOUNT4": 60.0,
+		"OUTITEM1": "Desc_ComputerSuper_C",
+		"OUTAMOUNT1": 2.4
+	},
+	{
+		"CLASSNAME": "Recipe_ElectromagneticControlRod_C",
+		"NAME": {
+			"EN": "Electromagnetic Control Rod",
+			"KO": "전자기 제어봉"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Stator_C",
+		"INAMOUNT1": 6.0,
+		"INITEM2": "Desc_CircuitBoardHighSpeed_C",
+		"INAMOUNT2": 4.0,
+		"OUTITEM1": "Desc_ElectromagneticControlRod_C",
+		"OUTAMOUNT1": 4.0
+	},
+	{
+		"CLASSNAME": "Recipe_NuclearFuelRod_C",
+		"NAME": {
+			"EN": "Uranium Fuel Rod",
+			"KO": "우라늄 연료봉"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_UraniumCell_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_SteelPlateReinforced_C",
+		"INAMOUNT2": 1.2,
+		"INITEM3": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT3": 2.0,
+		"OUTITEM1": "Desc_NuclearFuelRod_C",
+		"OUTAMOUNT1": 0.4
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_6_C",
+		"NAME": {
+			"EN": "Magnetic Field Generator",
+			"KO": "자기장 발생기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_2_C",
+		"INAMOUNT1": 2.5,
+		"INITEM2": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT2": 1.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_6_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SloppyAlumina_C",
+		"NAME": {
+			"EN": "Sloppy Alumina",
+			"KO": "대체: 걸쭉한 알루미나"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreBauxite_C",
+		"INAMOUNT1": 200.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 200.0,
+		"OUTITEM1": "Desc_AluminaSolution_C",
+		"OUTAMOUNT1": 240.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_RadioControlSystem_C",
+		"NAME": {
+			"EN": "Radio Control System",
+			"KO": "대체: 무선 제어 시스템"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CrystalOscillator_C",
+		"INAMOUNT1": 1.5,
+		"INITEM2": "Desc_CircuitBoard_C",
+		"INAMOUNT2": 15.0,
+		"INITEM3": "Desc_AluminumCasing_C",
+		"INAMOUNT3": 90.0,
+		"INITEM4": "Desc_Rubber_C",
+		"INAMOUNT4": 45.0,
+		"OUTITEM1": "Desc_ModularFrameLightweight_C",
+		"OUTAMOUNT1": 4.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PlutoniumFuelUnit_C",
+		"NAME": {
+			"EN": "Plutonium Fuel Unit",
+			"KO": "대체: 플루토늄 연료 장치"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_PlutoniumCell_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_PressureConversionCube_C",
+		"INAMOUNT2": 0.5,
+		"OUTITEM1": "Desc_PlutoniumFuelRod_C",
+		"OUTAMOUNT1": 0.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_OCSupercomputer_C",
+		"NAME": {
+			"EN": "OC Supercomputer",
+			"KO": "대체: 오버클럭 슈퍼컴퓨터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_ModularFrameLightweight_C",
+		"INAMOUNT1": 6.0,
+		"INITEM2": "Desc_CoolingSystem_C",
+		"INAMOUNT2": 6.0,
+		"OUTITEM1": "Desc_ComputerSuper_C",
+		"OUTAMOUNT1": 3.0
+	},
+	{
+		"CLASSNAME": "Recipe_HeatSink_C",
+		"NAME": {
+			"EN": "Heat Sink",
+			"KO": "방열판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumPlate_C",
+		"INAMOUNT1": 37.5,
+		"INITEM2": "Desc_CopperSheet_C",
+		"INAMOUNT2": 22.5,
+		"OUTITEM1": "Desc_AluminumPlateReinforced_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_FusedModularFrame_C",
+		"NAME": {
+			"EN": "Fused Modular Frame",
+			"KO": "융합된 모듈식 골조"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_ModularFrameHeavy_C",
+		"INAMOUNT1": 1.5,
+		"INITEM2": "Desc_AluminumCasing_C",
+		"INAMOUNT2": 75.0,
+		"INITEM3": "Desc_NitrogenGas_C",
+		"INAMOUNT3": 37.5,
+		"OUTITEM1": "Desc_ModularFrameFused_C",
+		"OUTAMOUNT1": 1.5
+	},
+	{
+		"CLASSNAME": "Recipe_GasTank_C",
+		"NAME": {
+			"EN": "Empty Fluid Tank",
+			"KO": "빈 가스통"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AluminumIngot_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_GasTank_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_PackagedNitrogen_C",
+		"NAME": {
+			"EN": "Packaged Nitrogen Gas",
+			"KO": "포장된 질소 가스"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NitrogenGas_C",
+		"INAMOUNT1": 240.0,
+		"INITEM2": "Desc_GasTank_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_PackagedNitrogenGas_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_UnpackageNitrogen_C",
+		"NAME": {
+			"EN": "Unpackage Nitrogen Gas",
+			"KO": "질소 가스 비우기"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PackagedNitrogenGas_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_NitrogenGas_C",
+		"OUTAMOUNT1": 240.0,
+		"OUTITEM2": "Desc_GasTank_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_InstantScrap_C",
+		"NAME": {
+			"EN": "Instant Scrap",
+			"KO": "대체: 즉석 조각"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreBauxite_C",
+		"INAMOUNT1": 150.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 100.0,
+		"INITEM3": "Desc_SulfuricAcid_C",
+		"INAMOUNT3": 50.0,
+		"INITEM4": "Desc_Water_C",
+		"INAMOUNT4": 60.0,
+		"OUTITEM1": "Desc_AluminumScrap_C",
+		"OUTAMOUNT1": 300.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_InstantPlutoniumCell_C",
+		"NAME": {
+			"EN": "Instant Plutonium Cell",
+			"KO": "대체: 즉석 플루토늄 전지"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_NonFissibleUranium_C",
+		"INAMOUNT1": 75.0,
+		"INITEM2": "Desc_AluminumCasing_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_PlutoniumCell_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_HeatFusedFrame_C",
+		"NAME": {
+			"EN": "Heat-Fused Frame",
+			"KO": "대체: 열 융합 골조"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_ModularFrameHeavy_C",
+		"INAMOUNT1": 3.0,
+		"INITEM2": "Desc_AluminumIngot_C",
+		"INAMOUNT2": 150.0,
+		"INITEM3": "Desc_NitricAcid_C",
+		"INAMOUNT3": 24.0,
+		"INITEM4": "Desc_LiquidFuel_C",
+		"INAMOUNT4": 30.0,
+		"OUTITEM1": "Desc_ModularFrameFused_C",
+		"OUTAMOUNT1": 3.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_FertileUranium_C",
+		"NAME": {
+			"EN": "Fertile Uranium",
+			"KO": "대체: 핵원료 우라늄"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreUranium_C",
+		"INAMOUNT1": 25.0,
+		"INITEM2": "Desc_NuclearWaste_C",
+		"INAMOUNT2": 25.0,
+		"INITEM3": "Desc_NitricAcid_C",
+		"INAMOUNT3": 15.0,
+		"INITEM4": "Desc_SulfuricAcid_C",
+		"INAMOUNT4": 25.0,
+		"OUTITEM1": "Desc_NonFissibleUranium_C",
+		"OUTAMOUNT1": 100.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ElectricMotor_C",
+		"NAME": {
+			"EN": "Electric Motor",
+			"KO": "대체: 전기 모터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT1": 3.75,
+		"INITEM2": "Desc_Rotor_C",
+		"INAMOUNT2": 7.5,
+		"OUTITEM1": "Desc_Motor_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_DilutedFuel_C",
+		"NAME": {
+			"EN": "Diluted Fuel",
+			"KO": "대체: 희석 연료"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_HeavyOilResidue_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 100.0,
+		"OUTITEM1": "Desc_LiquidFuel_C",
+		"OUTAMOUNT1": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CoolingDevice_C",
+		"NAME": {
+			"EN": "Cooling Device",
+			"KO": "대체: 냉각 장치"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumPlateReinforced_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Motor_C",
+		"INAMOUNT2": 2.5,
+		"INITEM3": "Desc_NitrogenGas_C",
+		"INAMOUNT3": 60.0,
+		"OUTITEM1": "Desc_CoolingSystem_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ClassicBattery_C",
+		"NAME": {
+			"EN": "Classic Battery",
+			"KO": "대체: 고전식 배터리"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Sulfur_C",
+		"INAMOUNT1": 45.0,
+		"INITEM2": "Desc_AluminumPlate_C",
+		"INAMOUNT2": 52.5,
+		"INITEM3": "Desc_Plastic_C",
+		"INAMOUNT3": 60.0,
+		"INITEM4": "Desc_Wire_C",
+		"INAMOUNT4": 90.0,
+		"OUTITEM1": "Desc_Battery_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_AutomatedMiner_C",
+		"NAME": {
+			"EN": "Automated Miner",
+			"KO": "대체: 자동화된 채굴기"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelPipe_C",
+		"INAMOUNT1": 4.0,
+		"INITEM2": "Desc_IronPlate_C",
+		"INAMOUNT2": 4.0,
+		"OUTITEM1": "BP_ItemDescriptorPortableMiner_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_AlcladCasing_C",
+		"NAME": {
+			"EN": "Alclad Casing",
+			"KO": "대체: 알클래드 케이스"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumIngot_C",
+		"INAMOUNT1": 150.0,
+		"INITEM2": "Desc_CopperIngot_C",
+		"INAMOUNT2": 75.0,
+		"OUTITEM1": "Desc_AluminumCasing_C",
+		"OUTAMOUNT1": 112.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelPipe_Molded_C",
+		"NAME": {
+			"EN": "Molded Steel Pipe",
+			"KO": "대체: 성형된 강철 파이프"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelIngot_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_Cement_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_SteelPipe_C",
+		"OUTAMOUNT1": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelPipe_Iron_C",
+		"NAME": {
+			"EN": "Iron Pipe",
+			"KO": "대체: 철 파이프"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 100.0,
+		"OUTITEM1": "Desc_SteelPipe_C",
+		"OUTAMOUNT1": 25.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelCastedPlate_C",
+		"NAME": {
+			"EN": "Steel Cast Plate",
+			"KO": "대체: 주강 철판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_SteelIngot_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_IronPlate_C",
+		"OUTAMOUNT1": 45.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelBeam_Molded_C",
+		"NAME": {
+			"EN": "Molded Beam",
+			"KO": "대체: 성형된 빔"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelIngot_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_Cement_C",
+		"INAMOUNT2": 80.0,
+		"OUTITEM1": "Desc_SteelPlate_C",
+		"OUTAMOUNT1": 45.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_SteelBeam_Aluminum_C",
+		"NAME": {
+			"EN": "Aluminum Beam",
+			"KO": "대체: 알루미늄 빔"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumIngot_C",
+		"INAMOUNT1": 22.5,
+		"OUTITEM1": "Desc_SteelPlate_C",
+		"OUTAMOUNT1": 22.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_AluminumRod_C",
+		"NAME": {
+			"EN": "Aluminum Rod",
+			"KO": "대체: 알루미늄 봉"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumIngot_C",
+		"INAMOUNT1": 7.5,
+		"OUTITEM1": "Desc_IronRod_C",
+		"OUTAMOUNT1": 52.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_AILimiter_Plastic_C",
+		"NAME": {
+			"EN": "Plastic AI Limiter",
+			"KO": "대체: 플라스틱 인공지능 진폭 제한 회로"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_HighSpeedWire_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_Plastic_C",
+		"INAMOUNT2": 28.0,
+		"OUTITEM1": "Desc_CircuitBoardHighSpeed_C",
+		"OUTAMOUNT1": 8.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Silica_Distilled_C",
+		"NAME": {
+			"EN": "Distilled Silica",
+			"KO": "대체: 증류된 이산화규소"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_DissolvedSilica_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 50.0,
+		"INITEM3": "Desc_Water_C",
+		"INAMOUNT3": 100.0,
+		"OUTITEM1": "Desc_Silica_C",
+		"OUTAMOUNT1": 270.0,
+		"OUTITEM2": "Desc_Water_C",
+		"OUTAMOUNT2": 80.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Quartz_Purified_C",
+		"NAME": {
+			"EN": "Quartz Purification",
+			"KO": "대체: 석영 정제"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_RawQuartz_C",
+		"INAMOUNT1": 120.0,
+		"INITEM2": "Desc_NitricAcid_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_QuartzCrystal_C",
+		"OUTAMOUNT1": 75.0,
+		"OUTITEM2": "Desc_DissolvedSilica_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Quartz_Fused_C",
+		"NAME": {
+			"EN": "Fused Quartz Crystal",
+			"KO": "대체: 융합 석영 수정"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_RawQuartz_C",
+		"INAMOUNT1": 75.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 36.0,
+		"OUTITEM1": "Desc_QuartzCrystal_C",
+		"OUTAMOUNT1": 54.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_IronIngot_Leached_C",
+		"NAME": {
+			"EN": "Leached Iron ingot",
+			"KO": "대체: 침출된 철 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_SulfuricAcid_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_IronIngot_C",
+		"OUTAMOUNT1": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_IronIngot_Basic_C",
+		"NAME": {
+			"EN": "Basic Iron Ingot",
+			"KO": "대체: 기초 철 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 25.0,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_IronIngot_C",
+		"OUTAMOUNT1": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CopperIngot_Tempered_C",
+		"NAME": {
+			"EN": "Tempered Copper Ingot",
+			"KO": "대체: 단련된 구리 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreCopper_C",
+		"INAMOUNT1": 25.0,
+		"INITEM2": "Desc_PetroleumCoke_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_CopperIngot_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CopperIngot_Leached_C",
+		"NAME": {
+			"EN": "Leached Copper Ingot",
+			"KO": "대체: 침출된 구리 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreCopper_C",
+		"INAMOUNT1": 45.0,
+		"INITEM2": "Desc_SulfuricAcid_C",
+		"INAMOUNT2": 25.0,
+		"OUTITEM1": "Desc_CopperIngot_C",
+		"OUTAMOUNT1": 110.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CateriumIngot_Tempered_C",
+		"NAME": {
+			"EN": "Tempered Caterium Ingot",
+			"KO": "대체: 단련된 카테리움 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreGold_C",
+		"INAMOUNT1": 45.0,
+		"INITEM2": "Desc_PetroleumCoke_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_GoldIngot_C",
+		"OUTAMOUNT1": 22.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CateriumIngot_Leached_C",
+		"NAME": {
+			"EN": "Leached Caterium Ingot",
+			"KO": "대체: 침출된 카테리움 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreGold_C",
+		"INAMOUNT1": 54.0,
+		"INITEM2": "Desc_SulfuricAcid_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_GoldIngot_C",
+		"OUTAMOUNT1": 36.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Wire_2_C",
+		"NAME": {
+			"EN": "Caterium Wire",
+			"KO": "대체: 카테리움 전선"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_GoldIngot_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_Wire_C",
+		"OUTAMOUNT1": 120.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Wire_1_C",
+		"NAME": {
+			"EN": "Iron Wire",
+			"KO": "대체: 철 전선"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 12.5,
+		"OUTITEM1": "Desc_Wire_C",
+		"OUTAMOUNT1": 22.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_UraniumCell_1_C",
+		"NAME": {
+			"EN": "Infused Uranium Cell",
+			"KO": "대체: 주입된 우라늄 전지"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreUranium_C",
+		"INAMOUNT1": 25.0,
+		"INITEM2": "Desc_Silica_C",
+		"INAMOUNT2": 15.0,
+		"INITEM3": "Desc_Sulfur_C",
+		"INAMOUNT3": 25.0,
+		"INITEM4": "Desc_HighSpeedWire_C",
+		"INAMOUNT4": 75.0,
+		"OUTITEM1": "Desc_UraniumCell_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_IngotCaterium_C",
+		"NAME": {
+			"EN": "Caterium Ingot",
+			"KO": "카테리움 주괴"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_OreGold_C",
+		"INAMOUNT1": 45.0,
+		"OUTITEM1": "Desc_GoldIngot_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_TurboMotor_1_C",
+		"NAME": {
+			"EN": "Turbo Electric Motor",
+			"KO": "대체: 전기 터보 모터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Motor_C",
+		"INAMOUNT1": 6.5625,
+		"INITEM2": "Desc_ModularFrameLightweight_C",
+		"INAMOUNT2": 8.4375,
+		"INITEM3": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT3": 4.6875,
+		"INITEM4": "Desc_Rotor_C",
+		"INAMOUNT4": 6.5625,
+		"OUTITEM1": "Desc_MotorLightweight_C",
+		"OUTAMOUNT1": 2.8125
+	},
+	{
+		"CLASSNAME": "Recipe_MotorTurbo_C",
+		"NAME": {
+			"EN": "Turbo Motor",
+			"KO": "터보 모터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CoolingSystem_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_ModularFrameLightweight_C",
+		"INAMOUNT2": 3.75,
+		"INITEM3": "Desc_Motor_C",
+		"INAMOUNT3": 7.5,
+		"INITEM4": "Desc_Rubber_C",
+		"INAMOUNT4": 45.0,
+		"OUTITEM1": "Desc_MotorLightweight_C",
+		"OUTAMOUNT1": 1.875
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_8_C",
+		"NAME": {
+			"EN": "Thermal Propulsion Rocket",
+			"KO": "열 추진 로켓"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_4_C",
+		"INAMOUNT1": 2.5,
+		"INITEM2": "Desc_MotorLightweight_C",
+		"INAMOUNT2": 1.0,
+		"INITEM3": "Desc_CoolingSystem_C",
+		"INAMOUNT3": 3.0,
+		"INITEM4": "Desc_ModularFrameFused_C",
+		"INAMOUNT4": 1.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_8_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Stator_C",
+		"NAME": {
+			"EN": "Quickwire Stator",
+			"KO": "대체: 고속 전선 고정자"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelPipe_C",
+		"INAMOUNT1": 16.0,
+		"INITEM2": "Desc_HighSpeedWire_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_Stator_C",
+		"OUTAMOUNT1": 8.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Silica_C",
+		"NAME": {
+			"EN": "Cheap Silica",
+			"KO": "대체: 저렴한 이산화규소"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_RawQuartz_C",
+		"INAMOUNT1": 22.5,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 37.5,
+		"OUTITEM1": "Desc_Silica_C",
+		"OUTAMOUNT1": 52.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Screw_2_C",
+		"NAME": {
+			"EN": "Steel Screw",
+			"KO": "대체: 강철 나사"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelPlate_C",
+		"INAMOUNT1": 5.0,
+		"OUTITEM1": "Desc_IronScrew_C",
+		"OUTAMOUNT1": 260.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Screw_C",
+		"NAME": {
+			"EN": "Cast Screw",
+			"KO": "대체: 주조된 나사"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 12.5,
+		"OUTITEM1": "Desc_IronScrew_C",
+		"OUTAMOUNT1": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Rotor_C",
+		"NAME": {
+			"EN": "Steel Rotor",
+			"KO": "대체: 강철 회전자"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelPipe_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_Wire_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_Rotor_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_EncasedIndustrialBeam_C",
+		"NAME": {
+			"EN": "Encased Industrial Pipe",
+			"KO": "대체: 포장된 산업용 파이프"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_SteelPipe_C",
+		"INAMOUNT1": 24.0,
+		"INITEM2": "Desc_Cement_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_SteelPlateReinforced_C",
+		"OUTAMOUNT1": 4.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ReinforcedIronPlate_2_C",
+		"NAME": {
+			"EN": "Stitched Iron Plate",
+			"KO": "대체: 용접된 철판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlate_C",
+		"INAMOUNT1": 18.75,
+		"INITEM2": "Desc_Wire_C",
+		"INAMOUNT2": 37.5,
+		"OUTITEM1": "Desc_IronPlateReinforced_C",
+		"OUTAMOUNT1": 5.625
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ReinforcedIronPlate_1_C",
+		"NAME": {
+			"EN": "Bolted Iron Plate",
+			"KO": "대체: 결합된 철판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlate_C",
+		"INAMOUNT1": 90.0,
+		"INITEM2": "Desc_IronScrew_C",
+		"INAMOUNT2": 250.0,
+		"OUTITEM1": "Desc_IronPlateReinforced_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_RadioControlUnit_1_C",
+		"NAME": {
+			"EN": "Radio Connection Unit",
+			"KO": "대체: 무선 연결 장치"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumPlateReinforced_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_HighSpeedConnector_C",
+		"INAMOUNT2": 7.5,
+		"INITEM3": "Desc_QuartzCrystal_C",
+		"INAMOUNT3": 45.0,
+		"OUTITEM1": "Desc_ModularFrameLightweight_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Quickwire_C",
+		"NAME": {
+			"EN": "Fused Quickwire",
+			"KO": "대체: 융합된 고속 전선"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_GoldIngot_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_CopperIngot_C",
+		"INAMOUNT2": 37.5,
+		"OUTITEM1": "Desc_HighSpeedWire_C",
+		"OUTAMOUNT1": 90.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Plastic_1_C",
+		"NAME": {
+			"EN": "Recycled Plastic",
+			"KO": "대체: 재활용 플라스틱"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Rubber_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_LiquidFuel_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_Plastic_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_NuclearFuelRod_1_C",
+		"NAME": {
+			"EN": "Uranium Fuel Unit",
+			"KO": "대체: 우라늄 연료 장치"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_UraniumCell_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT2": 2.0,
+		"INITEM3": "Desc_CrystalOscillator_C",
+		"INAMOUNT3": 0.6,
+		"INITEM4": "Desc_Rotor_C",
+		"INAMOUNT4": 2.0,
+		"OUTITEM1": "Desc_NuclearFuelRod_C",
+		"OUTAMOUNT1": 0.6
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Motor_1_C",
+		"NAME": {
+			"EN": "Rigor Motor",
+			"KO": "대체: 고정밀 모터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Rotor_C",
+		"INAMOUNT1": 3.75,
+		"INITEM2": "Desc_Stator_C",
+		"INAMOUNT2": 3.75,
+		"INITEM3": "Desc_CrystalOscillator_C",
+		"INAMOUNT3": 1.25,
+		"OUTITEM1": "Desc_Motor_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ModularFrame_C",
+		"NAME": {
+			"EN": "Steeled Frame",
+			"KO": "대체: 강철 골조"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronPlateReinforced_C",
+		"INAMOUNT1": 2.0,
+		"INITEM2": "Desc_SteelPipe_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_ModularFrame_C",
+		"OUTAMOUNT1": 3.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_IngotSteel_2_C",
+		"NAME": {
+			"EN": "Compacted Steel Ingot",
+			"KO": "대체: 압축 강철 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_CompactedCoal_C",
+		"INAMOUNT2": 2.5,
+		"OUTITEM1": "Desc_SteelIngot_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_IngotSteel_1_C",
+		"NAME": {
+			"EN": "Solid Steel Ingot",
+			"KO": "대체: 단단한 강철 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_IronIngot_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 40.0,
+		"OUTITEM1": "Desc_SteelIngot_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_IngotIron_C",
+		"NAME": {
+			"EN": "Iron Alloy Ingot",
+			"KO": "대체: 철합금 주괴"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_OreIron_C",
+		"INAMOUNT1": 40.0,
+		"INITEM2": "Desc_OreCopper_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_IronIngot_C",
+		"OUTAMOUNT1": 75.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_HighSpeedConnector_C",
+		"NAME": {
+			"EN": "Silicon High-Speed Connector",
+			"KO": "대체: 실리콘 고속 커넥터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_HighSpeedWire_C",
+		"INAMOUNT1": 90.0,
+		"INITEM2": "Desc_Silica_C",
+		"INAMOUNT2": 37.5,
+		"INITEM3": "Desc_CircuitBoard_C",
+		"INAMOUNT3": 3.0,
+		"OUTITEM1": "Desc_HighSpeedConnector_C",
+		"OUTAMOUNT1": 3.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ModularFrameHeavy_C",
+		"NAME": {
+			"EN": "Heavy Encased Frame",
+			"KO": "대체: 포장된 고중량 골조"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_ModularFrame_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_SteelPlateReinforced_C",
+		"INAMOUNT2": 9.375,
+		"INITEM3": "Desc_SteelPipe_C",
+		"INAMOUNT3": 33.75,
+		"INITEM4": "Desc_Cement_C",
+		"INAMOUNT4": 20.625,
+		"OUTITEM1": "Desc_ModularFrameHeavy_C",
+		"OUTAMOUNT1": 2.8125
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_HeatSink_1_C",
+		"NAME": {
+			"EN": "Heat Exchanger",
+			"KO": "대체: 열 교환기"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_AluminumCasing_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_AluminumPlateReinforced_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Gunpowder_1_C",
+		"NAME": {
+			"EN": "Fine Black Powder",
+			"KO": "대체: 고운 흑색 화약"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Sulfur_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_CompactedCoal_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_Gunpowder_C",
+		"OUTAMOUNT1": 45.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_ElectromagneticControlRod_1_C",
+		"NAME": {
+			"EN": "Electromagnetic Connection Rod",
+			"KO": "대체: 전자기 연결봉"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Stator_C",
+		"INAMOUNT1": 8.0,
+		"INITEM2": "Desc_HighSpeedConnector_C",
+		"INAMOUNT2": 4.0,
+		"OUTITEM1": "Desc_ElectromagneticControlRod_C",
+		"OUTAMOUNT1": 8.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CrystalOscillator_C",
+		"NAME": {
+			"EN": "Insulated Crystal Oscillator",
+			"KO": "대체: 절연 수정 발진기"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_QuartzCrystal_C",
+		"INAMOUNT1": 18.75,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 13.125,
+		"INITEM3": "Desc_CircuitBoardHighSpeed_C",
+		"INAMOUNT3": 1.875,
+		"OUTITEM1": "Desc_CrystalOscillator_C",
+		"OUTAMOUNT1": 1.875
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Concrete_C",
+		"NAME": {
+			"EN": "Fine Concrete",
+			"KO": "대체: 개선된 콘크리트"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Silica_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_Stone_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_Cement_C",
+		"OUTAMOUNT1": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Computer_2_C",
+		"NAME": {
+			"EN": "Crystal Computer",
+			"KO": "대체: 수정 컴퓨터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CircuitBoard_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_CrystalOscillator_C",
+		"INAMOUNT2": 1.6666666666666667,
+		"OUTITEM1": "Desc_Computer_C",
+		"OUTAMOUNT1": 3.3333333333333335
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Computer_1_C",
+		"NAME": {
+			"EN": "Caterium Computer",
+			"KO": "대체: 카테리움 컴퓨터"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CircuitBoard_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_HighSpeedWire_C",
+		"INAMOUNT2": 52.5,
+		"INITEM3": "Desc_Rubber_C",
+		"INAMOUNT3": 22.5,
+		"OUTITEM1": "Desc_Computer_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CircuitBoard_2_C",
+		"NAME": {
+			"EN": "Caterium Circuit Board",
+			"KO": "대체: 카테리움 회로 기판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Plastic_C",
+		"INAMOUNT1": 12.5,
+		"INITEM2": "Desc_HighSpeedWire_C",
+		"INAMOUNT2": 37.5,
+		"OUTITEM1": "Desc_CircuitBoard_C",
+		"OUTAMOUNT1": 8.75
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_CircuitBoard_1_C",
+		"NAME": {
+			"EN": "Silicon Circuit Board",
+			"KO": "대체: 실리콘 회로 기판"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_CopperSheet_C",
+		"INAMOUNT1": 27.5,
+		"INITEM2": "Desc_Silica_C",
+		"INAMOUNT2": 27.5,
+		"OUTITEM1": "Desc_CircuitBoard_C",
+		"OUTAMOUNT1": 12.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Cable_2_C",
+		"NAME": {
+			"EN": "Quickwire Cable",
+			"KO": "대체: 고속 전선 케이블"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_HighSpeedWire_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 5.0,
+		"OUTITEM1": "Desc_Cable_C",
+		"OUTAMOUNT1": 27.5
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_Cable_1_C",
+		"NAME": {
+			"EN": "Insulated Cable",
+			"KO": "대체: 절연 케이블"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_Wire_C",
+		"INAMOUNT1": 45.0,
+		"INITEM2": "Desc_Rubber_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_Cable_C",
+		"OUTAMOUNT1": 100.0
+	},
+	{
+		"CLASSNAME": "Recipe_Ficsonium_C",
+		"NAME": {
+			"EN": "Ficsonium",
+			"KO": "픽소니움"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_PlutoniumWaste_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_SingularityCell_C",
+		"INAMOUNT2": 10.0,
+		"INITEM3": "Desc_DarkEnergy_C",
+		"INAMOUNT3": 200.0,
+		"OUTITEM1": "Desc_Ficsonium_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_FicsoniumFuelRod_C",
+		"NAME": {
+			"EN": "Ficsonium Fuel Rod",
+			"KO": "픽소니움 연료봉"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Ficsonium_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_ElectromagneticControlRod_C",
+		"INAMOUNT2": 5.0,
+		"INITEM3": "Desc_FicsiteMesh_C",
+		"INAMOUNT3": 100.0,
+		"INITEM4": "Desc_QuantumEnergy_C",
+		"INAMOUNT4": 50.0,
+		"OUTITEM1": "Desc_FicsoniumFuelRod_C",
+		"OUTAMOUNT1": 2.5,
+		"OUTITEM2": "Desc_DarkEnergy_C",
+		"OUTAMOUNT2": 50.0
+	},
+	{
+		"CLASSNAME": "Recipe_SingularityCell_C",
+		"NAME": {
+			"EN": "Singularity Cell",
+			"KO": "특이점 셀"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_9_C",
+		"INAMOUNT1": 1.0,
+		"INITEM2": "Desc_DarkMatter_C",
+		"INAMOUNT2": 20.0,
+		"INITEM3": "Desc_IronPlate_C",
+		"INAMOUNT3": 100.0,
+		"INITEM4": "Desc_Cement_C",
+		"INAMOUNT4": 200.0,
+		"OUTITEM1": "Desc_SingularityCell_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpaceElevatorPart_11_C",
+		"NAME": {
+			"EN": "Ballistic Warp Drive",
+			"KO": "탄도 워프 드라이브"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpaceElevatorPart_8_C",
+		"INAMOUNT1": 1.0,
+		"INITEM2": "Desc_SingularityCell_C",
+		"INAMOUNT2": 5.0,
+		"INITEM3": "Desc_QuantumOscillator_C",
+		"INAMOUNT3": 2.0,
+		"INITEM4": "Desc_DarkMatter_C",
+		"INAMOUNT4": 40.0,
+		"OUTITEM1": "Desc_SpaceElevatorPart_11_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_FilterHazmat_C",
+		"NAME": {
+			"EN": "Iodine-Infused Filter",
+			"KO": "아이오딘이 주입된 필터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Filter_C",
+		"INAMOUNT1": 3.75,
+		"INITEM2": "Desc_HighSpeedWire_C",
+		"INAMOUNT2": 30.0,
+		"INITEM3": "Desc_AluminumCasing_C",
+		"INAMOUNT3": 3.75,
+		"OUTITEM1": "Desc_HazmatFilter_C",
+		"OUTAMOUNT1": 3.75
+	},
+	{
+		"CLASSNAME": "Recipe_Quickwire_C",
+		"NAME": {
+			"EN": "Quickwire",
+			"KO": "고속 전선"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_GoldIngot_C",
+		"INAMOUNT1": 12.0,
+		"OUTITEM1": "Desc_HighSpeedWire_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Biofuel_C",
+		"NAME": {
+			"EN": "Solid Biofuel",
+			"KO": "고체 바이오 연료"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_GenericBiomass_C",
+		"INAMOUNT1": 120.0,
+		"OUTITEM1": "Desc_Biofuel_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Protein_Hog_C",
+		"NAME": {
+			"EN": "Hog Protein",
+			"KO": "호그 단백질"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_HogParts_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_AlienProtein_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Protein_Spitter_C",
+		"NAME": {
+			"EN": "Spitter Protein",
+			"KO": "스피터 단백질"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpitterParts_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_AlienProtein_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Biomass_Mycelia_C",
+		"NAME": {
+			"EN": "Biomass (Mycelia)",
+			"KO": "바이오매스 (균사)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Mycelia_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_GenericBiomass_C",
+		"OUTAMOUNT1": 150.0
+	},
+	{
+		"CLASSNAME": "Recipe_PowerCrystalShard_1_C",
+		"NAME": {
+			"EN": "Power Shard (1)",
+			"KO": "동력 조각 (1)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Crystal_C",
+		"INAMOUNT1": 7.5,
+		"OUTITEM1": "Desc_CrystalShard_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_Gunpowder_C",
+		"NAME": {
+			"EN": "Black Powder",
+			"KO": "흑색 화약"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Coal_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_Sulfur_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_Gunpowder_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_AlienPowerFuel_C",
+		"NAME": {
+			"EN": "Alien Power Matrix",
+			"KO": "외계 동력 매트릭스"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SAMFluctuator_C",
+		"INAMOUNT1": 12.5,
+		"INITEM2": "Desc_CrystalShard_C",
+		"INAMOUNT2": 7.5,
+		"INITEM3": "Desc_QuantumOscillator_C",
+		"INAMOUNT3": 7.5,
+		"INITEM4": "Desc_QuantumEnergy_C",
+		"INAMOUNT4": 60.0,
+		"OUTITEM1": "Desc_AlienPowerFuel_C",
+		"OUTAMOUNT1": 2.5,
+		"OUTITEM2": "Desc_DarkEnergy_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Protein_Stinger_C",
+		"NAME": {
+			"EN": "Stinger Protein",
+			"KO": "스팅어 단백질"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_StingerParts_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_AlienProtein_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Protein_Crab_C",
+		"NAME": {
+			"EN": "Hatcher Protein",
+			"KO": "해처 단백질"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_HatcherParts_C",
+		"INAMOUNT1": 20.0,
+		"OUTITEM1": "Desc_AlienProtein_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_AlienDNACapsule_C",
+		"NAME": {
+			"EN": "Alien DNA Capsule",
+			"KO": "외계 DNA 캡슐"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AlienProtein_C",
+		"INAMOUNT1": 10.0,
+		"OUTITEM1": "Desc_AlienDNACapsule_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_Biomass_AlienProtein_C",
+		"NAME": {
+			"EN": "Biomass (Alien Protein)",
+			"KO": "바이오매스 (외계 단백질)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_AlienProtein_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_GenericBiomass_C",
+		"OUTAMOUNT1": 1500.0
+	},
+	{
+		"CLASSNAME": "Recipe_SpikedRebar_C",
+		"NAME": {
+			"EN": "Iron Rebar",
+			"KO": "철제 철근"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronRod_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_SpikedRebar_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_CartridgeSmart_C",
+		"NAME": {
+			"EN": "Homing Rifle Ammo",
+			"KO": "소총 추적 탄약"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CartridgeStandard_C",
+		"INAMOUNT1": 50.0,
+		"INITEM2": "Desc_HighSpeedConnector_C",
+		"INAMOUNT2": 2.5,
+		"OUTITEM1": "Desc_CartridgeSmartProjectile_C",
+		"OUTAMOUNT1": 25.0
+	},
+	{
+		"CLASSNAME": "Recipe_Rebar_Stunshot_C",
+		"NAME": {
+			"EN": "Stun Rebar",
+			"KO": "스턴 철근"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpikedRebar_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_HighSpeedWire_C",
+		"INAMOUNT2": 50.0,
+		"OUTITEM1": "Desc_Rebar_Stunshot_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_FilterGasMask_C",
+		"NAME": {
+			"EN": "Gas Filter",
+			"KO": "가스 필터"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Fabric_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_Coal_C",
+		"INAMOUNT2": 30.0,
+		"INITEM3": "Desc_IronPlate_C",
+		"INAMOUNT3": 15.0,
+		"OUTITEM1": "Desc_Filter_C",
+		"OUTAMOUNT1": 7.5
+	},
+	{
+		"CLASSNAME": "Recipe_NobeliskGas_C",
+		"NAME": {
+			"EN": "Gas Nobelisk",
+			"KO": "가스 노벨리스크"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NobeliskExplosive_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_GenericBiomass_C",
+		"INAMOUNT2": 50.0,
+		"OUTITEM1": "Desc_NobeliskGas_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Alternate_PolyesterFabric_C",
+		"NAME": {
+			"EN": "Polyester Fabric",
+			"KO": "Alternate: Polyester Fabric"
+		},
+		"ALTERNATE": true,
+		"INITEM1": "Desc_PolymerResin_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_Water_C",
+		"INAMOUNT2": 30.0,
+		"OUTITEM1": "Desc_Fabric_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Fabric_C",
+		"NAME": {
+			"EN": "Fabric",
+			"KO": "직물"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Mycelia_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_GenericBiomass_C",
+		"INAMOUNT2": 75.0,
+		"OUTITEM1": "Desc_Fabric_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_SyntheticPowerShard_C",
+		"NAME": {
+			"EN": "Synthetic Power Shard",
+			"KO": "합성 동력 조각"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_TimeCrystal_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_DarkMatter_C",
+		"INAMOUNT2": 10.0,
+		"INITEM3": "Desc_QuartzCrystal_C",
+		"INAMOUNT3": 60.0,
+		"INITEM4": "Desc_QuantumEnergy_C",
+		"INAMOUNT4": 60.0,
+		"OUTITEM1": "Desc_CrystalShard_C",
+		"OUTAMOUNT1": 5.0,
+		"OUTITEM2": "Desc_DarkEnergy_C",
+		"OUTAMOUNT2": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_PowerCrystalShard_3_C",
+		"NAME": {
+			"EN": "Power Shard (5)",
+			"KO": "동력 조각 (5)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Crystal_mk3_C",
+		"INAMOUNT1": 2.5,
+		"OUTITEM1": "Desc_CrystalShard_C",
+		"OUTAMOUNT1": 12.5
+	},
+	{
+		"CLASSNAME": "Recipe_PowerCrystalShard_2_C",
+		"NAME": {
+			"EN": "Power Shard (2)",
+			"KO": "동력 조각 (2)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Crystal_mk2_C",
+		"INAMOUNT1": 5.0,
+		"OUTITEM1": "Desc_CrystalShard_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_NobeliskShockwave_C",
+		"NAME": {
+			"EN": "Pulse Nobelisk",
+			"KO": "펄스 노벨리스크"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NobeliskExplosive_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_CrystalOscillator_C",
+		"INAMOUNT2": 1.0,
+		"OUTITEM1": "Desc_NobeliskShockwave_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Rebar_Spreadshot_C",
+		"NAME": {
+			"EN": "Shatter Rebar",
+			"KO": "파편 철근"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpikedRebar_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_QuartzCrystal_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_Rebar_Spreadshot_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_CartridgeChaos_Packaged_C",
+		"NAME": {
+			"EN": "Turbo Rifle Ammo",
+			"KO": "소총 터보 탄약"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CartridgeStandard_C",
+		"INAMOUNT1": 125.0,
+		"INITEM2": "Desc_AluminumCasing_C",
+		"INAMOUNT2": 15.0,
+		"INITEM3": "Desc_TurboFuel_C",
+		"INAMOUNT3": 15.0,
+		"OUTITEM1": "Desc_CartridgeChaos_C",
+		"OUTAMOUNT1": 250.0
+	},
+	{
+		"CLASSNAME": "Recipe_CartridgeChaos_C",
+		"NAME": {
+			"EN": "Turbo Rifle Ammo",
+			"KO": "소총 터보 탄약"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CartridgeStandard_C",
+		"INAMOUNT1": 125.0,
+		"INITEM2": "Desc_AluminumCasing_C",
+		"INAMOUNT2": 15.0,
+		"INITEM3": "Desc_LiquidTurboFuel_C",
+		"INAMOUNT3": 15.0,
+		"OUTITEM1": "Desc_CartridgeChaos_C",
+		"OUTAMOUNT1": 250.0
+	},
+	{
+		"CLASSNAME": "Recipe_NobeliskNuke_C",
+		"NAME": {
+			"EN": "Nuke Nobelisk",
+			"KO": "핵 노벨리스크"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NobeliskExplosive_C",
+		"INAMOUNT1": 2.5,
+		"INITEM2": "Desc_UraniumCell_C",
+		"INAMOUNT2": 10.0,
+		"INITEM3": "Desc_GunpowderMK2_C",
+		"INAMOUNT3": 5.0,
+		"INITEM4": "Desc_CircuitBoardHighSpeed_C",
+		"INAMOUNT4": 3.0,
+		"OUTITEM1": "Desc_NobeliskNuke_C",
+		"OUTAMOUNT1": 0.5
+	},
+	{
+		"CLASSNAME": "Recipe_Cartridge_C",
+		"NAME": {
+			"EN": "Rifle Ammo",
+			"KO": "소총 탄약"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperSheet_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_GunpowderMK2_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_CartridgeStandard_C",
+		"OUTAMOUNT1": 75.0
+	},
+	{
+		"CLASSNAME": "Recipe_Rebar_Explosive_C",
+		"NAME": {
+			"EN": "Explosive Rebar",
+			"KO": "폭발형 철근"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_SpikedRebar_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_GunpowderMK2_C",
+		"INAMOUNT2": 10.0,
+		"INITEM3": "Desc_SteelPipe_C",
+		"INAMOUNT3": 10.0,
+		"OUTITEM1": "Desc_Rebar_Explosive_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_NobeliskCluster_C",
+		"NAME": {
+			"EN": "Cluster Nobelisk",
+			"KO": "집속 노벨리스크"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_NobeliskExplosive_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_GunpowderMK2_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_NobeliskCluster_C",
+		"OUTAMOUNT1": 2.5
+	},
+	{
+		"CLASSNAME": "Recipe_Nobelisk_C",
+		"NAME": {
+			"EN": "Nobelisk",
+			"KO": "노벨리스크"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gunpowder_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_SteelPipe_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_NobeliskExplosive_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_GunpowderMK2_C",
+		"NAME": {
+			"EN": "Smokeless Powder",
+			"KO": "무연 화약"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gunpowder_C",
+		"INAMOUNT1": 20.0,
+		"INITEM2": "Desc_HeavyOilResidue_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_GunpowderMK2_C",
+		"OUTAMOUNT1": 20.0
+	},
+	{
+		"CLASSNAME": "Recipe_Snowball_C",
+		"NAME": {
+			"EN": "Snowball",
+			"KO": "눈덩이"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Snow_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_SnowballProjectile_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasStar_C",
+		"NAME": {
+			"EN": "FICSMAS Wonder Star",
+			"KO": "FICSMAS 별"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasWreath_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_CandyCane_C",
+		"INAMOUNT2": 20.0,
+		"OUTITEM1": "Desc_XmasStar_C",
+		"OUTAMOUNT1": 1.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasWreath_C",
+		"NAME": {
+			"EN": "FICSMAS Decoration",
+			"KO": "FICSMAS 장식"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBranch_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_XmasBallCluster_C",
+		"INAMOUNT2": 6.0,
+		"OUTITEM1": "Desc_XmasWreath_C",
+		"OUTAMOUNT1": 2.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBallCluster_C",
+		"NAME": {
+			"EN": "FICSMAS Ornament Bundle",
+			"KO": "FICSMAS 장식 모음"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBall3_C",
+		"INAMOUNT1": 5.0,
+		"INITEM2": "Desc_XmasBall4_C",
+		"INAMOUNT2": 5.0,
+		"OUTITEM1": "Desc_XmasBallCluster_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBall1_C",
+		"NAME": {
+			"EN": "Red FICSMAS Ornament",
+			"KO": "빨강 FICSMAS 장식"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gift_C",
+		"INAMOUNT1": 5.0,
+		"OUTITEM1": "Desc_XmasBall1_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBall2_C",
+		"NAME": {
+			"EN": "Blue FICSMAS Ornament",
+			"KO": "FICSMAS 파란색 장식"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gift_C",
+		"INAMOUNT1": 5.0,
+		"OUTITEM1": "Desc_XmasBall2_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBall3_C",
+		"NAME": {
+			"EN": "Copper FICSMAS Ornament",
+			"KO": "구리 FICSMAS 장식"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBall1_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_CopperIngot_C",
+		"INAMOUNT2": 10.0,
+		"OUTITEM1": "Desc_XmasBall3_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBall4_C",
+		"NAME": {
+			"EN": "Iron FICSMAS Ornament",
+			"KO": "FICSMAS 철 장식"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBall2_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_IronIngot_C",
+		"INAMOUNT2": 15.0,
+		"OUTITEM1": "Desc_XmasBall4_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Snow_C",
+		"NAME": {
+			"EN": "Actual Snow",
+			"KO": "진짜 눈"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gift_C",
+		"INAMOUNT1": 25.0,
+		"OUTITEM1": "Desc_Snow_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBranch_C",
+		"NAME": {
+			"EN": "FICSMAS Tree Branch",
+			"KO": "FICSMAS 나뭇가지"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gift_C",
+		"INAMOUNT1": 10.0,
+		"OUTITEM1": "Desc_XmasBranch_C",
+		"OUTAMOUNT1": 10.0
+	},
+	{
+		"CLASSNAME": "Recipe_XmasBow_C",
+		"NAME": {
+			"EN": "FICSMAS Bow",
+			"KO": "FICSMAS 리본"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gift_C",
+		"INAMOUNT1": 10.0,
+		"OUTITEM1": "Desc_XmasBow_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_CandyCane_C",
+		"NAME": {
+			"EN": "Candy Cane",
+			"KO": "지팡이 사탕"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Gift_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_CandyCane_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Biomass_Leaves_C",
+		"NAME": {
+			"EN": "Biomass (Leaves)",
+			"KO": "바이오매스(잎)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Leaves_C",
+		"INAMOUNT1": 120.0,
+		"OUTITEM1": "Desc_GenericBiomass_C",
+		"OUTAMOUNT1": 60.0
+	},
+	{
+		"CLASSNAME": "Recipe_Biomass_Wood_C",
+		"NAME": {
+			"EN": "Biomass (Wood)",
+			"KO": "바이오매스(나무)"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Wood_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_GenericBiomass_C",
+		"OUTAMOUNT1": 300.0
+	},
+	{
+		"CLASSNAME": "Recipe_IronPlateReinforced_C",
+		"NAME": {
+			"EN": "Reinforced Iron Plate",
+			"KO": "보강된 철판"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronPlate_C",
+		"INAMOUNT1": 30.0,
+		"INITEM2": "Desc_IronScrew_C",
+		"INAMOUNT2": 60.0,
+		"OUTITEM1": "Desc_IronPlateReinforced_C",
+		"OUTAMOUNT1": 5.0
+	},
+	{
+		"CLASSNAME": "Recipe_Concrete_C",
+		"NAME": {
+			"EN": "Concrete",
+			"KO": "콘크리트"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Stone_C",
+		"INAMOUNT1": 45.0,
+		"OUTITEM1": "Desc_Cement_C",
+		"OUTAMOUNT1": 15.0
+	},
+	{
+		"CLASSNAME": "Recipe_Screw_C",
+		"NAME": {
+			"EN": "Screw",
+			"KO": "나사"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_IronRod_C",
+		"INAMOUNT1": 10.0,
+		"OUTITEM1": "Desc_IronScrew_C",
+		"OUTAMOUNT1": 40.0
+	},
+	{
+		"CLASSNAME": "Recipe_Cable_C",
+		"NAME": {
+			"EN": "Cable",
+			"KO": "케이블"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_Wire_C",
+		"INAMOUNT1": 60.0,
+		"OUTITEM1": "Desc_Cable_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Wire_C",
+		"NAME": {
+			"EN": "Wire",
+			"KO": "전선"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_CopperIngot_C",
+		"INAMOUNT1": 15.0,
+		"OUTITEM1": "Desc_Wire_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_IngotCopper_C",
+		"NAME": {
+			"EN": "Copper Ingot",
+			"KO": "구리 주괴"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_OreCopper_C",
+		"INAMOUNT1": 30.0,
+		"OUTITEM1": "Desc_CopperIngot_C",
+		"OUTAMOUNT1": 30.0
+	},
+	{
+		"CLASSNAME": "Recipe_Fireworks_01_C",
+		"NAME": {
+			"EN": "Sweet Fireworks",
+			"KO": "달콤한 폭죽"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBranch_C",
+		"INAMOUNT1": 15.0,
+		"INITEM2": "Desc_CandyCane_C",
+		"INAMOUNT2": 7.5,
+		"OUTITEM1": "Desc_Fireworks_Projectile_01_C",
+		"OUTAMOUNT1": 2.5
+	},
+	{
+		"CLASSNAME": "Recipe_Fireworks_02_C",
+		"NAME": {
+			"EN": "Fancy Fireworks",
+			"KO": "화려한 폭죽"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBranch_C",
+		"INAMOUNT1": 10.0,
+		"INITEM2": "Desc_XmasBow_C",
+		"INAMOUNT2": 7.5,
+		"OUTITEM1": "Desc_Fireworks_Projectile_02_C",
+		"OUTAMOUNT1": 2.5
+	},
+	{
+		"CLASSNAME": "Recipe_Fireworks_03_C",
+		"NAME": {
+			"EN": "Sparkly Fireworks",
+			"KO": "반짝이는 폭죽"
+		},
+		"ALTERNATE": false,
+		"INITEM1": "Desc_XmasBranch_C",
+		"INAMOUNT1": 7.5,
+		"INITEM2": "Desc_Snow_C",
+		"INAMOUNT2": 5.0,
+		"OUTITEM1": "Desc_Fireworks_Projectile_03_C",
+		"OUTAMOUNT1": 2.5
+	}
+]

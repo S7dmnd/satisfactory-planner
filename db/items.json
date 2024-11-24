@@ -1,0 +1,1178 @@
+[
+	{
+		"CLASSNAME": "Desc_Rebar_Stunshot_C",
+		"NAME": {
+			"EN": "Stun Rebar",
+			"KO": "스턴 철근"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NonFissibleUranium_C",
+		"NAME": {
+			"EN": "Non-Fissile Uranium",
+			"KO": "비분열성 우라늄"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Fireworks_Projectile_01_C",
+		"NAME": {
+			"EN": "Sweet Fireworks",
+			"KO": "달콤한 폭죽"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SteelPlate_C",
+		"NAME": {
+			"EN": "Steel Beam",
+			"KO": "강철 빔"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_TimeCrystal_C",
+		"NAME": {
+			"EN": "Time Crystal",
+			"KO": "시간 수정"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Motor_C",
+		"NAME": {
+			"EN": "Motor",
+			"KO": "모터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasWreath_C",
+		"NAME": {
+			"EN": "FICSMAS Decoration",
+			"KO": "FICSMAS 장식"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SingularityCell_C",
+		"NAME": {
+			"EN": "Singularity Cell",
+			"KO": "특이점 셀"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_5_C",
+		"NAME": {
+			"EN": "Adaptive Control Unit",
+			"KO": "적응형 제어 장치"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedIonizedFuel_C",
+		"NAME": {
+			"EN": "Packaged Ionized Fuel",
+			"KO": "포장된 이온화 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_LiquidFuel_C",
+		"NAME": {
+			"EN": "Fuel",
+			"KO": "연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Crystal_C",
+		"NAME": {
+			"EN": "Blue Power Slug",
+			"KO": "파란색 파워 슬러그"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_IronPlateReinforced_C",
+		"NAME": {
+			"EN": "Reinforced Iron Plate",
+			"KO": "보강된 철판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NobeliskGas_C",
+		"NAME": {
+			"EN": "Gas Nobelisk",
+			"KO": "가스 노벨리스크"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SteelPlateReinforced_C",
+		"NAME": {
+			"EN": "Encased Industrial Beam",
+			"KO": "포장된 산업용 빔"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_IronRod_C",
+		"NAME": {
+			"EN": "Iron Rod",
+			"KO": "철봉"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_ElectromagneticControlRod_C",
+		"NAME": {
+			"EN": "Electromagnetic Control Rod",
+			"KO": "전자기 제어봉"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CartridgeChaos_C",
+		"NAME": {
+			"EN": "Turbo Rifle Ammo",
+			"KO": "소총 터보 탄약"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_10_C",
+		"NAME": {
+			"EN": "Biochemical Sculptor",
+			"KO": "생화학 조형기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_HogParts_C",
+		"NAME": {
+			"EN": "Hog Remains",
+			"KO": "호그 시체"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AluminumPlate_C",
+		"NAME": {
+			"EN": "Alclad Aluminum Sheet",
+			"KO": "알클래드 알루미늄 판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SteelPipe_C",
+		"NAME": {
+			"EN": "Steel Pipe",
+			"KO": "강철 파이프"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Wood_C",
+		"NAME": {
+			"EN": "Wood",
+			"KO": "나무"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AluminumScrap_C",
+		"NAME": {
+			"EN": "Aluminum Scrap",
+			"KO": "알루미늄 조각"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedSulfuricAcid_C",
+		"NAME": {
+			"EN": "Packaged Sulfuric Acid",
+			"KO": "포장된 황산"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Fabric_C",
+		"NAME": {
+			"EN": "Fabric",
+			"KO": "직물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Diamond_C",
+		"NAME": {
+			"EN": "Diamonds",
+			"KO": "다이아몬드"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBall1_C",
+		"NAME": {
+			"EN": "Red FICSMAS Ornament",
+			"KO": "빨강 FICSMAS 장식"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NobeliskNuke_C",
+		"NAME": {
+			"EN": "Nuke Nobelisk",
+			"KO": "핵 노벨리스크"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Fuel_C",
+		"NAME": {
+			"EN": "Packaged Fuel",
+			"KO": "포장된 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AlienProtein_C",
+		"NAME": {
+			"EN": "Alien Protein",
+			"KO": "외계 단백질"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NitrogenGas_C",
+		"NAME": {
+			"EN": "Nitrogen Gas",
+			"KO": "질소 가스"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Battery_C",
+		"NAME": {
+			"EN": "Battery",
+			"KO": "배터리"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedOilResidue_C",
+		"NAME": {
+			"EN": "Packaged Heavy Oil Residue",
+			"KO": "포장된 중유 잔여물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_TemporalProcessor_C",
+		"NAME": {
+			"EN": "Neural-Quantum Processor",
+			"KO": "신경 양자 처리기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Fireworks_Projectile_02_C",
+		"NAME": {
+			"EN": "Fancy Fireworks",
+			"KO": "화려한 폭죽"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SulfuricAcid_C",
+		"NAME": {
+			"EN": "Sulfuric Acid",
+			"KO": "황산"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_RocketFuel_C",
+		"NAME": {
+			"EN": "Rocket Fuel",
+			"KO": "로켓 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_ComputerSuper_C",
+		"NAME": {
+			"EN": "Supercomputer",
+			"KO": "슈퍼컴퓨터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_OreCopper_C",
+		"NAME": {
+			"EN": "Copper Ore",
+			"KO": "구리 광석"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CrystalShard_C",
+		"NAME": {
+			"EN": "Power Shard",
+			"KO": "동력 조각"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CopperIngot_C",
+		"NAME": {
+			"EN": "Copper Ingot",
+			"KO": "구리 주괴"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_MotorLightweight_C",
+		"NAME": {
+			"EN": "Turbo Motor",
+			"KO": "터보 모터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Leaves_C",
+		"NAME": {
+			"EN": "Leaves",
+			"KO": "이파리"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedRocketFuel_C",
+		"NAME": {
+			"EN": "Packaged Rocket Fuel",
+			"KO": "포장된 로켓 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_GasTank_C",
+		"NAME": {
+			"EN": "Empty Fluid Tank",
+			"KO": "빈 가스통"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_TurboFuel_C",
+		"NAME": {
+			"EN": "Packaged Turbofuel",
+			"KO": "포장된 터보 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedNitrogenGas_C",
+		"NAME": {
+			"EN": "Packaged Nitrogen Gas",
+			"KO": "포장된 질소 가스"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AluminumCasing_C",
+		"NAME": {
+			"EN": "Aluminum Casing",
+			"KO": "알루미늄 케이스"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AluminaSolution_C",
+		"NAME": {
+			"EN": "Alumina Solution",
+			"KO": "알루미나 용액"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_ModularFrameLightweight_C",
+		"NAME": {
+			"EN": "Radio Control Unit",
+			"KO": "무선 제어 장치"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NitricAcid_C",
+		"NAME": {
+			"EN": "Nitric Acid",
+			"KO": "질산"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Plastic_C",
+		"NAME": {
+			"EN": "Plastic",
+			"KO": "플라스틱"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Cable_C",
+		"NAME": {
+			"EN": "Cable",
+			"KO": "케이블"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Stone_C",
+		"NAME": {
+			"EN": "Limestone",
+			"KO": "석회석"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_FicsiteMesh_C",
+		"NAME": {
+			"EN": "Ficsite Trigon",
+			"KO": "픽사이트 삼각판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Rubber_C",
+		"NAME": {
+			"EN": "Rubber",
+			"KO": "고무"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpikedRebar_C",
+		"NAME": {
+			"EN": "Iron Rebar",
+			"KO": "철제 철근"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_DarkMatter_C",
+		"NAME": {
+			"EN": "Dark Matter Crystal",
+			"KO": "암흑 물질 수정"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SAMFluctuator_C",
+		"NAME": {
+			"EN": "SAM Fluctuator",
+			"KO": "S.A.M. 변동기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Ficsonium_C",
+		"NAME": {
+			"EN": "Ficsonium",
+			"KO": "픽소니움"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Crystal_mk3_C",
+		"NAME": {
+			"EN": "Purple Power Slug",
+			"KO": "보라색 파워 슬러그"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CircuitBoard_C",
+		"NAME": {
+			"EN": "Circuit Board",
+			"KO": "회로 기판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBall2_C",
+		"NAME": {
+			"EN": "Blue FICSMAS Ornament",
+			"KO": "FICSMAS 파란색 장식"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedNitricAcid_C",
+		"NAME": {
+			"EN": "Packaged Nitric Acid",
+			"KO": "포장된 질산"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SAM_C",
+		"NAME": {
+			"EN": "SAM",
+			"KO": "S.A.M."
+		}
+	},
+	{
+		"CLASSNAME": "Desc_HazmatFilter_C",
+		"NAME": {
+			"EN": "Iodine-Infused Filter",
+			"KO": "아이오딘이 주입된 필터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Filter_C",
+		"NAME": {
+			"EN": "Gas Filter",
+			"KO": "가스 필터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Sulfur_C",
+		"NAME": {
+			"EN": "Sulfur",
+			"KO": "황"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Biofuel_C",
+		"NAME": {
+			"EN": "Solid Biofuel",
+			"KO": "고체 바이오 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SAMIngot_C",
+		"NAME": {
+			"EN": "Reanimated SAM",
+			"KO": "재생 S.A.M."
+		}
+	},
+	{
+		"CLASSNAME": "Desc_FluidCanister_C",
+		"NAME": {
+			"EN": "Empty Canister",
+			"KO": "빈 통"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AlienPowerFuel_C",
+		"NAME": {
+			"EN": "Alien Power Matrix",
+			"KO": "외계 동력 매트릭스"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_IonizedFuel_C",
+		"NAME": {
+			"EN": "Ionized Fuel",
+			"KO": "이온화 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CrystalOscillator_C",
+		"NAME": {
+			"EN": "Crystal Oscillator",
+			"KO": "수정 발진기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PressureConversionCube_C",
+		"NAME": {
+			"EN": "Pressure Conversion Cube",
+			"KO": "압력 변환 큐브"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedWater_C",
+		"NAME": {
+			"EN": "Packaged Water",
+			"KO": "포장된 물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_HeavyOilResidue_C",
+		"NAME": {
+			"EN": "Heavy Oil Residue",
+			"KO": "중유 잔여물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PlutoniumFuelRod_C",
+		"NAME": {
+			"EN": "Plutonium Fuel Rod",
+			"KO": "플루토늄 연료봉"
+		}
+	},
+	{
+		"CLASSNAME": "BP_ItemDescriptorPortableMiner_C",
+		"NAME": {
+			"EN": "Portable Miner",
+			"KO": "휴대용 채굴기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_4_C",
+		"NAME": {
+			"EN": "Modular Engine",
+			"KO": "모듈 엔진"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Gunpowder_C",
+		"NAME": {
+			"EN": "Black Powder",
+			"KO": "흑색 화약"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_IronIngot_C",
+		"NAME": {
+			"EN": "Iron Ingot",
+			"KO": "철 주괴"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_LiquidBiofuel_C",
+		"NAME": {
+			"EN": "Liquid Biofuel",
+			"KO": "액체 바이오 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_GunpowderMK2_C",
+		"NAME": {
+			"EN": "Smokeless Powder",
+			"KO": "무연 화약"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CartridgeSmartProjectile_C",
+		"NAME": {
+			"EN": "Homing Rifle Ammo",
+			"KO": "소총 추적 탄약"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NobeliskCluster_C",
+		"NAME": {
+			"EN": "Cluster Nobelisk",
+			"KO": "집속 노벨리스크"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBranch_C",
+		"NAME": {
+			"EN": "FICSMAS Tree Branch",
+			"KO": "FICSMAS 나뭇가지"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Gift_C",
+		"NAME": {
+			"EN": "FICSMAS Gift",
+			"KO": "FICSMAS 선물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBall4_C",
+		"NAME": {
+			"EN": "Iron FICSMAS Ornament",
+			"KO": "FICSMAS 철 장식"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBall3_C",
+		"NAME": {
+			"EN": "Copper FICSMAS Ornament",
+			"KO": "구리 FICSMAS 장식"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_6_C",
+		"NAME": {
+			"EN": "Magnetic Field Generator",
+			"KO": "자기장 발생기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Computer_C",
+		"NAME": {
+			"EN": "Computer",
+			"KO": "컴퓨터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AlienDNACapsule_C",
+		"NAME": {
+			"EN": "Alien DNA Capsule",
+			"KO": "외계 DNA 캡슐"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CopperDust_C",
+		"NAME": {
+			"EN": "Copper Powder",
+			"KO": "구리 분말"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasStar_C",
+		"NAME": {
+			"EN": "FICSMAS Wonder Star",
+			"KO": "FICSMAS 별"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CompactedCoal_C",
+		"NAME": {
+			"EN": "Compacted Coal",
+			"KO": "압축 석탄"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_UraniumCell_C",
+		"NAME": {
+			"EN": "Encased Uranium Cell",
+			"KO": "포장된 우라늄 전지"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_OreIron_C",
+		"NAME": {
+			"EN": "Iron Ore",
+			"KO": "철 광석"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_8_C",
+		"NAME": {
+			"EN": "Thermal Propulsion Rocket",
+			"KO": "열 추진 로켓"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PetroleumCoke_C",
+		"NAME": {
+			"EN": "Petroleum Coke",
+			"KO": "석유 코크스"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_FicsoniumFuelRod_C",
+		"NAME": {
+			"EN": "Ficsonium Fuel Rod",
+			"KO": "픽소니움 연료봉"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_OreGold_C",
+		"NAME": {
+			"EN": "Caterium Ore",
+			"KO": "카테리움 광석"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NobeliskExplosive_C",
+		"NAME": {
+			"EN": "Nobelisk",
+			"KO": "노벨리스크"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_IronScrew_C",
+		"NAME": {
+			"EN": "Screw",
+			"KO": "나사"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Rebar_Explosive_C",
+		"NAME": {
+			"EN": "Explosive Rebar",
+			"KO": "폭발형 철근"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Snow_C",
+		"NAME": {
+			"EN": "Actual Snow",
+			"KO": "진짜 눈"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_11_C",
+		"NAME": {
+			"EN": "Ballistic Warp Drive",
+			"KO": "탄도 워프 드라이브"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_StingerParts_C",
+		"NAME": {
+			"EN": "Stinger Remains",
+			"KO": "스팅어 시체"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_FicsiteIngot_C",
+		"NAME": {
+			"EN": "Ficsite Ingot",
+			"KO": "픽사이트 주괴"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Wire_C",
+		"NAME": {
+			"EN": "Wire",
+			"KO": "전선"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBallCluster_C",
+		"NAME": {
+			"EN": "FICSMAS Ornament Bundle",
+			"KO": "FICSMAS 장식 모음"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_GoldIngot_C",
+		"NAME": {
+			"EN": "Caterium Ingot",
+			"KO": "카테리움 주괴"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_LiquidTurboFuel_C",
+		"NAME": {
+			"EN": "Turbofuel",
+			"KO": "터보 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_LiquidOil_C",
+		"NAME": {
+			"EN": "Crude Oil",
+			"KO": "원유"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_IronPlate_C",
+		"NAME": {
+			"EN": "Iron Plate",
+			"KO": "철판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_DarkEnergy_C",
+		"NAME": {
+			"EN": "Dark Matter Residue",
+			"KO": "암흑 물질 잔여물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Mycelia_C",
+		"NAME": {
+			"EN": "Mycelia",
+			"KO": "균사"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_HatcherParts_C",
+		"NAME": {
+			"EN": "Hatcher Remains",
+			"KO": "해처 시체"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NobeliskShockwave_C",
+		"NAME": {
+			"EN": "Pulse Nobelisk",
+			"KO": "펄스 노벨리스크"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CoolingSystem_C",
+		"NAME": {
+			"EN": "Cooling System",
+			"KO": "냉각 시스템"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_ModularFrame_C",
+		"NAME": {
+			"EN": "Modular Frame",
+			"KO": "모듈식 골조"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpitterParts_C",
+		"NAME": {
+			"EN": "Spitter Remains",
+			"KO": "스피터 시체"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_RawQuartz_C",
+		"NAME": {
+			"EN": "Raw Quartz",
+			"KO": "석영 원석"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedOil_C",
+		"NAME": {
+			"EN": "Packaged Oil",
+			"KO": "포장된 원유"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PlutoniumCell_C",
+		"NAME": {
+			"EN": "Encased Plutonium Cell",
+			"KO": "포장된 플루토늄 전지"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Fireworks_Projectile_03_C",
+		"NAME": {
+			"EN": "Sparkly Fireworks",
+			"KO": "반짝이는 폭죽"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Silica_C",
+		"NAME": {
+			"EN": "Silica",
+			"KO": "이산화규소"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Coal_C",
+		"NAME": {
+			"EN": "Coal",
+			"KO": "석탄"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_QuartzCrystal_C",
+		"NAME": {
+			"EN": "Quartz Crystal",
+			"KO": "석영 수정"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_2_C",
+		"NAME": {
+			"EN": "Versatile Framework",
+			"KO": "다용도 골조"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_HighSpeedWire_C",
+		"NAME": {
+			"EN": "Quickwire",
+			"KO": "고속 전선"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_QuantumOscillator_C",
+		"NAME": {
+			"EN": "Superposition Oscillator",
+			"KO": "중첩 발진기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PlutoniumWaste_C",
+		"NAME": {
+			"EN": "Plutonium Waste",
+			"KO": "플루토늄 폐기물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NuclearFuelRod_C",
+		"NAME": {
+			"EN": "Uranium Fuel Rod",
+			"KO": "우라늄 연료봉"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CircuitBoardHighSpeed_C",
+		"NAME": {
+			"EN": "AI Limiter",
+			"KO": "인공지능 진폭 제한 회로"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_XmasBow_C",
+		"NAME": {
+			"EN": "FICSMAS Bow",
+			"KO": "FICSMAS 리본"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_HighSpeedConnector_C",
+		"NAME": {
+			"EN": "High-Speed Connector",
+			"KO": "고속 커넥터"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedAlumina_C",
+		"NAME": {
+			"EN": "Packaged Alumina Solution",
+			"KO": "포장된 알루미나 용액"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_7_C",
+		"NAME": {
+			"EN": "Assembly Director System",
+			"KO": "어셈블리 지휘 시스템"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_OreUranium_C",
+		"NAME": {
+			"EN": "Uranium",
+			"KO": "우라늄"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CartridgeStandard_C",
+		"NAME": {
+			"EN": "Rifle Ammo",
+			"KO": "소총 탄약"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_NuclearWaste_C",
+		"NAME": {
+			"EN": "Uranium Waste",
+			"KO": "우라늄 폐기물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Crystal_mk2_C",
+		"NAME": {
+			"EN": "Yellow Power Slug",
+			"KO": "노란색 파워 슬러그"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_3_C",
+		"NAME": {
+			"EN": "Automated Wiring",
+			"KO": "자동 배선기"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CandyCane_C",
+		"NAME": {
+			"EN": "Candy Cane",
+			"KO": "지팡이 사탕"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_OreBauxite_C",
+		"NAME": {
+			"EN": "Bauxite",
+			"KO": "보크사이트"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PackagedBiofuel_C",
+		"NAME": {
+			"EN": "Packaged Liquid Biofuel",
+			"KO": "포장된 액체 바이오 연료"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Cement_C",
+		"NAME": {
+			"EN": "Concrete",
+			"KO": "콘크리트"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_ModularFrameHeavy_C",
+		"NAME": {
+			"EN": "Heavy Modular Frame",
+			"KO": "고중량 모듈식 골조"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Stator_C",
+		"NAME": {
+			"EN": "Stator",
+			"KO": "고정자"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_12_C",
+		"NAME": {
+			"EN": "AI Expansion Server",
+			"KO": "인공지능 확장 서버"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AluminumIngot_C",
+		"NAME": {
+			"EN": "Aluminum Ingot",
+			"KO": "알루미늄 주괴"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Rebar_Spreadshot_C",
+		"NAME": {
+			"EN": "Shatter Rebar",
+			"KO": "파편 철근"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_DissolvedSilica_C",
+		"NAME": {
+			"EN": "Dissolved Silica",
+			"KO": "용해된 이산화규소"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_ModularFrameFused_C",
+		"NAME": {
+			"EN": "Fused Modular Frame",
+			"KO": "융합된 모듈식 골조"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Water_C",
+		"NAME": {
+			"EN": "Water",
+			"KO": "물"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_GenericBiomass_C",
+		"NAME": {
+			"EN": "Biomass",
+			"KO": "바이오매스"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_CopperSheet_C",
+		"NAME": {
+			"EN": "Copper Sheet",
+			"KO": "구리판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_AluminumPlateReinforced_C",
+		"NAME": {
+			"EN": "Heat Sink",
+			"KO": "방열판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_1_C",
+		"NAME": {
+			"EN": "Smart Plating",
+			"KO": "지능형 도금판"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SteelIngot_C",
+		"NAME": {
+			"EN": "Steel Ingot",
+			"KO": "강철 주괴"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SpaceElevatorPart_9_C",
+		"NAME": {
+			"EN": "Nuclear Pasta",
+			"KO": "핵 파스타"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PolymerResin_C",
+		"NAME": {
+			"EN": "Polymer Resin",
+			"KO": "폴리머 수지"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_PlutoniumPellet_C",
+		"NAME": {
+			"EN": "Plutonium Pellet",
+			"KO": "플루토늄 펠릿"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_QuantumEnergy_C",
+		"NAME": {
+			"EN": "Excited Photonic Matter",
+			"KO": "들뜬 광자 물질"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_SnowballProjectile_C",
+		"NAME": {
+			"EN": "Snowball",
+			"KO": "눈덩이"
+		}
+	},
+	{
+		"CLASSNAME": "Desc_Rotor_C",
+		"NAME": {
+			"EN": "Rotor",
+			"KO": "회전자"
+		}
+	}
+]
