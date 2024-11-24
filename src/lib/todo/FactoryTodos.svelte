@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { todos, checkedTodoList } = $props();
+	let { todos, checkedTodoList = $bindable() } = $props();
 
 	const toggleChecked = (todoId) => {
 		if (checkedTodoList.includes(todoId)) {

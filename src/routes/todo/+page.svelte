@@ -6,8 +6,6 @@
 	let checkedTodoList = $state([]);
 
 	const handleSave = async () => {
-		//alert(`Checked TODOs: ${JSON.stringify({ checkedTodoList })}`);
-
 		try {
 			const response = await fetch('/api/todo', {
 				method: 'PATCH',
@@ -32,7 +30,7 @@
 <div class="todo-page-container">
 	<button onclick={handleSave} class="todo-save-button"> Save </button>
 	{#each data.todos as factoryTodos}
-		<FactoryTodos todos={factoryTodos} {checkedTodoList} />
+		<FactoryTodos todos={factoryTodos} bind:checkedTodoList />
 	{/each}
 </div>
 
