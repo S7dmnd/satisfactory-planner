@@ -8,6 +8,6 @@ export async function POST(event) {
 	return await createItem({
 		request: event.request,
 		tableName: 'FACTORYLINE',
-		columns: ['RECIPEID', 'LINEAMOUNT', 'TODOAMOUNT', 'FACTORYID', 'EXTRAAMOUNT1', 'EXTRAAMOUNT2'], // 필요한 컬럼명 배열
+		columns: ['RECIPEKEY', 'LINEAMOUNT', 'TODOAMOUNT', 'FACTORYID', 'EXTRAAMOUNT1', 'EXTRAAMOUNT2'], // 필요한 컬럼명 배열
 	});
 }
