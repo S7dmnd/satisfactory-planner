@@ -2,32 +2,34 @@
 	import { goto } from '$app/navigation';
 
 	let { data } = $props();
+	let rowFrame = data.rowFrame;
 	let factoryList = data.factoryList;
 	let receiptList = data.receiptList;
 
-	let selectedFactory = $state(null);
-	let selectedReceipt = $state(null);
+	let receiptFrame = receiptList.find((r) => r.RECEIPTID === rowFrame.RECEIPTID) || '';
+	let selectedFactory = $state(rowFrame.FACTORYID);
+	let selectedReceipt = $state(rowFrame.FACTORYID);
 
 	let searchText = $state('');
 	let filteredReceipts = $derived(filterReceipts(searchText, receiptList));
 
 	let row = $state({
-		FACTORYID: '',
-		RECEIPTID: '',
-		INITEMNAME1: '',
-		INAMOUNT1: '',
-		INITEMNAME2: '',
-		INAMOUNT2: '',
-		INITEMNAME3: '',
-		INAMOUNT3: '',
-		INITEMNAME4: '',
-		INAMOUNT4: '',
-		OUTITEMNAME1: '',
-		OUTAMOUNT1: '',
-		OUTITEMNAME2: '',
-		OUTAMOUNT2: '',
-		LINEAMOUNT: 0,
-		TODOAMOUNT: 0
+		FACTORYID: rowFrame.FACTORYID,
+		RECEIPTID: rowFrame.RECEIPTID,
+		INITEMNAME1: receiptFrame.INITEMNAME1 || '',
+		INAMOUNT1: receiptFrame.INAMOUNT1 || '',
+		INITEMNAME2: receiptFrame.INITEMNAME2 || '',
+		INAMOUNT2: receiptFrame.INAMOUNT2 || '',
+		INITEMNAME3: receiptFrame.INITEMNAME3 || '',
+		INAMOUNT3: receiptFrame.INAMOUNT3 || '',
+		INITEMNAME4: receiptFrame.INITEMNAME4 || '',
+		INAMOUNT4: receiptFrame.INAMOUNT4 || '',
+		OUTITEMNAME1: receiptFrame.OUTITEMNAME1 || '',
+		OUTAMOUNT1: receiptFrame.OUTAMOUNT1 || '',
+		OUTITEMNAME2: receiptFrame.OUTITEMNAME2 || '',
+		OUTAMOUNT2: receiptFrame.OUTAMOUNT2 || '',
+		LINEAMOUNT: rowFrame.LINEAMOUNT || 0,
+		TODOAMOUNT: rowFrame.TODOAMOUNT || 0
 	});
 	// [POST] /api/factory-line
 	let output = $derived(convertRowToOutput());
@@ -172,9 +174,21 @@
 <div class="dropdown">
 	<label for="factory-select">Select Factory:</label>
 	<select id="factory-select" onchange={handleSelectFactory}>
-		<option value="">-- Select a Factory --</option>
+		<!-- 첫 번째 옵션 설정 -->
+		{#if rowFrame.FACTORYID}
+			<option value={row.FACTORYID}>
+				{factoryList.find((factory) => factory.FACTORYID === row.FACTORYID)?.FACTORYNAME ||
+					'Unknown Factory'}
+			</option>
+		{:else}
+			<option value="">-- Select a Factory --</option>
+		{/if}
+
+		<!-- 나머지 옵션 비활성화 -->
 		{#each factoryList as factory}
-			<option value={factory.FACTORYID}>{factory.FACTORYNAME}</option>
+			<option value={factory.FACTORYID} disabled={rowFrame.FACTORYID}>
+				{factory.FACTORYNAME}
+			</option>
 		{/each}
 	</select>
 </div>
@@ -192,9 +206,20 @@
 <div class="dropdown">
 	<label for="receipt-select">Select Recipe:</label>
 	<select id="receipt-select" onchange={handleSelectReceipt}>
-		<option value="">-- Select a Recipe --</option>
+		<!-- 첫 번째 옵션 동적 설정 -->
+		{#if rowFrame.RECEIPTID}
+			<option value={rowFrame.RECEIPTID}>
+				{formatReceiptText(
+					filteredReceipts.find((receipt) => receipt.RECEIPTID == rowFrame.RECEIPTID)
+				) || 'Unknown Receipt'}
+			</option>
+		{:else}
+			<option value="">-- Select a Recipe --</option>
+		{/if}
+
+		<!-- 나머지 옵션 비활성화 -->
 		{#each filteredReceipts as receipt}
-			<option value={receipt.RECEIPTID}>
+			<option value={receipt.RECEIPTID} disabled={rowFrame.RECEIPTID}>
 				{formatReceiptText(receipt)}
 			</option>
 		{/each}
