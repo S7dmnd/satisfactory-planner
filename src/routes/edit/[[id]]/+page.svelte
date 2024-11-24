@@ -190,9 +190,9 @@
 </div>
 
 <div class="dropdown">
-	<label for="receipt-select">Select Receipt:</label>
+	<label for="receipt-select">Select Recipe:</label>
 	<select id="receipt-select" onchange={handleSelectReceipt}>
-		<option value="">-- Select a Receipt --</option>
+		<option value="">-- Select a Recipe --</option>
 		{#each filteredReceipts as receipt}
 			<option value={receipt.RECEIPTID}>
 				{formatReceiptText(receipt)}
