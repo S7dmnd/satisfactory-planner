@@ -36,12 +36,24 @@
 							onclick={() => toggleChecked(todo.ROWID)}
 						/>
 					</td>
-					<td class="input-cell">{todo.INITEMNAME1} {todo.INAMOUNT1}</td>
-					<td class="input-cell">{todo.INITEMNAME2} {todo.INAMOUNT2}</td>
-					<td class="input-cell">{todo.INITEMNAME3} {todo.INAMOUNT3}</td>
-					<td class="input-cell">{todo.INITEMNAME4} {todo.INAMOUNT4}</td>
-					<td class="output-cell">{todo.OUTITEMNAME1} {todo.OUTAMOUNT1}</td>
-					<td class="output-cell">{todo.OUTITEMNAME2} {todo.OUTAMOUNT2}</td>
+					<td class="input-cell"
+						>{#if todo.INITEMNAME1}{todo.INITEMNAME1} {todo.INAMOUNT1 * todo.TODOAMOUNT}{/if}</td
+					>
+					<td class="input-cell"
+						>{#if todo.INITEMNAME2}{todo.INITEMNAME2} {todo.INAMOUNT2 * todo.TODOAMOUNT}{/if}</td
+					>
+					<td class="input-cell"
+						>{#if todo.INITEMNAME3}{todo.INITEMNAME3} {todo.INAMOUNT3 * todo.TODOAMOUNT}{/if}</td
+					>
+					<td class="input-cell"
+						>{#if todo.INITEMNAME4}{todo.INITEMNAME4} {todo.INAMOUNT4 * todo.TODOAMOUNT}{/if}</td
+					>
+					<td class="output-cell"
+						>{#if todo.OUTITEMNAME1}{todo.OUTITEMNAME1} {todo.OUTAMOUNT1 * todo.TODOAMOUNT}{/if}</td
+					>
+					<td class="output-cell"
+						>{#if todo.OUTITEMNAME2}{todo.OUTITEMNAME2} {todo.OUTAMOUNT2 * todo.TODOAMOUNT}{/if}</td
+					>
 					<td class="count-cell">{todo.TODOAMOUNT}</td>
 				</tr>
 			{/each}

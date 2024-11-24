@@ -18,12 +18,42 @@
 		<tbody>
 			{#each lines as line}
 				<tr>
-					<td>{line.INITEMNAME1} {line.INAMOUNT1}</td>
-					<td>{line.INITEMNAME2} {line.INAMOUNT2}</td>
-					<td>{line.INITEMNAME3} {line.INAMOUNT3}</td>
-					<td>{line.INITEMNAME4} {line.INAMOUNT4}</td>
-					<td>{line.OUTITEMNAME1} {line.OUTAMOUNT1}</td>
-					<td>{line.OUTITEMNAME2} {line.OUTAMOUNT2}</td>
+					<td
+						>{#if line.INITEMNAME1}{line.INITEMNAME1}
+							{line.INAMOUNT1 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;">({line.INAMOUNT1 * line.TODOAMOUNT})</span>
+							{/if}{/if}</td
+					>
+					<td
+						>{#if line.INITEMNAME2}{line.INITEMNAME2}
+							{line.INAMOUNT2 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;">({line.INAMOUNT2 * line.TODOAMOUNT})</span>
+							{/if}{/if}</td
+					>
+					<td
+						>{#if line.INITEMNAME3}{line.INITEMNAME3}
+							{line.INAMOUNT3 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;">({line.INAMOUNT3 * line.TODOAMOUNT})</span>
+							{/if}{/if}</td
+					>
+					<td
+						>{#if line.INITEMNAME4}{line.INITEMNAME4}
+							{line.INAMOUNT4 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;">({line.INAMOUNT4 * line.TODOAMOUNT})</span>
+							{/if}{/if}</td
+					>
+					<td
+						>{#if line.OUTITEMNAME1}{line.OUTITEMNAME1}
+							{line.OUTAMOUNT1 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;">({line.OUTAMOUNT1 * line.TODOAMOUNT})</span>
+							{/if}{/if}</td
+					>
+					<td
+						>{#if line.OUTITEMNAME2}{line.OUTITEMNAME2}
+							{line.OUTAMOUNT2 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;">({line.OUTAMOUNT2 * line.TODOAMOUNT})</span>
+							{/if}{/if}</td
+					>
 					<td>
 						{line.LINEAMOUNT}
 						{#if line.TODOAMOUNT > 0}
