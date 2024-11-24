@@ -14,7 +14,7 @@ export async function PUT(event) {
 		request: event.request,
 		tableName: 'ITEMLIST',
 		idColumn: 'ITEMKEY',
-		columns: ['ITEMNAME'], // 업데이트할 컬럼명 배열
+		columns: ['KO'], // 업데이트할 컬럼명 배열
 	});
 }
 

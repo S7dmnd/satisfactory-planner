@@ -8,6 +8,6 @@ export async function POST(event) {
 	return await createItem({
 		request: event.request,
 		tableName: 'ITEMLIST',
-		columns: ['ITEMNAME'], // 필요한 컬럼명 배열
+		columns: ['KO'], // 필요한 컬럼명 배열
 	});
 }
