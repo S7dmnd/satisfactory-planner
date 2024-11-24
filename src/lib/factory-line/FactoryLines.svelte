@@ -13,6 +13,7 @@
 				<th>Out 1</th>
 				<th>Out 2</th>
 				<th>Count (todo)</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -59,6 +60,9 @@
 						{#if line.TODOAMOUNT > 0}
 							<span style="color: red;">({line.TODOAMOUNT})</span>
 						{/if}
+					</td>
+					<td>
+						<a href="/edit/{line.ROWID}">Edit</a>
 					</td>
 				</tr>
 			{/each}
