@@ -5,7 +5,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const { id } = params;
 	const rowFrame = {
 		FACTORYID: null,
-		RECEIPTID: null,
+		RECIPEID: null,
 		LINEAMOUNT: '',
 		TODOAMOUNT: '',
 	};
@@ -16,11 +16,11 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	}
 	const factoryList = await factoryResponse.json();
 
-	const receiptResponse = await fetch('/api/receipt-view', { method: 'GET' });
-	if (!receiptResponse.ok) {
-		throw new Error(`HTTP error! status: ${receiptResponse.status}`);
+	const recipeResponse = await fetch('/api/recipe-view', { method: 'GET' });
+	if (!recipeResponse.ok) {
+		throw new Error(`HTTP error! status: ${recipeResponse.status}`);
 	}
-	const receiptList = await receiptResponse.json();
+	const recipeList = await recipeResponse.json();
 
 	if (id) {
 		const rowResponse = await fetch(`/api/factory-line/${id}`);
@@ -29,10 +29,10 @@ export const load: PageLoad = async ({ fetch, params }) => {
 		}
 		const row = await rowResponse.json();
 		rowFrame.FACTORYID = parseInt(row.FACTORYID);
-		rowFrame.RECEIPTID = parseInt(row.RECEIPTID);
+		rowFrame.RECIPEID = parseInt(row.RECIPEID);
 		rowFrame.LINEAMOUNT = row.LINEAMOUNT;
 		rowFrame.TODOAMOUNT = row.TODOAMOUNT;
 	};
 
-	return { factoryList: factoryList, receiptList: receiptList, rowFrame: rowFrame };
+	return { factoryList: factoryList, recipeList: recipeList, rowFrame: rowFrame };
 };

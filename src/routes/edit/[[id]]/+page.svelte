@@ -4,30 +4,30 @@
 	let { data } = $props();
 	let rowFrame = data.rowFrame;
 	let factoryList = data.factoryList;
-	let receiptList = data.receiptList;
+	let recipeList = data.recipeList;
 
-	let receiptFrame = receiptList.find((r) => r.RECEIPTID === rowFrame.RECEIPTID) || '';
+	let recipeFrame = recipeList.find((r) => r.RECIPEID === rowFrame.RECIPEID) || '';
 	let selectedFactory = $state(rowFrame.FACTORYID);
-	let selectedReceipt = $state(rowFrame.FACTORYID);
+	let selectedRecipe = $state(rowFrame.FACTORYID);
 
 	let searchText = $state('');
-	let filteredReceipts = $derived(filterReceipts(searchText, receiptList));
+	let filteredRecipes = $derived(filterRecipes(searchText, recipeList));
 
 	let row = $state({
 		FACTORYID: rowFrame.FACTORYID,
-		RECEIPTID: rowFrame.RECEIPTID,
-		INITEMNAME1: receiptFrame.INITEMNAME1 || '',
-		INAMOUNT1: receiptFrame.INAMOUNT1 || '',
-		INITEMNAME2: receiptFrame.INITEMNAME2 || '',
-		INAMOUNT2: receiptFrame.INAMOUNT2 || '',
-		INITEMNAME3: receiptFrame.INITEMNAME3 || '',
-		INAMOUNT3: receiptFrame.INAMOUNT3 || '',
-		INITEMNAME4: receiptFrame.INITEMNAME4 || '',
-		INAMOUNT4: receiptFrame.INAMOUNT4 || '',
-		OUTITEMNAME1: receiptFrame.OUTITEMNAME1 || '',
-		OUTAMOUNT1: receiptFrame.OUTAMOUNT1 || '',
-		OUTITEMNAME2: receiptFrame.OUTITEMNAME2 || '',
-		OUTAMOUNT2: receiptFrame.OUTAMOUNT2 || '',
+		RECIPEID: rowFrame.RECIPEID,
+		INITEMNAME1: recipeFrame.INITEMNAME1 || '',
+		INAMOUNT1: recipeFrame.INAMOUNT1 || '',
+		INITEMNAME2: recipeFrame.INITEMNAME2 || '',
+		INAMOUNT2: recipeFrame.INAMOUNT2 || '',
+		INITEMNAME3: recipeFrame.INITEMNAME3 || '',
+		INAMOUNT3: recipeFrame.INAMOUNT3 || '',
+		INITEMNAME4: recipeFrame.INITEMNAME4 || '',
+		INAMOUNT4: recipeFrame.INAMOUNT4 || '',
+		OUTITEMNAME1: recipeFrame.OUTITEMNAME1 || '',
+		OUTAMOUNT1: recipeFrame.OUTAMOUNT1 || '',
+		OUTITEMNAME2: recipeFrame.OUTITEMNAME2 || '',
+		OUTAMOUNT2: recipeFrame.OUTAMOUNT2 || '',
 		LINEAMOUNT: rowFrame.LINEAMOUNT || 0,
 		TODOAMOUNT: rowFrame.TODOAMOUNT || 0
 	});
@@ -35,22 +35,22 @@
 	let output = $derived(convertRowToOutput());
 
 	// 레시피 필터링
-	function filterReceipts(text, receiptList) {
+	function filterRecipes(text, recipeList) {
 		if (!text || text.trim() === '') {
 			// 검색어가 비어있으면 전체 레시피 반환
-			return receiptList;
+			return recipeList;
 		}
 
 		// 검색어와 일치하는 INITEMNAME 또는 OUTITEMNAME이 있는 레시피 필터링
-		return receiptList.filter((receipt) => {
+		return recipeList.filter((recipe) => {
 			// INITEMNAME(1~4)과 OUTITEMNAME(1~2) 모두를 검사
 			const inItems = [
-				receipt.INITEMNAME1,
-				receipt.INITEMNAME2,
-				receipt.INITEMNAME3,
-				receipt.INITEMNAME4
+				recipe.INITEMNAME1,
+				recipe.INITEMNAME2,
+				recipe.INITEMNAME3,
+				recipe.INITEMNAME4
 			];
-			const outItems = [receipt.OUTITEMNAME1, receipt.OUTITEMNAME2];
+			const outItems = [recipe.OUTITEMNAME1, recipe.OUTITEMNAME2];
 
 			// 검색어가 INITEMNAME이나 OUTITEMNAME에 포함되어 있는지 확인
 			return (
@@ -61,21 +61,21 @@
 	}
 
 	// Row 데이터를 업데이트하는 함수
-	function updateRowWithReceipt(receipt) {
-		// row의 RECEIPTID와 기타 필드를 업데이트
-		row.RECEIPTID = receipt.RECEIPTID;
-		row.INITEMNAME1 = receipt.INITEMNAME1 || '';
-		row.INITEMNAME2 = receipt.INITEMNAME2 || '';
-		row.INITEMNAME3 = receipt.INITEMNAME3 || '';
-		row.INITEMNAME4 = receipt.INITEMNAME4 || '';
-		row.OUTITEMNAME1 = receipt.OUTITEMNAME1 || '';
-		row.OUTITEMNAME2 = receipt.OUTITEMNAME2 || '';
-		row.INAMOUNT1 = receipt.INAMOUNT1 || '';
-		row.INAMOUNT2 = receipt.INAMOUNT2 || '';
-		row.INAMOUNT3 = receipt.INAMOUNT3 || '';
-		row.INAMOUNT4 = receipt.INAMOUNT4 || '';
-		row.OUTAMOUNT1 = receipt.OUTAMOUNT1 || '';
-		row.OUTAMOUNT2 = receipt.OUTAMOUNT2 || '';
+	function updateRowWithRecipe(recipe) {
+		// row의 RECIPEID와 기타 필드를 업데이트
+		row.RECIPEID = recipe.RECIPEID;
+		row.INITEMNAME1 = recipe.INITEMNAME1 || '';
+		row.INITEMNAME2 = recipe.INITEMNAME2 || '';
+		row.INITEMNAME3 = recipe.INITEMNAME3 || '';
+		row.INITEMNAME4 = recipe.INITEMNAME4 || '';
+		row.OUTITEMNAME1 = recipe.OUTITEMNAME1 || '';
+		row.OUTITEMNAME2 = recipe.OUTITEMNAME2 || '';
+		row.INAMOUNT1 = recipe.INAMOUNT1 || '';
+		row.INAMOUNT2 = recipe.INAMOUNT2 || '';
+		row.INAMOUNT3 = recipe.INAMOUNT3 || '';
+		row.INAMOUNT4 = recipe.INAMOUNT4 || '';
+		row.OUTAMOUNT1 = recipe.OUTAMOUNT1 || '';
+		row.OUTAMOUNT2 = recipe.OUTAMOUNT2 || '';
 		console.log('Updated row:', row);
 	}
 
@@ -85,9 +85,9 @@
 
 	// Row 데이터 저장 처리
 	async function saveRow() {
-		if (!output.FACTORYID || !output.RECEIPTID) {
-			alert('Error: FACTORYID or RECEIPTID is missing.');
-			alert(`FACTORYID = ${output.FACTORYID}, RECEIPTID = ${output.RECEIPTID}`);
+		if (!output.FACTORYID || !output.RECIPEID) {
+			alert('Error: FACTORYID or RECIPEID is missing.');
+			alert(`FACTORYID = ${output.FACTORYID}, RECIPEID = ${output.RECIPEID}`);
 			return;
 		}
 
@@ -111,18 +111,18 @@
 		}
 	}
 
-	function formatReceiptText(receipt) {
+	function formatRecipeText(recipe) {
 		// IN 아이템 텍스트 구성
 		const inItems = [];
-		if (receipt.INITEMNAME1) inItems.push(`${receipt.INITEMNAME1} * ${receipt.INAMOUNT1}`);
-		if (receipt.INITEMNAME2) inItems.push(`${receipt.INITEMNAME2} * ${receipt.INAMOUNT2}`);
-		if (receipt.INITEMNAME3) inItems.push(`${receipt.INITEMNAME3} * ${receipt.INAMOUNT3}`);
-		if (receipt.INITEMNAME4) inItems.push(`${receipt.INITEMNAME4} * ${receipt.INAMOUNT4}`);
+		if (recipe.INITEMNAME1) inItems.push(`${recipe.INITEMNAME1} * ${recipe.INAMOUNT1}`);
+		if (recipe.INITEMNAME2) inItems.push(`${recipe.INITEMNAME2} * ${recipe.INAMOUNT2}`);
+		if (recipe.INITEMNAME3) inItems.push(`${recipe.INITEMNAME3} * ${recipe.INAMOUNT3}`);
+		if (recipe.INITEMNAME4) inItems.push(`${recipe.INITEMNAME4} * ${recipe.INAMOUNT4}`);
 
 		// OUT 아이템 텍스트 구성
 		const outItems = [];
-		if (receipt.OUTITEMNAME1) outItems.push(`${receipt.OUTITEMNAME1} * ${receipt.OUTAMOUNT1}`);
-		if (receipt.OUTITEMNAME2) outItems.push(`${receipt.OUTITEMNAME2} * ${receipt.OUTAMOUNT2}`);
+		if (recipe.OUTITEMNAME1) outItems.push(`${recipe.OUTITEMNAME1} * ${recipe.OUTAMOUNT1}`);
+		if (recipe.OUTITEMNAME2) outItems.push(`${recipe.OUTITEMNAME2} * ${recipe.OUTAMOUNT2}`);
 
 		// 텍스트를 "(INITEM) --> (OUTITEM)" 형식으로 반환
 		return `${inItems.join(' + ')} --> ${outItems.join(' + ')}`;
@@ -131,7 +131,7 @@
 	function convertRowToOutput() {
 		const output = {
 			FACTORYID: row.FACTORYID,
-			RECEIPTID: row.RECEIPTID,
+			RECIPEID: row.RECIPEID,
 			LINEAMOUNT: row.LINEAMOUNT,
 			TODOAMOUNT: row.TODOAMOUNT,
 			EXTRAAMOUNT1: 0,
@@ -146,14 +146,14 @@
 		//alert(row.FACTORYID);
 	};
 
-	const handleSelectReceipt = (e) => {
-		selectedReceipt = parseInt(e.target.value); // 선택된 RECEIPTID
-		const receipt = receiptList.find((r) => r.RECEIPTID === selectedReceipt);
+	const handleSelectRecipe = (e) => {
+		selectedRecipe = parseInt(e.target.value); // 선택된 RECIPEID
+		const recipe = recipeList.find((r) => r.RECIPEID === selectedRecipe);
 
-		if (receipt) {
-			updateRowWithReceipt(receipt); // Row 업데이트
+		if (recipe) {
+			updateRowWithRecipe(recipe); // Row 업데이트
 		} else {
-			console.error(`Receipt with RECEIPTID ${selectedReceipt} not found.`);
+			console.error(`Recipe with RECIPEID ${selectedRecipe} not found.`);
 		}
 	};
 
@@ -198,29 +198,28 @@
 <div class="search-bar">
 	<input
 		type="text"
-		placeholder="Search receipts by INITEMNAME or OUTITEMNAME"
+		placeholder="Search recipes by INITEMNAME or OUTITEMNAME"
 		bind:value={searchText}
 	/>
 </div>
 
 <div class="dropdown">
-	<label for="receipt-select">Select Recipe:</label>
-	<select id="receipt-select" onchange={handleSelectReceipt}>
+	<label for="recipe-select">Select Recipe:</label>
+	<select id="recipe-select" onchange={handleSelectRecipe}>
 		<!-- 첫 번째 옵션 동적 설정 -->
-		{#if rowFrame.RECEIPTID}
-			<option value={rowFrame.RECEIPTID}>
-				{formatReceiptText(
-					filteredReceipts.find((receipt) => receipt.RECEIPTID == rowFrame.RECEIPTID)
-				) || 'Unknown Receipt'}
+		{#if rowFrame.RECIPEID}
+			<option value={rowFrame.RECIPEID}>
+				{formatRecipeText(filteredRecipes.find((recipe) => recipe.RECIPEID == rowFrame.RECIPEID)) ||
+					'Unknown Recipe'}
 			</option>
 		{:else}
 			<option value="">-- Select a Recipe --</option>
 		{/if}
 
 		<!-- 나머지 옵션 비활성화 -->
-		{#each filteredReceipts as receipt}
-			<option value={receipt.RECEIPTID} disabled={rowFrame.RECEIPTID}>
-				{formatReceiptText(receipt)}
+		{#each filteredRecipes as recipe}
+			<option value={recipe.RECIPEID} disabled={rowFrame.RECIPEID}>
+				{formatRecipeText(recipe)}
 			</option>
 		{/each}
 	</select>

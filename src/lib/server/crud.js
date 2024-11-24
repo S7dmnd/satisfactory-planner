@@ -1,7 +1,7 @@
 // src/lib/utils/crud.js
 import pool from '$lib/server/db.js';
 
-const allowedTables = ['ITEMLIST', 'FACTORYLIST', 'RECEIPTLIST', 'FACTORYLINE', 'DELIVERYLINE', 'RECEIPTVIEW'];
+const allowedTables = ['ITEMLIST', 'FACTORYLIST', 'RECIPELIST', 'FACTORYLINE', 'DELIVERYLINE', 'RECIPEVIEW'];
 
 export async function getAllItems({ tableName }) {
     // 테이블 이름 검증
