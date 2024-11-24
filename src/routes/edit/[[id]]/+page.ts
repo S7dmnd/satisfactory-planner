@@ -4,6 +4,7 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch, params }) => {
 	const { id } = params;
 	const rowFrame = {
+		ROWID: id || null,
 		FACTORYID: null,
 		RECIPEKEY: '',
 		LINEAMOUNT: '',

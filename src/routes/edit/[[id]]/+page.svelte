@@ -111,6 +111,41 @@
 		}
 	}
 
+	async function updateRow() {
+		if (!output.FACTORYID || !output.RECIPEKEY) {
+			alert('Error: FACTORYID or RECIPEKEY is missing.');
+			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
+			return;
+		}
+
+		try {
+			const response = await fetch(`/api/factory-line/${rowFrame.ROWID}`, {
+				method: 'PUT',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(output)
+			});
+
+			if (!response.ok) {
+				throw new Error(`Failed to save row: ${response.statusText}`);
+			}
+
+			// 4. 성공 시 리다이렉트
+			alert('Row updated successfully!');
+			goto('/todo');
+		} catch (error) {
+			console.error('Error updating row:', error);
+			alert(`Failed to update row ${rowFrame.ROWID}: ${error.message}`);
+		}
+	}
+
+	function handleRowAction() {
+		if (rowFrame.ROWID) {
+			updateRow(); // ROWID가 있으면 업데이트
+		} else {
+			saveRow(); // ROWID가 없으면 저장
+		}
+	}
+
 	function formatRecipeText(recipe) {
 		// IN 아이템 텍스트 구성
 		const inItems = [];
@@ -301,9 +336,14 @@
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
-			<input id="todoamount" type="number" value="0" onchange={(e) => handleTodoAmountChange(e)} />
+			<input
+				id="todoamount"
+				type="number"
+				value={rowFrame.TODOAMOUNT || 0}
+				onchange={(e) => handleTodoAmountChange(e)}
+			/>
 		</div>
-		<button type="button" onclick={saveRow}>Save Row</button>
+		<button type="button" onclick={handleRowAction}>Save Row</button>
 	</form>
 </div>
 
