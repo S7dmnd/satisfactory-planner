@@ -147,7 +147,7 @@
 	};
 
 	const handleSelectRecipe = (e) => {
-		selectedRecipe = parseInt(e.target.value); // 선택된 RECIPEKEY
+		selectedRecipe = e.target.value; // 선택된 RECIPEKEY
 		const recipe = recipeList.find((r) => r.RECIPEKEY === selectedRecipe);
 
 		if (recipe) {

@@ -5,7 +5,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const { id } = params;
 	const rowFrame = {
 		FACTORYID: null,
-		RECIPEKEY: null,
+		RECIPEKEY: '',
 		LINEAMOUNT: '',
 		TODOAMOUNT: '',
 	};
@@ -29,7 +29,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 		}
 		const row = await rowResponse.json();
 		rowFrame.FACTORYID = parseInt(row.FACTORYID);
-		rowFrame.RECIPEKEY = parseInt(row.RECIPEKEY);
+		rowFrame.RECIPEKEY = row.RECIPEKEY;
 		rowFrame.LINEAMOUNT = row.LINEAMOUNT;
 		rowFrame.TODOAMOUNT = row.TODOAMOUNT;
 	};
