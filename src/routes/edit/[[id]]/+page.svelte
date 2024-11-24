@@ -78,7 +78,7 @@
 	}
 
 	function calculateAmount(amount) {
-		return amount * (row.LINEAMOUNT + row.TODOAMOUNT);
+		return amount * row.LINEAMOUNT;
 	}
 
 	// Row 데이터 저장 처리
@@ -152,6 +152,16 @@
 			updateRowWithReceipt(receipt); // Row 업데이트
 		} else {
 			console.error(`Receipt with RECEIPTID ${selectedReceipt} not found.`);
+		}
+	};
+
+	const handleTodoAmountChange = (e) => {
+		let todoAmount = e.target.value;
+		if (todoAmount > row.LINEAMOUNT) {
+			alert(`Todo Amount ${todoAmount} must be equal or lower than Line Amount ${row.LINEAMOUNT}!`);
+			e.target.value = row.LINEAMOUNT;
+		} else {
+			row.TODOAMOUNT = todoAmount;
 		}
 	};
 </script>
@@ -266,7 +276,7 @@
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
-			<input id="todoamount" type="number" bind:value={row.TODOAMOUNT} />
+			<input id="todoamount" type="number" value="0" onchange={(e) => handleTodoAmountChange(e)} />
 		</div>
 		<button type="button" onclick={saveRow}>Save Row</button>
 	</form>
