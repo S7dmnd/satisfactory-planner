@@ -1,5 +1,7 @@
 <script lang="ts">
+	import Loading from '$lib/loading/loading.svelte';
 	let { todos, checkedTodoList = $bindable() } = $props();
+	let loading = $state(false);
 
 	const toggleChecked = (todoId) => {
 		if (checkedTodoList.includes(todoId)) {
@@ -11,16 +13,21 @@
 	};
 
 	const handleSave = async (rowId) => {
-		//alert(rowId);
+		loading = true;
 		const response = await fetch(`/api/todo/${rowId}`, { method: 'PUT' });
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 		window.location.reload();
+		loading = false;
+		//alert(rowId);
 	};
 </script>
 
 <div class="factory-container">
+	{#if loading}
+		<Loading message="데이터를 불러오는 중입니다..." />
+	{/if}
 	<h3 class="factory-title">{todos.FACTORYNAME}</h3>
 	<table class="todo-table">
 		<thead class="todo-table-header">
