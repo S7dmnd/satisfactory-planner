@@ -5,10 +5,12 @@
 	let rowFrame = data.rowFrame;
 	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
-	let recipeFrame = recipeList.find((r) => r.RECIPEKEY === rowFrame.RECIPEKEY) || '';
 
 	let selectedFactory = $state(rowFrame.FACTORYID);
 	let selectedRecipe = $state(rowFrame.RECIPEKEY);
+	let recipeFrame = $derived(recipeList.find((r) => r.RECIPEKEY === selectedRecipe));
+	let selectedLineAmount = $state(rowFrame.LINEAMOUNT || 0);
+	let selectedTodoAmount = $state(rowFrame.TODOAMOUNT || 0);
 
 	let searchText = $state('');
 	let filteredRecipes = $derived.by(() => {
@@ -36,24 +38,25 @@
 		});
 	});
 
-	let row = $state({
-		FACTORYID: rowFrame.FACTORYID,
-		RECIPEKEY: rowFrame.RECIPEKEY,
-		INITEMNAME1: recipeFrame.INITEMNAME1 || '',
-		INAMOUNT1: recipeFrame.INAMOUNT1 || '',
-		INITEMNAME2: recipeFrame.INITEMNAME2 || '',
-		INAMOUNT2: recipeFrame.INAMOUNT2 || '',
-		INITEMNAME3: recipeFrame.INITEMNAME3 || '',
-		INAMOUNT3: recipeFrame.INAMOUNT3 || '',
-		INITEMNAME4: recipeFrame.INITEMNAME4 || '',
-		INAMOUNT4: recipeFrame.INAMOUNT4 || '',
-		OUTITEMNAME1: recipeFrame.OUTITEMNAME1 || '',
-		OUTAMOUNT1: recipeFrame.OUTAMOUNT1 || '',
-		OUTITEMNAME2: recipeFrame.OUTITEMNAME2 || '',
-		OUTAMOUNT2: recipeFrame.OUTAMOUNT2 || '',
-		LINEAMOUNT: rowFrame.LINEAMOUNT || 0,
-		TODOAMOUNT: rowFrame.TODOAMOUNT || 0
+	let row = $derived({
+		FACTORYID: selectedFactory,
+		RECIPEKEY: selectedRecipe,
+		INITEMNAME1: recipeFrame?.INITEMNAME1 || '',
+		INAMOUNT1: recipeFrame?.INAMOUNT1 || '',
+		INITEMNAME2: recipeFrame?.INITEMNAME2 || '',
+		INAMOUNT2: recipeFrame?.INAMOUNT2 || '',
+		INITEMNAME3: recipeFrame?.INITEMNAME3 || '',
+		INAMOUNT3: recipeFrame?.INAMOUNT3 || '',
+		INITEMNAME4: recipeFrame?.INITEMNAME4 || '',
+		INAMOUNT4: recipeFrame?.INAMOUNT4 || '',
+		OUTITEMNAME1: recipeFrame?.OUTITEMNAME1 || '',
+		OUTAMOUNT1: recipeFrame?.OUTAMOUNT1 || '',
+		OUTITEMNAME2: recipeFrame?.OUTITEMNAME2 || '',
+		OUTAMOUNT2: recipeFrame?.OUTAMOUNT2 || '',
+		LINEAMOUNT: selectedLineAmount,
+		TODOAMOUNT: selectedTodoAmount
 	});
+
 	// [POST] /api/factory-line
 	let output = $derived({
 		FACTORYID: row.FACTORYID,
@@ -64,37 +67,8 @@
 		EXTRAAMOUNT2: 0
 	});
 
-	// Row 데이터를 업데이트하는 함수
-	function updateRowWithRecipe(recipe) {
-		// row의 RECIPEKEY와 기타 필드를 업데이트
-		row.RECIPEKEY = recipe.RECIPEKEY;
-		row.INITEMNAME1 = recipe.INITEMNAME1 || '';
-		row.INITEMNAME2 = recipe.INITEMNAME2 || '';
-		row.INITEMNAME3 = recipe.INITEMNAME3 || '';
-		row.INITEMNAME4 = recipe.INITEMNAME4 || '';
-		row.OUTITEMNAME1 = recipe.OUTITEMNAME1 || '';
-		row.OUTITEMNAME2 = recipe.OUTITEMNAME2 || '';
-		row.INAMOUNT1 = recipe.INAMOUNT1 || '';
-		row.INAMOUNT2 = recipe.INAMOUNT2 || '';
-		row.INAMOUNT3 = recipe.INAMOUNT3 || '';
-		row.INAMOUNT4 = recipe.INAMOUNT4 || '';
-		row.OUTAMOUNT1 = recipe.OUTAMOUNT1 || '';
-		row.OUTAMOUNT2 = recipe.OUTAMOUNT2 || '';
-		console.log('Updated row:', row);
-	}
-
-	function calculateAmount(amount) {
-		return amount * row.LINEAMOUNT;
-	}
-
 	// Row 데이터 저장 처리
 	async function saveRow() {
-		if (!output.FACTORYID || !output.RECIPEKEY) {
-			alert('Error: FACTORYID or RECIPEKEY is missing.');
-			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
-			return;
-		}
-
 		try {
 			const response = await fetch('/api/factory-line', {
 				method: 'POST',
@@ -116,12 +90,6 @@
 	}
 
 	async function updateRow() {
-		if (!output.FACTORYID || !output.RECIPEKEY) {
-			alert('Error: FACTORYID or RECIPEKEY is missing.');
-			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
-			return;
-		}
-
 		try {
 			const response = await fetch(`/api/factory-line/${rowFrame.ROWID}`, {
 				method: 'PUT',
@@ -143,6 +111,12 @@
 	}
 
 	function handleRowAction() {
+		if (!output.FACTORYID || !output.RECIPEKEY) {
+			alert('Error: FACTORYID or RECIPEKEY is missing.');
+			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
+			return;
+		}
+
 		if (rowFrame.ROWID) {
 			updateRow(); // ROWID가 있으면 업데이트
 		} else {
@@ -167,30 +141,13 @@
 		return `${inItems.join(' + ')} --> ${outItems.join(' + ')}`;
 	}
 
-	const handleSelectFactory = (e) => {
-		selectedFactory = e.target.value;
-		row.FACTORYID = selectedFactory;
-		//alert(row.FACTORYID);
-	};
-
-	const handleSelectRecipe = (e) => {
-		selectedRecipe = e.target.value; // 선택된 RECIPEKEY
-		const recipe = recipeList.find((r) => r.RECIPEKEY === selectedRecipe);
-
-		if (recipe) {
-			updateRowWithRecipe(recipe); // Row 업데이트
-		} else {
-			console.error(`Recipe with RECIPEKEY ${selectedRecipe} not found.`);
-		}
-	};
-
 	const handleTodoAmountChange = (e) => {
 		let todoAmount = e.target.value;
 		if (todoAmount > row.LINEAMOUNT) {
 			alert(`Todo Amount ${todoAmount} must be equal or lower than Line Amount ${row.LINEAMOUNT}!`);
 			e.target.value = row.LINEAMOUNT;
 		} else {
-			row.TODOAMOUNT = todoAmount;
+			selectedTodoAmount = todoAmount;
 		}
 	};
 
@@ -212,8 +169,7 @@
 
 				const newFactoryID = (await response.json()).id;
 
-				factoryList = [...factoryList, { FACTORYID: newFactoryID, FACTORYNAME: newFactoryName }];
-				row.FACTORYID = newFactoryID;
+				factoryList.push({ FACTORYID: newFactoryID, FACTORYNAME: newFactoryName });
 				selectedFactory = newFactoryID;
 			} catch (error) {
 				console.error('Error saving newFactory:', error);
@@ -226,11 +182,11 @@
 <!-- 공장 선택 드롭다운 -->
 <div class="dropdown">
 	<label for="factory-select">Select Factory:</label>
-	<select id="factory-select" onchange={handleSelectFactory}>
+	<select id="factory-select" bind:value={selectedFactory}>
 		<!-- 첫 번째 옵션 설정 -->
 		{#if rowFrame.FACTORYID}
-			<option value={row.FACTORYID}>
-				{factoryList.find((factory) => factory.FACTORYID === row.FACTORYID)?.FACTORYNAME ||
+			<option value={rowFrame.FACTORYID}>
+				{factoryList.find((factory) => factory.FACTORYID === rowFrame.FACTORYID)?.FACTORYNAME ||
 					'Unknown Factory'}
 			</option>
 		{:else}
@@ -259,7 +215,7 @@
 
 <div class="dropdown">
 	<label for="recipe-select">Select Recipe:</label>
-	<select id="recipe-select" onchange={handleSelectRecipe}>
+	<select id="recipe-select" bind:value={selectedRecipe}>
 		<!-- 첫 번째 옵션 동적 설정 -->
 		{#if rowFrame.RECIPEKEY}
 			<option value={rowFrame.RECIPEKEY}>
@@ -297,7 +253,7 @@
 				<td>IN</td>
 				<td>{row.INITEMNAME1}</td>
 				<td>{row.INAMOUNT1}</td>
-				<td>{calculateAmount(row.INAMOUNT1)}</td>
+				<td>{row.INAMOUNT1 * row.LINEAMOUNT}</td>
 			</tr>
 		{/if}
 		{#if row.INITEMNAME2}
@@ -305,7 +261,7 @@
 				<td>IN</td>
 				<td>{row.INITEMNAME2}</td>
 				<td>{row.INAMOUNT2}</td>
-				<td>{calculateAmount(row.INAMOUNT2)}</td>
+				<td>{row.INAMOUNT2 * row.LINEAMOUNT}</td>
 			</tr>
 		{/if}
 		{#if row.INITEMNAME3}
@@ -313,7 +269,7 @@
 				<td>IN</td>
 				<td>{row.INITEMNAME3}</td>
 				<td>{row.INAMOUNT3}</td>
-				<td>{calculateAmount(row.INAMOUNT3)}</td>
+				<td>{row.INAMOUNT3 * row.LINEAMOUNT}</td>
 			</tr>
 		{/if}
 		{#if row.INITEMNAME4}
@@ -321,7 +277,7 @@
 				<td>IN</td>
 				<td>{row.INITEMNAME4}</td>
 				<td>{row.INAMOUNT4}</td>
-				<td>{calculateAmount(row.INAMOUNT4)}</td>
+				<td>{row.INAMOUNT4 * row.LINEAMOUNT}</td>
 			</tr>
 		{/if}
 
@@ -331,7 +287,7 @@
 				<td>OUT</td>
 				<td>{row.OUTITEMNAME1}</td>
 				<td>{row.OUTAMOUNT1}</td>
-				<td>{calculateAmount(row.OUTAMOUNT1)}</td>
+				<td>{row.OUTAMOUNT1 * row.LINEAMOUNT}</td>
 			</tr>
 		{/if}
 		{#if row.OUTITEMNAME2}
@@ -339,7 +295,7 @@
 				<td>OUT</td>
 				<td>{row.OUTITEMNAME2}</td>
 				<td>{row.OUTAMOUNT2}</td>
-				<td>{calculateAmount(row.OUTAMOUNT2)}</td>
+				<td>{row.OUTAMOUNT2 * row.LINEAMOUNT}</td>
 			</tr>
 		{/if}
 	</tbody>
@@ -351,14 +307,14 @@
 	<form>
 		<div>
 			<label for="lineamount">LINE AMOUNT:</label>
-			<input id="lineamount" type="number" bind:value={row.LINEAMOUNT} />
+			<input id="lineamount" type="number" bind:value={selectedLineAmount} />
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
 			<input
 				id="todoamount"
 				type="number"
-				value={rowFrame.TODOAMOUNT || 0}
+				bind:value={selectedTodoAmount}
 				onchange={(e) => handleTodoAmountChange(e)}
 			/>
 		</div>
