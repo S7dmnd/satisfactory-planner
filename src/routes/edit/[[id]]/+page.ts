@@ -4,11 +4,11 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch, params }) => {
 	const { id } = params;
 	const rowFrame = {
-		ROWID: id || null,
+		ROWID: parseInt(id) ?? null,
 		FACTORYID: null,
-		RECIPEKEY: '',
-		LINEAMOUNT: '',
-		TODOAMOUNT: '',
+		RECIPEKEY: null,
+		LINEAMOUNT: 0,
+		TODOAMOUNT: 0,
 	};
 
 	const factoryResponse = await fetch('/api/factory-list', { method: 'GET' });
@@ -29,7 +29,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 			throw new Error(`HTTP error! status: ${rowResponse.status}`);
 		}
 		const row = await rowResponse.json();
-		rowFrame.FACTORYID = parseInt(row.FACTORYID);
+		rowFrame.FACTORYID = row.FACTORYID;
 		rowFrame.RECIPEKEY = row.RECIPEKEY;
 		rowFrame.LINEAMOUNT = row.LINEAMOUNT;
 		rowFrame.TODOAMOUNT = row.TODOAMOUNT;

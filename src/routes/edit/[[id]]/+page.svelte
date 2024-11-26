@@ -9,8 +9,8 @@
 	let selectedFactory = $state(rowFrame.FACTORYID);
 	let selectedRecipe = $state(rowFrame.RECIPEKEY);
 	let recipeFrame = $derived(recipeList.find((r) => r.RECIPEKEY === selectedRecipe));
-	let selectedLineAmount = $state(rowFrame.LINEAMOUNT || 0);
-	let selectedTodoAmount = $state(rowFrame.TODOAMOUNT || 0);
+	let selectedLineAmount = $state(rowFrame.LINEAMOUNT);
+	let selectedTodoAmount = $state(rowFrame.TODOAMOUNT);
 
 	let searchText = $state('');
 	let filteredRecipes = $derived.by(() => {
@@ -41,18 +41,18 @@
 	let row = $derived({
 		FACTORYID: selectedFactory,
 		RECIPEKEY: selectedRecipe,
-		INITEMNAME1: recipeFrame?.INITEMNAME1 || '',
-		INAMOUNT1: recipeFrame?.INAMOUNT1 || '',
-		INITEMNAME2: recipeFrame?.INITEMNAME2 || '',
-		INAMOUNT2: recipeFrame?.INAMOUNT2 || '',
-		INITEMNAME3: recipeFrame?.INITEMNAME3 || '',
-		INAMOUNT3: recipeFrame?.INAMOUNT3 || '',
-		INITEMNAME4: recipeFrame?.INITEMNAME4 || '',
-		INAMOUNT4: recipeFrame?.INAMOUNT4 || '',
-		OUTITEMNAME1: recipeFrame?.OUTITEMNAME1 || '',
-		OUTAMOUNT1: recipeFrame?.OUTAMOUNT1 || '',
-		OUTITEMNAME2: recipeFrame?.OUTITEMNAME2 || '',
-		OUTAMOUNT2: recipeFrame?.OUTAMOUNT2 || '',
+		INITEMNAME1: recipeFrame?.INITEMNAME1 ?? '',
+		INAMOUNT1: recipeFrame?.INAMOUNT1 ?? 0,
+		INITEMNAME2: recipeFrame?.INITEMNAME2 ?? '',
+		INAMOUNT2: recipeFrame?.INAMOUNT2 ?? 0,
+		INITEMNAME3: recipeFrame?.INITEMNAME3 ?? '',
+		INAMOUNT3: recipeFrame?.INAMOUNT3 ?? 0,
+		INITEMNAME4: recipeFrame?.INITEMNAME4 ?? '',
+		INAMOUNT4: recipeFrame?.INAMOUNT4 ?? 0,
+		OUTITEMNAME1: recipeFrame?.OUTITEMNAME1 ?? '',
+		OUTAMOUNT1: recipeFrame?.OUTAMOUNT1 ?? 0,
+		OUTITEMNAME2: recipeFrame?.OUTITEMNAME2 ?? '',
+		OUTAMOUNT2: recipeFrame?.OUTAMOUNT2 ?? 0,
 		LINEAMOUNT: selectedLineAmount,
 		TODOAMOUNT: selectedTodoAmount
 	});
@@ -111,16 +111,16 @@
 	}
 
 	function handleRowAction() {
-		if (!output.FACTORYID || !output.RECIPEKEY) {
+		if (output.FACTORYID && output.RECIPEKEY) {
+			if (rowFrame.ROWID) {
+				updateRow(); // ROWID가 있으면 업데이트
+			} else {
+				saveRow(); // ROWID가 없으면 저장
+			}
+		} else {
 			alert('Error: FACTORYID or RECIPEKEY is missing.');
 			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
 			return;
-		}
-
-		if (rowFrame.ROWID) {
-			updateRow(); // ROWID가 있으면 업데이트
-		} else {
-			saveRow(); // ROWID가 없으면 저장
 		}
 	}
 
