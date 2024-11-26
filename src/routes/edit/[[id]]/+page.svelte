@@ -2,17 +2,16 @@
 	import { goto } from '$app/navigation';
 
 	let { data } = $props();
-	let rowFrame = data.rowFrame;
 	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
 
-	let isEdit = rowFrame.ROWID !== null;
+	let isEdit = data.rowFrame.ROWID !== null;
 
-	let selectedFactory = $state(rowFrame.FACTORYID);
-	let selectedRecipe = $state(rowFrame.RECIPEKEY);
+	let selectedFactory = $state(data.rowFrame.FACTORYID);
+	let selectedRecipe = $state(data.rowFrame.RECIPEKEY);
 	let recipeFrame = $derived(recipeList.find((r) => r.RECIPEKEY === selectedRecipe));
-	let selectedLineAmount = $state(rowFrame.LINEAMOUNT);
-	let selectedTodoAmount = $state(rowFrame.TODOAMOUNT);
+	let selectedLineAmount = $state(data.rowFrame.LINEAMOUNT);
+	let selectedTodoAmount = $state(data.rowFrame.TODOAMOUNT);
 
 	let searchText = $state('');
 	let filteredRecipes = $derived.by(() => {
@@ -91,9 +90,9 @@
 		}
 	}
 
-	async function updateRow() {
+	async function updateRow(ROWID) {
 		try {
-			const response = await fetch(`/api/factory-line/${rowFrame.ROWID}`, {
+			const response = await fetch(`/api/factory-line/${ROWID}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(output)
@@ -108,14 +107,14 @@
 			goto('/todo');
 		} catch (error) {
 			console.error('Error updating row:', error);
-			alert(`Failed to update row ${rowFrame.ROWID}: ${error.message}`);
+			alert(`Failed to update row ${ROWID}: ${error.message}`);
 		}
 	}
 
 	function handleRowAction() {
 		if (output.FACTORYID && output.RECIPEKEY) {
 			if (isEdit) {
-				updateRow(); // ROWID가 있으면 업데이트
+				updateRow(data.rowFrame.ROWID); // ROWID가 있으면 업데이트
 			} else {
 				saveRow(); // ROWID가 없으면 저장
 			}
