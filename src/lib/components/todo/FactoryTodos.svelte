@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Loading from '$lib/loading/Loading.svelte';
+	import Loading from '$lib/components/Loading.svelte';
 	let { todos } = $props();
 	let loading = $state(false);
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FactoryLines from '$lib/factory-line/FactoryLines.svelte';
+	import FactoryLines from '$lib/components/factory-line/FactoryLines.svelte';
 
 	let { data } = $props();
 

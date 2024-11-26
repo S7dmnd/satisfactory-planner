@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FactoryTodos from '$lib/todo/FactoryTodos.svelte';
+	import FactoryTodos from '$lib/components/todo/FactoryTodos.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
