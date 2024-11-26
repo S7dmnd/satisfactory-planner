@@ -3,7 +3,7 @@
 
 	let { data } = $props();
 	let rowFrame = data.rowFrame;
-	let factoryList = data.factoryList;
+	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
 
 	let recipeFrame = recipeList.find((r) => r.RECIPEKEY === rowFrame.RECIPEKEY) || '';
@@ -201,9 +201,35 @@
 			row.TODOAMOUNT = todoAmount;
 		}
 	};
-</script>
 
-<h1>Factory and Recipe Management</h1>
+	const addNewFactory = async () => {
+		const newFactoryName = prompt('Enter the name of the new factory:');
+		if (newFactoryName) {
+			try {
+				const response = await fetch('/api/factory-list', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						FACTORYNAME: newFactoryName
+					})
+				});
+
+				if (!response.ok) {
+					throw new Error(`Failed to save newFactory: ${response.statusText}`);
+				}
+
+				const newFactoryID = (await response.json()).id;
+
+				factoryList = [...factoryList, { FACTORYID: newFactoryID, FACTORYNAME: newFactoryName }];
+				row.FACTORYID = newFactoryID;
+				selectedFactory = newFactoryID;
+			} catch (error) {
+				console.error('Error saving newFactory:', error);
+				alert(`Failed to save row: ${error.message}`);
+			}
+		}
+	};
+</script>
 
 <!-- 공장 선택 드롭다운 -->
 <div class="dropdown">
@@ -226,6 +252,7 @@
 			</option>
 		{/each}
 	</select>
+	<button type="button" onclick={addNewFactory}>Add New Factory</button>
 </div>
 
 <!-- 레시피 선택 드롭다운 및 검색창 -->
@@ -348,7 +375,6 @@
 </div>
 
 <style>
-	h1,
 	h3 {
 		text-align: center;
 		color: rgba(250, 149, 73, 255);
@@ -440,7 +466,7 @@
 	}
 
 	/* Save Button Styling */
-	.row-form button {
+	button {
 		padding: 10px;
 		background-color: rgba(250, 149, 73, 255);
 		color: white;
@@ -452,11 +478,11 @@
 		align-self: center;
 	}
 
-	.row-form button:hover {
+	button:hover {
 		background-color: rgba(250, 149, 73, 0.8);
 	}
 
-	.row-form button:active {
+	button:active {
 		transform: scale(0.98);
 	}
 
