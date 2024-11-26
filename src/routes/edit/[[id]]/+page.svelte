@@ -5,13 +5,36 @@
 	let rowFrame = data.rowFrame;
 	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
-
 	let recipeFrame = recipeList.find((r) => r.RECIPEKEY === rowFrame.RECIPEKEY) || '';
+
 	let selectedFactory = $state(rowFrame.FACTORYID);
-	let selectedRecipe = $state(rowFrame.FACTORYID);
+	let selectedRecipe = $state(rowFrame.RECIPEKEY);
 
 	let searchText = $state('');
-	let filteredRecipes = $derived(filterRecipes(searchText, recipeList));
+	let filteredRecipes = $derived.by(() => {
+		if (!searchText || searchText.trim() === '') {
+			// 검색어가 비어있으면 전체 레시피 반환
+			return recipeList;
+		}
+
+		// 검색어와 일치하는 INITEMNAME 또는 OUTITEMNAME이 있는 레시피 필터링
+		return recipeList.filter((recipe) => {
+			// INITEMNAME(1~4)과 OUTITEMNAME(1~2) 모두를 검사
+			const inItems = [
+				recipe.INITEMNAME1,
+				recipe.INITEMNAME2,
+				recipe.INITEMNAME3,
+				recipe.INITEMNAME4
+			];
+			const outItems = [recipe.OUTITEMNAME1, recipe.OUTITEMNAME2];
+
+			// 검색어가 INITEMNAME이나 OUTITEMNAME에 포함되어 있는지 확인
+			return (
+				inItems.some((item) => item?.toLowerCase().includes(searchText.toLowerCase())) ||
+				outItems.some((item) => item?.toLowerCase().includes(searchText.toLowerCase()))
+			);
+		});
+	});
 
 	let row = $state({
 		FACTORYID: rowFrame.FACTORYID,
@@ -32,33 +55,14 @@
 		TODOAMOUNT: rowFrame.TODOAMOUNT || 0
 	});
 	// [POST] /api/factory-line
-	let output = $derived(convertRowToOutput());
-
-	// 레시피 필터링
-	function filterRecipes(text, recipeList) {
-		if (!text || text.trim() === '') {
-			// 검색어가 비어있으면 전체 레시피 반환
-			return recipeList;
-		}
-
-		// 검색어와 일치하는 INITEMNAME 또는 OUTITEMNAME이 있는 레시피 필터링
-		return recipeList.filter((recipe) => {
-			// INITEMNAME(1~4)과 OUTITEMNAME(1~2) 모두를 검사
-			const inItems = [
-				recipe.INITEMNAME1,
-				recipe.INITEMNAME2,
-				recipe.INITEMNAME3,
-				recipe.INITEMNAME4
-			];
-			const outItems = [recipe.OUTITEMNAME1, recipe.OUTITEMNAME2];
-
-			// 검색어가 INITEMNAME이나 OUTITEMNAME에 포함되어 있는지 확인
-			return (
-				inItems.some((item) => item?.toLowerCase().includes(text.toLowerCase())) ||
-				outItems.some((item) => item?.toLowerCase().includes(text.toLowerCase()))
-			);
-		});
-	}
+	let output = $derived({
+		FACTORYID: row.FACTORYID,
+		RECIPEKEY: row.RECIPEKEY,
+		LINEAMOUNT: row.LINEAMOUNT,
+		TODOAMOUNT: row.TODOAMOUNT,
+		EXTRAAMOUNT1: 0,
+		EXTRAAMOUNT2: 0
+	});
 
 	// Row 데이터를 업데이트하는 함수
 	function updateRowWithRecipe(recipe) {
@@ -161,18 +165,6 @@
 
 		// 텍스트를 "(INITEM) --> (OUTITEM)" 형식으로 반환
 		return `${inItems.join(' + ')} --> ${outItems.join(' + ')}`;
-	}
-
-	function convertRowToOutput() {
-		const output = {
-			FACTORYID: row.FACTORYID,
-			RECIPEKEY: row.RECIPEKEY,
-			LINEAMOUNT: row.LINEAMOUNT,
-			TODOAMOUNT: row.TODOAMOUNT,
-			EXTRAAMOUNT1: 0,
-			EXTRAAMOUNT2: 0
-		};
-		return output;
 	}
 
 	const handleSelectFactory = (e) => {

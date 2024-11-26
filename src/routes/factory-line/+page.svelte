@@ -4,16 +4,14 @@
 	let { data } = $props();
 
 	let chosenFactory = $state('');
-	let factoryLines = $derived(getLinesByFactory(chosenFactory));
-
-	function getLinesByFactory(chosenFactory) {
+	let factoryLines = $derived.by(() => {
 		if (chosenFactory === '') {
 			return data.factoryLines.flatMap((factory) => factory.lines);
 		} else {
 			const factory = data.factoryLines.find((factory) => factory.FACTORYNAME === chosenFactory);
 			return factory ? factory.lines : [];
 		}
-	}
+	});
 </script>
 
 <div>
