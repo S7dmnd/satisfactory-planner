@@ -1,16 +1,7 @@
 <script lang="ts">
-	import Loading from '$lib/loading/loading.svelte';
-	let { todos, checkedTodoList = $bindable() } = $props();
+	import Loading from '$lib/loading/Loading.svelte';
+	let { todos } = $props();
 	let loading = $state(false);
-
-	const toggleChecked = (todoId) => {
-		if (checkedTodoList.includes(todoId)) {
-			checkedTodoList = checkedTodoList.filter((id) => id !== todoId);
-		} else {
-			checkedTodoList.push(todoId);
-			//alert(`Checked TODOs: ${checkedTodoList.join(', ')}`);
-		}
-	};
 
 	const handleSave = async (rowId) => {
 		loading = true;
@@ -39,12 +30,12 @@
 				<th class="output-column">Out 1</th>
 				<th class="output-column">Out 2</th>
 				<th class="count-column">Count</th>
-				<th class="checkbox-column">Completed?</th>
+				<th class="checkbox-column">Done?</th>
 			</tr>
 		</thead>
 		<tbody class="todo-table-body">
 			{#each todos.todos as todo}
-				<tr class="todo-row {checkedTodoList.includes(todo.ROWID) ? 'checked' : ''}">
+				<tr class="todo-row">
 					<td class="input-cell"
 						>{#if todo.INITEMNAME1}{todo.INITEMNAME1} {todo.INAMOUNT1 * todo.TODOAMOUNT}{/if}</td
 					>
@@ -66,7 +57,7 @@
 					<td class="count-cell">{todo.TODOAMOUNT}</td>
 					<td class="checkbox-cell">
 						<button class="todo-save-button" onclick={(e) => handleSave(todo.ROWID)}
-							>Completed</button
+							>Complete</button
 						>
 					</td>
 				</tr>
@@ -160,26 +151,6 @@
 
 	.checkbox-cell {
 		text-align: center;
-	}
-
-	.todo-checkbox {
-		cursor: pointer;
-		transform: scale(1.2);
-	}
-
-	/* Modern Look for Input Checkbox */
-
-	.todo-checkbox:checked {
-		accent-color: rgba(250, 149, 73, 255);
-	}
-
-	.todo-checkbox:focus-visible {
-		outline: 2px solid rgba(250, 149, 73, 0.8);
-	}
-
-	.todo-row.checked {
-		text-decoration: line-through;
-		opacity: 0.6;
 	}
 
 	/* Input and Output Cells Styling */
