@@ -4,7 +4,7 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch, params }) => {
 	const { id } = params;
 	const rowFrame = {
-		ROWID: parseInt(id) ?? null,
+		ROWID: null,
 		FACTORYID: null,
 		RECIPEKEY: null,
 		LINEAMOUNT: 0,
@@ -29,6 +29,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 			throw new Error(`HTTP error! status: ${rowResponse.status}`);
 		}
 		const row = await rowResponse.json();
+		rowFrame.ROWID = parseInt(id);
 		rowFrame.FACTORYID = row.FACTORYID;
 		rowFrame.RECIPEKEY = row.RECIPEKEY;
 		rowFrame.LINEAMOUNT = row.LINEAMOUNT;

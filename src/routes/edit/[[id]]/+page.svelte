@@ -6,6 +6,8 @@
 	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
 
+	let isEdit = rowFrame.ROWID !== null;
+
 	let selectedFactory = $state(rowFrame.FACTORYID);
 	let selectedRecipe = $state(rowFrame.RECIPEKEY);
 	let recipeFrame = $derived(recipeList.find((r) => r.RECIPEKEY === selectedRecipe));
@@ -112,7 +114,7 @@
 
 	function handleRowAction() {
 		if (output.FACTORYID && output.RECIPEKEY) {
-			if (rowFrame.ROWID) {
+			if (isEdit) {
 				updateRow(); // ROWID가 있으면 업데이트
 			} else {
 				saveRow(); // ROWID가 없으면 저장
@@ -183,19 +185,9 @@
 <div class="dropdown">
 	<label for="factory-select">Select Factory:</label>
 	<select id="factory-select" bind:value={selectedFactory}>
-		<!-- 첫 번째 옵션 설정 -->
-		{#if rowFrame.FACTORYID}
-			<option value={rowFrame.FACTORYID}>
-				{factoryList.find((factory) => factory.FACTORYID === rowFrame.FACTORYID)?.FACTORYNAME ||
-					'Unknown Factory'}
-			</option>
-		{:else}
-			<option value="">-- Select a Factory --</option>
-		{/if}
-
-		<!-- 나머지 옵션 비활성화 -->
+		<option value={null} disabled hidden>-- Select a Factory --</option>
 		{#each factoryList as factory}
-			<option value={factory.FACTORYID} disabled={rowFrame.FACTORYID}>
+			<option value={factory.FACTORYID} disabled={isEdit}>
 				{factory.FACTORYNAME}
 			</option>
 		{/each}
@@ -216,20 +208,9 @@
 <div class="dropdown">
 	<label for="recipe-select">Select Recipe:</label>
 	<select id="recipe-select" bind:value={selectedRecipe}>
-		<!-- 첫 번째 옵션 동적 설정 -->
-		{#if rowFrame.RECIPEKEY}
-			<option value={rowFrame.RECIPEKEY}>
-				{formatRecipeText(
-					filteredRecipes.find((recipe) => recipe.RECIPEKEY == rowFrame.RECIPEKEY)
-				) || 'Unknown Recipe'}
-			</option>
-		{:else}
-			<option value="">-- Select a Recipe --</option>
-		{/if}
-
-		<!-- 나머지 옵션 비활성화 -->
+		<option value={null} disabled hidden>-- Select a Recipe --</option>
 		{#each filteredRecipes as recipe}
-			<option value={recipe.RECIPEKEY} disabled={rowFrame.RECIPEKEY}>
+			<option value={recipe.RECIPEKEY} disabled={isEdit}>
 				{formatRecipeText(recipe)}
 			</option>
 		{/each}
