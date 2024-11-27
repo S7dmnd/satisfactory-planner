@@ -7,11 +7,11 @@
 
 	let isEdit = data.rowFrame.ROWID !== null;
 
-	let selectedFactory = $state(data.rowFrame.FACTORYID);
-	let selectedRecipe = $state(data.rowFrame.RECIPEKEY);
-	let recipeFrame = $derived(recipeList.find((r) => r.RECIPEKEY === selectedRecipe));
-	let selectedLineAmount = $state(data.rowFrame.LINEAMOUNT);
-	let selectedTodoAmount = $state(data.rowFrame.TODOAMOUNT);
+	let factoryId = $state(data.rowFrame.FACTORYID);
+	let recipeKey = $state(data.rowFrame.RECIPEKEY);
+	let recipeFrame = $derived(recipeList.find((r) => r.RECIPEKEY === recipeKey));
+	let lineAmount = $state(data.rowFrame.LINEAMOUNT);
+	let todoAmount = $state(data.rowFrame.TODOAMOUNT);
 
 	let searchText = $state('');
 	let filteredRecipes = $derived.by(() => {
@@ -39,31 +39,12 @@
 		});
 	});
 
-	let row = $derived({
-		FACTORYID: selectedFactory,
-		RECIPEKEY: selectedRecipe,
-		INITEMNAME1: recipeFrame?.INITEMNAME1 ?? '',
-		INAMOUNT1: recipeFrame?.INAMOUNT1 ?? 0,
-		INITEMNAME2: recipeFrame?.INITEMNAME2 ?? '',
-		INAMOUNT2: recipeFrame?.INAMOUNT2 ?? 0,
-		INITEMNAME3: recipeFrame?.INITEMNAME3 ?? '',
-		INAMOUNT3: recipeFrame?.INAMOUNT3 ?? 0,
-		INITEMNAME4: recipeFrame?.INITEMNAME4 ?? '',
-		INAMOUNT4: recipeFrame?.INAMOUNT4 ?? 0,
-		OUTITEMNAME1: recipeFrame?.OUTITEMNAME1 ?? '',
-		OUTAMOUNT1: recipeFrame?.OUTAMOUNT1 ?? 0,
-		OUTITEMNAME2: recipeFrame?.OUTITEMNAME2 ?? '',
-		OUTAMOUNT2: recipeFrame?.OUTAMOUNT2 ?? 0,
-		LINEAMOUNT: selectedLineAmount,
-		TODOAMOUNT: selectedTodoAmount
-	});
-
 	// [POST] /api/factory-line
 	let output = $derived({
-		FACTORYID: row.FACTORYID,
-		RECIPEKEY: row.RECIPEKEY,
-		LINEAMOUNT: row.LINEAMOUNT,
-		TODOAMOUNT: row.TODOAMOUNT,
+		FACTORYID: factoryId,
+		RECIPEKEY: recipeKey,
+		LINEAMOUNT: lineAmount,
+		TODOAMOUNT: todoAmount,
 		EXTRAAMOUNT1: 0,
 		EXTRAAMOUNT2: 0
 	});
@@ -143,12 +124,12 @@
 	}
 
 	const handleTodoAmountChange = (e) => {
-		let todoAmount = e.target.value;
-		if (todoAmount > row.LINEAMOUNT) {
-			alert(`Todo Amount ${todoAmount} must be equal or lower than Line Amount ${row.LINEAMOUNT}!`);
-			e.target.value = row.LINEAMOUNT;
+		let newTodoAmount = e.target.value;
+		if (newTodoAmount > lineAmount) {
+			alert(`Todo Amount ${newTodoAmount} must be equal or lower than Line Amount ${lineAmount}!`);
+			todoAmount = lineAmount;
 		} else {
-			selectedTodoAmount = todoAmount;
+			todoAmount = newTodoAmount;
 		}
 	};
 
@@ -171,7 +152,7 @@
 				const newFactoryID = (await response.json()).id;
 
 				factoryList.push({ FACTORYID: newFactoryID, FACTORYNAME: newFactoryName });
-				selectedFactory = newFactoryID;
+				factoryId = newFactoryID;
 			} catch (error) {
 				console.error('Error saving newFactory:', error);
 				alert(`Failed to save row: ${error.message}`);
@@ -183,7 +164,7 @@
 <!-- 공장 선택 드롭다운 -->
 <div class="dropdown">
 	<label for="factory-select">Select Factory:</label>
-	<select id="factory-select" bind:value={selectedFactory}>
+	<select id="factory-select" bind:value={factoryId}>
 		<option value={null} disabled hidden>-- Select a Factory --</option>
 		{#each factoryList as factory}
 			<option value={factory.FACTORYID} disabled={isEdit}>
@@ -206,7 +187,7 @@
 
 <div class="dropdown">
 	<label for="recipe-select">Select Recipe:</label>
-	<select id="recipe-select" bind:value={selectedRecipe}>
+	<select id="recipe-select" bind:value={recipeKey}>
 		<option value={null} disabled hidden>-- Select a Recipe --</option>
 		{#each filteredRecipes as recipe}
 			<option value={recipe.RECIPEKEY} disabled={isEdit}>
@@ -228,54 +209,54 @@
 	</thead>
 	<tbody>
 		<!-- IN ITEMS -->
-		{#if row.INITEMNAME1}
+		{#if recipeFrame?.INITEMNAME1}
 			<tr>
 				<td>IN</td>
-				<td>{row.INITEMNAME1}</td>
-				<td>{row.INAMOUNT1}</td>
-				<td>{row.INAMOUNT1 * row.LINEAMOUNT}</td>
+				<td>{recipeFrame.INITEMNAME1}</td>
+				<td>{recipeFrame.INAMOUNT1}</td>
+				<td>{recipeFrame.INAMOUNT1 * lineAmount}</td>
 			</tr>
 		{/if}
-		{#if row.INITEMNAME2}
+		{#if recipeFrame?.INITEMNAME2}
 			<tr>
 				<td>IN</td>
-				<td>{row.INITEMNAME2}</td>
-				<td>{row.INAMOUNT2}</td>
-				<td>{row.INAMOUNT2 * row.LINEAMOUNT}</td>
+				<td>{recipeFrame.INITEMNAME2}</td>
+				<td>{recipeFrame.INAMOUNT2}</td>
+				<td>{recipeFrame.INAMOUNT2 * lineAmount}</td>
 			</tr>
 		{/if}
-		{#if row.INITEMNAME3}
+		{#if recipeFrame?.INITEMNAME3}
 			<tr>
 				<td>IN</td>
-				<td>{row.INITEMNAME3}</td>
-				<td>{row.INAMOUNT3}</td>
-				<td>{row.INAMOUNT3 * row.LINEAMOUNT}</td>
+				<td>{recipeFrame.INITEMNAME3}</td>
+				<td>{recipeFrame.INAMOUNT3}</td>
+				<td>{recipeFrame.INAMOUNT3 * lineAmount}</td>
 			</tr>
 		{/if}
-		{#if row.INITEMNAME4}
+		{#if recipeFrame?.INITEMNAME4}
 			<tr>
 				<td>IN</td>
-				<td>{row.INITEMNAME4}</td>
-				<td>{row.INAMOUNT4}</td>
-				<td>{row.INAMOUNT4 * row.LINEAMOUNT}</td>
+				<td>{recipeFrame.INITEMNAME4}</td>
+				<td>{recipeFrame.INAMOUNT4}</td>
+				<td>{recipeFrame.INAMOUNT4 * lineAmount}</td>
 			</tr>
 		{/if}
 
 		<!-- OUT ITEMS -->
-		{#if row.OUTITEMNAME1}
+		{#if recipeFrame?.OUTITEMNAME1}
 			<tr>
 				<td>OUT</td>
-				<td>{row.OUTITEMNAME1}</td>
-				<td>{row.OUTAMOUNT1}</td>
-				<td>{row.OUTAMOUNT1 * row.LINEAMOUNT}</td>
+				<td>{recipeFrame.OUTITEMNAME1}</td>
+				<td>{recipeFrame.OUTAMOUNT1}</td>
+				<td>{recipeFrame.OUTAMOUNT1 * lineAmount}</td>
 			</tr>
 		{/if}
-		{#if row.OUTITEMNAME2}
+		{#if recipeFrame?.OUTITEMNAME2}
 			<tr>
 				<td>OUT</td>
-				<td>{row.OUTITEMNAME2}</td>
-				<td>{row.OUTAMOUNT2}</td>
-				<td>{row.OUTAMOUNT2 * row.LINEAMOUNT}</td>
+				<td>{recipeFrame.OUTITEMNAME2}</td>
+				<td>{recipeFrame.OUTAMOUNT2}</td>
+				<td>{recipeFrame.OUTAMOUNT2 * lineAmount}</td>
 			</tr>
 		{/if}
 	</tbody>
@@ -287,14 +268,14 @@
 	<form>
 		<div>
 			<label for="lineamount">LINE AMOUNT:</label>
-			<input id="lineamount" type="number" bind:value={selectedLineAmount} />
+			<input id="lineamount" type="number" bind:value={lineAmount} />
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
 			<input
 				id="todoamount"
 				type="number"
-				bind:value={selectedTodoAmount}
+				bind:value={todoAmount}
 				onchange={(e) => handleTodoAmountChange(e)}
 			/>
 		</div>
