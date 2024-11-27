@@ -2,6 +2,6 @@ import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = ({ cookies }) => {
-	cookies.delete('logged_in', { path: '/' });
+	cookies.set('jwt', 'invalidtoken', { path: '/' });
 	redirect(303, '/');
 }
