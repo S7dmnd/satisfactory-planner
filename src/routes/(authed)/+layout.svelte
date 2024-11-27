@@ -15,6 +15,7 @@
 	{:else}
 		<a href="/edit" class="nav-link {activePage.startsWith('/edit') ? 'active' : ''}">Add</a>
 	{/if}
+	<a href="/logout" class="nav-link">Log out</a>
 </nav>
 {@render children()}
 

@@ -1,7 +1,17 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-	// TODO: 아마도 쿠키 쓰면 원래 보던 페이지로 돌아갈 수도 있을듯??
-	throw redirect(302, '/todo');
+// Form Action
+// +page.svelte에서 method="POST"로 지정된 form 제출 시 실행되는 함수
+export const actions = {
+	default: ({ cookies, url }) => {
+		cookies.set('logged_in', 'true', { path: '/' });
+		redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
+	}
 };
+
+export const load: PageServerLoad = ({ cookies, url }) => {
+	if (cookies.get('logged_in')) {
+		redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
+	}
+}
