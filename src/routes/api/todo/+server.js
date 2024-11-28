@@ -30,7 +30,7 @@ export async function GET() {
 			LEFT JOIN ITEMLIST IL_OUT1 ON IL_OUT1.ITEMKEY = RL.OUTITEM1
 			LEFT JOIN ITEMLIST IL_OUT2 ON IL_OUT2.ITEMKEY = RL.OUTITEM2
 			WHERE FL.TODOAMOUNT > 0 AND FL.TODOAMOUNT IS NOT NULL;
-      	`;
+        `;
 
         const [rows] = await pool.query(query);
 
