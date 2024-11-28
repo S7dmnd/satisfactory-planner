@@ -43,6 +43,7 @@ export const actions = {
 		}
 
 		redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
+		//이새끼 작동을 안함 이유는 모름;; 니가해결해보셈
 	},
 };
 
@@ -52,20 +53,20 @@ export const load: PageServerLoad = async ({ cookies, url }) => {
 		// JWT 가져오기
 		const token = cookies.get('jwt');
 
-		// JWT 검증
+
 		const decoded = jwt.verify(token, SECRET_KEY) as { userId: string };
 		console.log(`Decoded userId from JWT: ${decoded.userId}`);
 		userId = decoded.userId;
 
-		// 검증 성공: 다음으로 이동
-
 	} catch (error) {
-		console.error('JWT validation error at /:', error);
+		console.error(`JWT validation error at /: ${error}`);
 	}
 
+	// JWT 검증
 	const isValidUser = await validateUserId(userId);
 	if (isValidUser) {
 		//console.log(isValidUser);
 		redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
+		//존나 웃긴게 이새끼는 작동함 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 	}
 };

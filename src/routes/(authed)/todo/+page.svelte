@@ -4,6 +4,8 @@
 
 	let { data }: { data: PageData } = $props();
 	let checkedTodoList = $state([]);
+
+	const userId = data.userId;
 </script>
 
 <div class="todo-page-container">

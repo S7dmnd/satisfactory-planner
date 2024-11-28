@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'; // JWT 생성
 
 export const SECRET_KEY = 'super_secret'; // JWT 암호화 키
 export const TOKEN_EXPIRY = '1d'; // JWT 만료 시간 설정
+export const SALT_ROUNT = 10;
 
 export async function loginApi({ request }) {
     try {
@@ -25,8 +26,8 @@ export async function loginApi({ request }) {
 
         const user = rows[0]; // 첫 번째 사용자 정보
 
-        // 테스트용 비밀번호 검증 (해싱 없이)
-        if (password !== user.PASSWORD) {
+        const isPasswordValid = await bcrypt.compare(password, user.PASSWORD);
+        if (!isPasswordValid) {
             return new Response(JSON.stringify({ error: 'Invalid username or password' }), {
                 status: 401,
                 headers: { 'Content-Type': 'application/json' },
@@ -64,9 +65,9 @@ export async function login(username, password) {
         const user = rows[0]; // 첫 번째 사용자 정보
 
         // 비밀번호 검증
-        // console.log(bcrypt.hash(password));
-        // const isPasswordValid = await bcrypt.compare(password, user.PASSWORD);
-        const isPasswordValid = (password == user.PASSWORD);
+        // const hashedPassword = await bcrypt.hash(password, SALT_ROUNT);
+        // console.log(hashedPassword);
+        const isPasswordValid = await bcrypt.compare(password, user.PASSWORD);
         if (!isPasswordValid) {
             return { success: false, error: 'Invalid username or password' };
         }
