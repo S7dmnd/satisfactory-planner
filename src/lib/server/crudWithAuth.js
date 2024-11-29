@@ -137,3 +137,50 @@ export async function getAllTodoList({ userId }) {
         });
     }
 }
+
+export async function updateTodo({ userId, rowId }) {
+    try {
+        // STEP 1: ROWID로 USERID 조회
+        const getQuery = `SELECT USERID FROM FACTORYLINE WHERE ROWID = ?`;
+        const [rows] = await pool.query(getQuery, [rowId]);
+
+        if (rows.length === 0) {
+            return new Response(JSON.stringify({ error: 'Row not found' }), {
+                status: 404,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        const { USERID } = rows[0];
+
+        // STEP 2: USERID 검증
+        if (USERID !== userId) {
+            return new Response(JSON.stringify({ error: 'Unauthorized: User mismatch' }), {
+                status: 403,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        // STEP 3: TODOAMOUNT 업데이트
+        const updateQuery = `UPDATE FACTORYLINE SET TODOAMOUNT = 0 WHERE ROWID = ?`;
+        const [result] = await pool.query(updateQuery, [rowId]);
+
+        if (result.affectedRows === 0) {
+            return new Response(JSON.stringify({ error: 'Failed to update Todo' }), {
+                status: 500,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        return new Response(JSON.stringify({ message: 'Todo updated successfully' }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('Database query error:', error);
+        return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}

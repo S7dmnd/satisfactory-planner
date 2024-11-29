@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Loading from '$lib/components/Loading.svelte';
-	let { todos } = $props();
+	let { todos, userId } = $props();
 	let loading = $state(false);
 
-	const handleSave = async (rowId) => {
+	const handleSave = async (rowId, userId) => {
 		loading = true;
 		const response = await fetch(`/api/todo/${rowId}`, { method: 'PUT' });
 		if (!response.ok) {
@@ -56,9 +56,10 @@
 					>
 					<td class="count-cell">{todo.TODOAMOUNT}</td>
 					<td class="checkbox-cell">
-						<button class="todo-save-button" onclick={(e) => handleSave(todo.ROWID)}
-							>Complete</button
-						>
+						<form method="POST" action="?/updateTodo">
+							<input type="hidden" name="rowId" value={todo.ROWID} />
+							<button type="submit" class="todo-save-button">Complete</button>
+						</form>
 					</td>
 				</tr>
 			{/each}

@@ -10,6 +10,6 @@
 
 <div class="todo-page-container">
 	{#each data.todos as factoryTodos}
-		<FactoryTodos todos={factoryTodos} />
+		<FactoryTodos todos={factoryTodos} {userId} />
 	{/each}
 </div>
