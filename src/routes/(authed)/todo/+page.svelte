@@ -3,7 +3,6 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	let checkedTodoList = $state([]);
 
 	const userId = data.userId;
 </script>

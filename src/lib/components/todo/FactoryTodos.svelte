@@ -2,17 +2,6 @@
 	import Loading from '$lib/components/Loading.svelte';
 	let { todos, userId } = $props();
 	let loading = $state(false);
-
-	const handleSave = async (rowId, userId) => {
-		loading = true;
-		const response = await fetch(`/api/todo/${rowId}`, { method: 'PUT' });
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-		window.location.reload();
-		loading = false;
-		//alert(rowId);
-	};
 </script>
 
 <div class="factory-container">
