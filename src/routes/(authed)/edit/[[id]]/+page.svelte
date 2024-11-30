@@ -2,10 +2,11 @@
 	import { goto } from '$app/navigation';
 
 	let { data } = $props();
+	const userId = data.userId;
 	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
 
-	let isEdit = data.rowFrame.ROWID !== null;
+	let isEdit = $state(data.rowFrame.ROWID !== null);
 
 	let factoryId = $state(data.rowFrame.FACTORYID);
 	let recipeKey = $state(data.rowFrame.RECIPEKEY);
@@ -265,21 +266,35 @@
 <!-- Row 데이터 입력 -->
 <div class="row-form">
 	<h3>Row Data</h3>
-	<form>
+	<form method="POST">
 		<div>
 			<label for="lineamount">LINE AMOUNT:</label>
-			<input id="lineamount" type="number" bind:value={lineAmount} />
+			<input id="lineamount" name="LINEAMOUNT" type="number" bind:value={lineAmount} />
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
 			<input
 				id="todoamount"
 				type="number"
+				name="TODOAMOUNT"
 				bind:value={todoAmount}
 				onchange={(e) => handleTodoAmountChange(e)}
 			/>
 		</div>
-		<button type="button" onclick={handleRowAction}>Save Row</button>
+
+		<!-- Hidden inputs for additional data -->
+		<input type="hidden" name="FACTORYID" value={factoryId} />
+		<input type="hidden" name="RECIPEKEY" value={recipeKey} />
+		<input type="hidden" name="EXTRAAMOUNT1" value="0" />
+		<input type="hidden" name="EXTRAAMOUNT2" value="0" />
+		<input type="hidden" name="USERID" value={userId} />
+
+		<!-- Conditionally add ROWID if it's an edit -->
+		{#if isEdit}
+			<input type="hidden" name="ROWID" value={data.rowFrame.ROWID} />
+		{/if}
+
+		<button type="submit">Save Row</button>
 	</form>
 </div>
 

@@ -213,3 +213,77 @@ export async function getSingleFactoryLine({ userId, rowId }) {
         });
     }
 }
+
+export async function editRow({ userId, rowId, rowData }) {
+    try {
+        // 1. rowId로 SELECT해서 USERID 가져오기
+        const selectQuery = `SELECT USERID FROM FACTORYLINE WHERE ROWID = ?`;
+        const [rows] = await pool.query(selectQuery, [rowId]);
+
+        if (rows.length === 0) {
+            return { success: false, error: 'Row not found' };
+        }
+
+        const dbUserId = rows[0].USERID;
+
+        // 2. userId와 일치하는지 검증
+        if (dbUserId !== userId) {
+            return { success: false, error: 'Unauthorized: User mismatch' };
+        }
+
+        // 3. UPDATE 쿼리
+        const updateQuery = `
+            UPDATE FACTORYLINE
+            SET RECIPEKEY = ?, LINEAMOUNT = ?, TODOAMOUNT = ?, FACTORYID = ?, EXTRAAMOUNT1 = ?, EXTRAAMOUNT2 = ?
+            WHERE USERID = ? AND ROWID = ?
+        `;
+        const values = [
+            rowData.RECIPEKEY,
+            rowData.LINEAMOUNT,
+            rowData.TODOAMOUNT,
+            rowData.FACTORYID,
+            rowData.EXTRAAMOUNT1,
+            rowData.EXTRAAMOUNT2,
+            userId,
+            rowId,
+        ];
+
+        const [updateResult] = await pool.query(updateQuery, values);
+
+        if (updateResult.affectedRows === 0) {
+            return { success: false, error: 'Failed to update row' };
+        }
+
+        return { success: true, message: 'Row updated successfully' };
+    } catch (error) {
+        console.error('Error in editRow:', error);
+        return { success: false, error: 'Failed to process edit row' };
+    }
+}
+
+export async function addRow({ userId, rowData }) {
+    try {
+        const query = `
+            INSERT INTO FACTORYLINE 
+            (RECIPEKEY, LINEAMOUNT, TODOAMOUNT, FACTORYID, EXTRAAMOUNT1, EXTRAAMOUNT2, USERID) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        `;
+
+        const values = [
+            rowData.RECIPEKEY,
+            rowData.LINEAMOUNT,
+            rowData.TODOAMOUNT,
+            rowData.FACTORYID,
+            rowData.EXTRAAMOUNT1,
+            rowData.EXTRAAMOUNT2,
+            userId, // USERID는 별도로 전달받은 값 사용
+        ];
+
+        const [result] = await pool.query(query, values);
+
+        return { success: true, rowId: result.insertId };
+    } catch (error) {
+        console.error('Error adding row:', error);
+        return { success: false, error: 'Failed to add row' };
+    }
+}
