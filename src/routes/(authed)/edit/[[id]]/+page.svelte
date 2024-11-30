@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-
 	let { data } = $props();
 	const userId = data.userId;
 	let factoryList = $state(data.factoryList);
@@ -39,73 +37,6 @@
 			);
 		});
 	});
-
-	// [POST] /api/factory-line
-	let output = $derived({
-		FACTORYID: factoryId,
-		RECIPEKEY: recipeKey,
-		LINEAMOUNT: lineAmount,
-		TODOAMOUNT: todoAmount,
-		EXTRAAMOUNT1: 0,
-		EXTRAAMOUNT2: 0
-	});
-
-	// Row 데이터 저장 처리
-	async function saveRow() {
-		try {
-			const response = await fetch('/api/factory-line', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(output)
-			});
-
-			if (!response.ok) {
-				throw new Error(`Failed to save row: ${response.statusText}`);
-			}
-
-			// 4. 성공 시 리다이렉트
-			alert('Row saved successfully!');
-			goto('/todo');
-		} catch (error) {
-			console.error('Error saving row:', error);
-			alert(`Failed to save row: ${error.message}`);
-		}
-	}
-
-	async function updateRow(ROWID) {
-		try {
-			const response = await fetch(`/api/factory-line/${ROWID}`, {
-				method: 'PUT',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(output)
-			});
-
-			if (!response.ok) {
-				throw new Error(`Failed to save row: ${response.statusText}`);
-			}
-
-			// 4. 성공 시 리다이렉트
-			alert('Row updated successfully!');
-			goto('/todo');
-		} catch (error) {
-			console.error('Error updating row:', error);
-			alert(`Failed to update row ${ROWID}: ${error.message}`);
-		}
-	}
-
-	function handleRowAction() {
-		if (output.FACTORYID && output.RECIPEKEY) {
-			if (isEdit) {
-				updateRow(data.rowFrame.ROWID); // ROWID가 있으면 업데이트
-			} else {
-				saveRow(); // ROWID가 없으면 저장
-			}
-		} else {
-			alert('Error: FACTORYID or RECIPEKEY is missing.');
-			alert(`FACTORYID = ${output.FACTORYID}, RECIPEKEY = ${output.RECIPEKEY}`);
-			return;
-		}
-	}
 
 	function formatRecipeText(recipe) {
 		// IN 아이템 텍스트 구성
