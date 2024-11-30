@@ -4,7 +4,6 @@ import pool from '$lib/server/db.js';
 const allowedTables = ['ITEMLIST', 'FACTORYLIST', 'RECIPELIST', 'FACTORYLINE', 'DELIVERYLINE', 'RECIPEVIEW'];
 
 export async function getAllFactoryLine({ userId }) {
-
     try {
         const query = `SELECT * FROM FACTORYLINE WHERE USERID = \`${userId}\``;
         const [rows] = await pool.query(query);
@@ -179,6 +178,36 @@ export async function updateTodo({ userId, rowId }) {
     } catch (error) {
         console.error('Database query error:', error);
         return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}
+
+export async function getSingleFactoryLine({ userId, rowId }) {
+    try {
+        // SQL Injection 방지를 위해 '?' 플레이스홀더 사용
+        const query = `SELECT * FROM FACTORYLINE WHERE USERID = ? AND ROWID = ?`;
+        const [rows] = await pool.query(query, [userId, rowId]);
+
+        if (rows.length === 0) {
+            // 결과가 없으면 404 응답 반환
+            return new Response(JSON.stringify({ error: 'No matching item found' }), {
+                status: 404,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        // 성공 응답
+        return new Response(JSON.stringify(rows[0]), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('Database query error:', error);
+
+        // 서버 에러 반환
+        return new Response(JSON.stringify({ error: 'Failed to fetch item' }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
         });
