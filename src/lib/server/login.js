@@ -2,10 +2,11 @@
 import pool from '$lib/server/db.js'; // MySQL 연결
 import bcrypt from 'bcrypt'; // 비밀번호 해싱/검증
 import jwt from 'jsonwebtoken'; // JWT 생성
+import { v4 as uuidv4 } from 'uuid'; // UUID 생성
 
 export const SECRET_KEY = 'super_secret'; // JWT 암호화 키
 export const TOKEN_EXPIRY = '1d'; // JWT 만료 시간 설정
-export const SALT_ROUNT = 10;
+export const SALT_ROUND = 10;
 
 export async function loginApi({ request }) {
     try {
@@ -65,7 +66,7 @@ export async function login(username, password) {
         const user = rows[0]; // 첫 번째 사용자 정보
 
         // 비밀번호 검증
-        // const hashedPassword = await bcrypt.hash(password, SALT_ROUNT);
+        // const hashedPassword = await bcrypt.hash(password, SALT_ROUND);
         // console.log(hashedPassword);
         const isPasswordValid = await bcrypt.compare(password, user.PASSWORD);
         if (!isPasswordValid) {
@@ -94,5 +95,34 @@ export async function validateUserId(userId) {
     } catch (error) {
         console.error('Database query error:', error);
         return false; // 에러 발생 시 false 반환
+    }
+}
+
+export async function signUp(username, password) {
+    try {
+        // 1. SELECT * FROM USER WHERE USERNAME = username으로 USERNAME 중복 확인
+        const checkQuery = 'SELECT * FROM USER WHERE USERNAME = ?';
+        const [rows] = await pool.query(checkQuery, [username]);
+
+        if (rows.length > 0) {
+            return { success: false, error: 'Username already exists' };
+        }
+
+        // 2. UUID 생성
+        const userId = uuidv4();
+
+        // 3. 비밀번호 해싱
+        const hashedPassword = await bcrypt.hash(password, SALT_ROUND);
+
+        // 4. USER 테이블에 데이터 저장
+        const insertQuery = 'INSERT INTO USER (USERID, USERNAME, PASSWORD) VALUES (?, ?, ?)';
+        await pool.query(insertQuery, [userId, username, hashedPassword]);
+
+        console.log(`Account successfully registered with ID ${userId}, USERNAME ${username}`)
+
+        return { success: true, message: 'User signed up successfully', userId };
+    } catch (error) {
+        console.error('Error in signUp:', error);
+        return { success: false, error: 'Failed to sign up user' };
     }
 }
