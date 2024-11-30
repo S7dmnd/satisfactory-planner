@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 import { fail, redirect } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '$lib/server/login';
-import { getSingleFactoryLine } from '$lib/server/crudWithAuth';
+import { getAllFactory, getSingleFactoryLine } from '$lib/server/crudWithAuth';
 import { addRow, editRow } from '$lib/server/crudWithAuth';
 
 export const load: PageServerLoad = async ({ cookies, params }) => {
@@ -35,7 +35,13 @@ export const load: PageServerLoad = async ({ cookies, params }) => {
 		rowFrame.TODOAMOUNT = row.TODOAMOUNT;
 	}
 
-	return { userId: userId, rowFrame: rowFrame };
+	const factoryResponse = await getAllFactory({ userId });
+	if (!factoryResponse.ok) {
+		throw new Error(`error during fetching FACTORYLINE! status: ${factoryResponse.status}`);
+	}
+	const factoryList = await factoryResponse.json();
+
+	return { factoryList: factoryList, userId: userId, rowFrame: rowFrame };
 };
 
 export const actions = {
