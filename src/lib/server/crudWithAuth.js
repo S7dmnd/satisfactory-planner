@@ -305,3 +305,36 @@ export async function addRow({ userId, rowData }) {
         return { success: false, error: 'Failed to add row' };
     }
 }
+
+export async function createFactory({ request }) {
+
+    const data = await request.json();
+    const columns = ["FACTORYNAME", "USERID"]
+
+    // 입력 데이터 검증
+    const values = columns.map((col) => data[col]);
+    if (values.includes(undefined)) {
+        return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+
+    const placeholders = columns.map(() => '?').join(', ');
+    const columnNames = columns.map((col) => `\`${col}\``).join(', ');
+    const query = `INSERT INTO FACTORYLIST (${columnNames}) VALUES (${placeholders})`;
+
+    try {
+        const [result] = await pool.query(query, values);
+        return new Response(JSON.stringify({ message: 'Item created', id: result.insertId }), {
+            status: 201,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('Database insert error:', error);
+        return new Response(JSON.stringify({ error: 'Failed to create item' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}
