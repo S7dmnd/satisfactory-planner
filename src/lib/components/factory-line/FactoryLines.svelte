@@ -18,7 +18,7 @@
 		</thead>
 		<tbody>
 			{#each lines as line}
-				<tr>
+				<tr class="table-row">
 					<td
 						>{#if line.INITEMNAME1}{line.INITEMNAME1}
 							{line.INAMOUNT1 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
@@ -98,8 +98,9 @@
 		text-decoration: none;
 		padding: 10px 15px;
 		border-radius: 5px;
-		font-size: 1.5rem;
-		font-weight: bold;
+		margin: 0.5rem;
+		font-size: 1rem;
+		font-weight: normal;
 		transition:
 			background-color 0.3s ease,
 			transform 0.3s ease;
@@ -132,6 +133,10 @@
 		background-color: rgba(250, 149, 73, 255);
 		color: black;
 		font-weight: bold;
+	}
+
+	.table-row {
+		height: 4rem;
 	}
 
 	tbody tr:nth-child(even) {
