@@ -4,7 +4,7 @@
 <div class="login-page-container">
 	<h1>Welcome Back!</h1>
 
-	<form method="POST" action="?/login">
+	<form method="POST">
 		<div class="input-container">
 			<label for="username">ID: </label>
 			<input type="text" id="username" name="username" placeholder="Username" required />

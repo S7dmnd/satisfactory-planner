@@ -8,7 +8,7 @@ import { SECRET_KEY } from '$lib/server/login'; // JWT 서명 키
 // +page.svelte에서 method="POST"로 지정된 form 제출 시 실행되는 함수
 
 export const actions = {
-    signUp: async ({ request, cookies, url }) => {
+    default: async ({ request, cookies, url }) => {
         try {
             // Form 데이터 파싱
             const formData = await request.formData();
@@ -71,6 +71,5 @@ export const load: PageServerLoad = async ({ cookies, url }) => {
     if (isValidUser) {
         //console.log(isValidUser);
         redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
-        //존나 웃긴게 이새끼는 작동함 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
     }
 };

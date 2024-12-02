@@ -5,7 +5,7 @@
 <div class="sign-up-page-container">
 	<h1>Sign up Page!!</h1>
 
-	<form method="POST" action="?/signUp">
+	<form method="POST">
 		{#if form?.usernameRedundancy}<p class="error">Username already used</p>{/if}
 		<div class="input-container">
 			<label for="username">ID: </label>
