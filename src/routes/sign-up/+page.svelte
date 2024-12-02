@@ -1,10 +1,12 @@
 <script lang="ts">
+	let { form }: { form: ActionData } = $props();
 </script>
 
 <div class="sign-up-page-container">
 	<h1>Sign up Page!!</h1>
 
 	<form method="POST" action="?/signUp">
+		{#if form?.usernameRedundancy}<p class="error">Username already used</p>{/if}
 		<div class="input-container">
 			<label for="username">ID: </label>
 			<input type="text" id="username" name="username" placeholder="Username" required />

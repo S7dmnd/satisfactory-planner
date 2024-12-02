@@ -105,7 +105,7 @@ export async function signUp(username, password) {
         const [rows] = await pool.query(checkQuery, [username]);
 
         if (rows.length > 0) {
-            return { success: false, error: 'Username already exists' };
+            return { success: false, error: 'Username already exists', usernameRedundancy: true };
         }
 
         // 2. UUID 생성

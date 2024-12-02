@@ -1,6 +1,6 @@
 import { signUp, login, validateUserId } from '$lib/server/login';
 import { fail, redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad, Actions } from './$types';
 import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '$lib/server/login'; // JWT 서명 키
 
@@ -16,15 +16,18 @@ export const actions = {
             const password = formData.get('password');
 
             if (!username || !password) {
-                return fail(400, { error: 'Username and password are required.' });
+                return fail(400, { missingRequirements: true });
             }
 
             // signUp 함수 호출
             const signUpResult = await signUp(username, password);
 
-            if (!signUpResult.success) {
+            if (!signUpResult.success && signUpResult?.usernameRedundancy) {
                 console.log(signUpResult.error);
-                return fail(401, { error: signUpResult.error });
+                return fail(401, { usernameRedundancy: true });
+            } else if (!signUpResult.success) {
+                console.log(signUpResult.error);
+                return fail(401, { errorFromSignUp: true })
             }
 
             const LoginResult = await login(username, password);
@@ -46,7 +49,7 @@ export const actions = {
 
         redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
     },
-};
+} satisfies Actions;
 
 export const load: PageServerLoad = async ({ cookies, url }) => {
     let userId = '';
