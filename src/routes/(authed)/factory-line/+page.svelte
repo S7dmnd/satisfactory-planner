@@ -14,6 +14,28 @@
 			return factory ? factory.lines : [];
 		}
 	});
+	let deliveries = $derived.by(() => {
+		if (chosenFactory === '') {
+			return data.deliveries;
+		} else {
+			return data.deliveries
+				.filter(
+					(delivery) =>
+						delivery.SOURCENAME === chosenFactory || delivery.DESTINATIONNAME === chosenFactory
+				)
+				.map((delivery) => {
+					if (delivery.SOURCENAME === chosenFactory) {
+						return {
+							...delivery,
+							SOURCENAME: delivery.DESTINATIONNAME,
+							DESTINATIONNAME: delivery.SOURCENAME,
+							AMOUNT: -delivery.AMOUNT
+						};
+					}
+					return delivery;
+				});
+		}
+	});
 </script>
 
 <div class="container">
@@ -42,7 +64,7 @@
 			<FactoryLines lines={factoryLines} />
 		</div>
 		<div class="deliveries">
-			<Deliveries />
+			<Deliveries {deliveries} />
 		</div>
 	</div>
 </div>
