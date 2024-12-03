@@ -1,5 +1,7 @@
 <script lang="ts">
+	import Deliveries from '$lib/components/factory-line/Deliveries.svelte';
 	import FactoryLines from '$lib/components/factory-line/FactoryLines.svelte';
+	import ItemList from '$lib/components/factory-line/ItemList.svelte';
 
 	let { data } = $props();
 
@@ -14,7 +16,7 @@
 	});
 </script>
 
-<div>
+<div class="container">
 	<div class="factories-container">
 		<div class="factories-container-text">Factories:</div>
 		<button
@@ -32,16 +34,16 @@
 			>
 		{/each}
 	</div>
-	<!--Item List div-->
-	<div></div>
-	<div>
-		<!-- div for align-->
-		<div>
-			<!-- FactoryLine div -->
+	<div class="item-list">
+		<ItemList />
+	</div>
+	<div class="content">
+		<div class="factory-lines">
 			<FactoryLines lines={factoryLines} />
 		</div>
-		<!-- Delivery div -->
-		<div></div>
+		<div class="deliveries">
+			<Deliveries />
+		</div>
 	</div>
 </div>
 
@@ -78,5 +80,41 @@
 
 	.factory-button:active {
 		transform: scale(0.98);
+	}
+
+	/* 전체 컨테이너 설정 */
+	.container {
+		display: flex;
+		flex-direction: column;
+		width: 100vw; /* 브라우저 전체 너비 */
+		max-width: 100%;
+	}
+
+	/* ItemList 스타일 */
+	.item-list {
+		overflow-x: auto; /* 가로 스크롤 활성화 */
+		white-space: nowrap; /* 자식 요소들이 한 줄로 정렬 */
+		padding: 10px;
+	}
+
+	/* Content 영역 스타일 */
+	.content {
+		display: flex;
+		flex: 1; /* 남은 공간을 차지 */
+		overflow: hidden; /* 불필요한 스크롤 제거 */
+	}
+
+	/* FactoryLines 스타일 */
+	.factory-lines {
+		flex: 2; /* 왼쪽 영역이 차지할 비율 */
+		overflow-y: auto; /* 세로 스크롤 활성화 */
+		padding: 10px;
+	}
+
+	/* Deliveries 스타일 */
+	.deliveries {
+		flex: 1; /* 오른쪽 영역이 차지할 비율 */
+		overflow-y: auto; /* 세로 스크롤 활성화 */
+		padding: 10px;
 	}
 </style>
