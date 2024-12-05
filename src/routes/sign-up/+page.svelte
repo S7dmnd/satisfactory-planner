@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { form }: { form: ActionData } = $props();
+	let { form } = $props();
 </script>
 
 <div class="sign-up-page-container">
@@ -25,16 +25,6 @@
 </div>
 
 <style>
-	body {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
-		margin: 0;
-		background-color: #f5f5f5;
-		font-family: Arial, sans-serif;
-	}
-
 	.sign-up-page-container {
 		display: flex;
 		flex-direction: column;

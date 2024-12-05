@@ -23,16 +23,6 @@
 </div>
 
 <style>
-	body {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
-		margin: 0;
-		background-color: #f5f5f5;
-		font-family: Arial, sans-serif;
-	}
-
 	.login-page-container {
 		display: flex;
 		flex-direction: column;
