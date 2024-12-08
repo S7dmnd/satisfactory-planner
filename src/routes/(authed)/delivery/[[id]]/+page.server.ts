@@ -79,7 +79,7 @@ export const actions = {
 				console.error('Error in editRow action:', error);
 				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
 			}
-			redirect(303, `/factory-line`);
+			redirect(303, `/factories`);
 		}
 		else {
 			try {
@@ -100,7 +100,7 @@ export const actions = {
 				console.error('Error in addRow action:', error);
 				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
 			}
-			redirect(303, `/factory-line`);
+			redirect(303, `/factories`);
 		}
 	}
 };

@@ -7,14 +7,17 @@
 
 <nav class="navigation">
 	<a href="/todo" class="nav-link {activePage.startsWith('/todo') ? 'active' : ''}">TODO</a>
-	<a href="/factory-line" class="nav-link {activePage.startsWith('/factory-line') ? 'active' : ''}"
-		>Lines</a
+	<a href="/factories" class="nav-link {activePage.startsWith('/factories') ? 'active' : ''}"
+		>Factories</a
 	>
-	{#if activePage.startsWith('/edit/')}
-		<a href={activePage} class="nav-link active">Edit</a>
-	{:else}
-		<a href="/edit" class="nav-link {activePage.startsWith('/edit') ? 'active' : ''}">Add</a>
-	{/if}
+	<a
+		href={activePage.startsWith('/line') ? activePage : '/line'}
+		class="nav-link {activePage.startsWith('/line') ? 'active' : ''}">Line</a
+	>
+	<a
+		href={activePage.startsWith('/delivery') ? activePage : '/delivery'}
+		class="nav-link {activePage.startsWith('/delivery') ? 'active' : ''}">Delivery</a
+	>
 	<a href="/logout" class="nav-link">Log out</a>
 </nav>
 {@render children()}
