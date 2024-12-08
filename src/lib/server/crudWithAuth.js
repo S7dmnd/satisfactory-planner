@@ -357,7 +357,6 @@ export async function getAllDeliveryView({ userId }) {
     }
 }
 
-
 export async function editDelivery({ userId, deliveryId, deliveryData }) {
     try {
         // 1. deliveryId로 SELECT해서 USERID 가져오기
@@ -383,11 +382,11 @@ export async function editDelivery({ userId, deliveryId, deliveryData }) {
         `;
 
         const values = [
-            deliveryData.sourceId,
-            deliveryData.destinationId,
-            deliveryData.itemKey,
-            deliveryData.method,
-            deliveryData.amount,
+            deliveryData.SOURCEID,
+            deliveryData.DESTINATIONID,
+            deliveryData.ITEMKEY,
+            deliveryData.METHOD,
+            deliveryData.AMOUNT,
             userId,
             deliveryId,
         ];
@@ -414,11 +413,11 @@ export async function addDelivery({ userId, deliveryData }) {
         `;
 
         const values = [
-            deliveryData.sourceId,
-            deliveryData.destinationId,
-            deliveryData.itemKey,
-            deliveryData.method,
-            deliveryData.amount,
+            deliveryData.SOURCEID,
+            deliveryData.DESTINATIONID,
+            deliveryData.ITEMKEY,
+            deliveryData.METHOD,
+            deliveryData.AMOUNT,
             userId,
         ];
 

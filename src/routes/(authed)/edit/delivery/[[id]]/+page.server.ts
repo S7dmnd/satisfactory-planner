@@ -2,8 +2,7 @@ import type { PageServerLoad } from './$types';
 import { fail, redirect } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '$lib/server/login';
-import { getAllItem, getAllFactory, getSingleDelivery } from '$lib/server/crudWithAuth';
-import { addRow, editRow } from '$lib/server/crudWithAuth';
+import { getAllItem, getAllFactory, getSingleDelivery, editDelivery, addDelivery } from '$lib/server/crudWithAuth';
 
 export const load: PageServerLoad = async ({ cookies, params }) => {
 	const { id } = params;
@@ -55,60 +54,46 @@ export const load: PageServerLoad = async ({ cookies, params }) => {
 export const actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
-		const rowId = formData.get('ROWID');
-		const rowData = {
-			RECIPEKEY: formData.get('RECIPEKEY'),
-			LINEAMOUNT: Number(formData.get('LINEAMOUNT')),
-			TODOAMOUNT: Number(formData.get('TODOAMOUNT')),
-			FACTORYID: Number(formData.get('FACTORYID')),
-			EXTRAAMOUNT1: Number(formData.get('EXTRAAMOUNT1')) || 0,
-			EXTRAAMOUNT2: Number(formData.get('EXTRAAMOUNT2')) || 0,
+		const deliveryId = formData.get('DELIVERYID');
+
+		const deliveryData = {
+			SOURCEID: Number(formData.get('SOURCEID')),
+			DESTINATIONID: Number(formData.get('DESTINATIONID')),
+			ITEMKEY: formData.get('ITEMKEY'),
+			METHOD: formData.get('METHOD'),
+			AMOUNT: Number(formData.get('AMOUNT'))
 		};
 		const userId = formData.get('USERID');
 
-		console.log(rowId);
-
-		if (rowId !== null) {
-			try {
-				// 필수 값 검증
-				if (!userId || !rowData.RECIPEKEY || !rowData.LINEAMOUNT || !rowData.TODOAMOUNT || !rowData.FACTORYID) {
-					return fail(400, { error: 'Missing required fields' });
-				}
-
-				// DB 업데이트
-				const result = await editRow({ userId, rowId, rowData });
-
-				if (!result.success) {
-					return fail(500, { error: result.error || 'Failed to edit row' });
-				}
-
-				// 성공 시 리다이렉트
-			} catch (error) {
-				console.error('Error in editRow action:', error);
-				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
-			}
-			redirect(303, `/factory-line`);
+		// 필수 값 검증
+		if (!userId || !deliveryData.SOURCEID || !deliveryData.DESTINATIONID || !deliveryData.ITEMKEY || !deliveryData.METHOD || !deliveryData.AMOUNT) {
+			return fail(400, { error: 'Missing required fields' });
 		}
-		else {
+
+		if (deliveryId !== null) {
+			// 수정 로직
 			try {
-				// 필수 값 검증
-				if (!userId || !rowData.RECIPEKEY || !rowData.LINEAMOUNT || !rowData.TODOAMOUNT || !rowData.FACTORYID) {
-					return fail(400, { error: 'Missing required fields' });
-				}
-
-				// DB에 데이터 추가
-				const result = await addRow({ userId, rowData });
-
+				const result = await editDelivery({ userId, deliveryId, deliveryData });
 				if (!result.success) {
-					return fail(500, { error: result.error || 'Failed to add row' });
+					return fail(500, { error: result.error || 'Failed to edit delivery' });
 				}
-
-				// return { success: true, message: 'Row added successfully', rowId: result.rowId };
 			} catch (error) {
-				console.error('Error in addRow action:', error);
+				console.error('Error in edit delivery action:', error);
 				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
 			}
-			redirect(303, `/factory-line`);
+			throw redirect(303, '/factories');
+		} else {
+			// 추가 로직
+			try {
+				const result = await addDelivery({ userId, deliveryData });
+				if (!result.success) {
+					return fail(500, { error: result.error || 'Failed to add delivery' });
+				}
+			} catch (error) {
+				console.error('Error in add delivery action:', error);
+				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
+			}
+			throw redirect(303, '/factories');
 		}
 	}
 };
