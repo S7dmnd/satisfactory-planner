@@ -7,20 +7,35 @@
 	let { data } = $props();
 	let itemAmountByFactory = getItemAmountByFactory(data.factoryLines, data.deliveries);
 	let selectedFactory = $state('');
+	let selectedItem = $state('');
 
 	let factoryLines = $derived.by(() => {
+		let factoryLines;
 		if (selectedFactory === '') {
-			return data.factoryLines.flatMap((factory) => factory.lines);
+			factoryLines = data.factoryLines.flatMap((factory) => factory.lines);
 		} else {
 			const factory = data.factoryLines.find((factory) => factory.FACTORYNAME === selectedFactory);
-			return factory ? factory.lines : [];
+			factoryLines = factory ? factory.lines : [];
 		}
+
+		if (selectedItem !== '') {
+			factoryLines = factoryLines.filter(
+				(line) =>
+					line.INITEMNAME1 === selectedItem ||
+					line.INITEMNAME2 === selectedItem ||
+					line.INITEMNAME3 === selectedItem ||
+					line.INITEMNAME4 === selectedItem ||
+					line.OUTITEMNAME1 === selectedItem ||
+					line.OUTITEMNAME2 === selectedItem
+			);
+		}
+
+		return factoryLines;
 	});
 	let deliveries = $derived.by(() => {
-		if (selectedFactory === '') {
-			return data.deliveries;
-		} else {
-			return data.deliveries
+		let deliveries = data.deliveries;
+		if (selectedFactory !== '') {
+			deliveries = deliveries
 				.filter(
 					(delivery) =>
 						delivery.SOURCEFACTORYNAME === selectedFactory ||
@@ -38,6 +53,12 @@
 					return delivery;
 				});
 		}
+
+		if (selectedItem !== '') {
+			deliveries = deliveries.filter((delivery) => delivery.ITEMNAME === selectedItem);
+		}
+
+		return deliveries;
 	});
 	let itemAmount = $derived.by(() => {
 		if (selectedFactory === '') {
@@ -78,7 +99,7 @@
 		{/each}
 	</div>
 	<div class="item-list">
-		<ItemAmount {itemAmount} />
+		<ItemAmount {itemAmount} bind:selectedItem />
 	</div>
 	<div class="content">
 		<div class="factory-lines">

@@ -1,10 +1,13 @@
 <script lang="ts">
-	let { itemAmount } = $props();
+	let { itemAmount, selectedItem = $bindable('') } = $props();
 </script>
 
 <div class="item-amount-container">
 	{#each itemAmount as item}
-		<button class="item-button">
+		<button
+			class="item-button {selectedItem === item.ITEMNAME ? 'selected' : ''}"
+			onclick={() => (selectedItem = selectedItem === item.ITEMNAME ? '' : item.ITEMNAME)}
+		>
 			<div class="item-name">{item.ITEMNAME}</div>
 			<div class="item-amount">{item.AMOUNT}</div>
 			<div class="item-todo" style="color: red;">({item.TODOAMOUNT})</div>
@@ -40,6 +43,11 @@
 	.item-button:active {
 		transform: translateY(0);
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.item-button.selected {
+		border: 2px solid rgba(255, 255, 255, 0.8);
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 	}
 
 	.item-button > div {
