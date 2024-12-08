@@ -6,28 +6,28 @@
 
 	let { data } = $props();
 	let itemAmountByFactory = getItemAmountByFactory(data.factoryLines, data.deliveries);
+	let selectedFactory = $state('');
 
-	let chosenFactory = $state('');
 	let factoryLines = $derived.by(() => {
-		if (chosenFactory === '') {
+		if (selectedFactory === '') {
 			return data.factoryLines.flatMap((factory) => factory.lines);
 		} else {
-			const factory = data.factoryLines.find((factory) => factory.FACTORYNAME === chosenFactory);
+			const factory = data.factoryLines.find((factory) => factory.FACTORYNAME === selectedFactory);
 			return factory ? factory.lines : [];
 		}
 	});
 	let deliveries = $derived.by(() => {
-		if (chosenFactory === '') {
+		if (selectedFactory === '') {
 			return data.deliveries;
 		} else {
 			return data.deliveries
 				.filter(
 					(delivery) =>
-						delivery.SOURCEFACTORYNAME === chosenFactory ||
-						delivery.DESTINATIONFACTORYNAME === chosenFactory
+						delivery.SOURCEFACTORYNAME === selectedFactory ||
+						delivery.DESTINATIONFACTORYNAME === selectedFactory
 				)
 				.map((delivery) => {
-					if (delivery.SOURCEFACTORYNAME === chosenFactory) {
+					if (delivery.SOURCEFACTORYNAME === selectedFactory) {
 						return {
 							...delivery,
 							SOURCEFACTORYNAME: delivery.DESTINATIONFACTORYNAME,
@@ -40,7 +40,7 @@
 		}
 	});
 	let itemAmount = $derived.by(() => {
-		if (chosenFactory === '') {
+		if (selectedFactory === '') {
 			return Object.values(itemAmountByFactory)
 				.flat()
 				.reduce((acc, cur) => {
@@ -54,7 +54,7 @@
 					return acc;
 				}, []);
 		} else {
-			return itemAmountByFactory[chosenFactory] || [];
+			return itemAmountByFactory[selectedFactory] || [];
 		}
 	});
 </script>
@@ -65,14 +65,14 @@
 		<button
 			class="factory-button"
 			onclick={() => {
-				chosenFactory = '';
+				selectedFactory = '';
 			}}>전체</button
 		>
 		{#each data.factoryLines as factories}
 			<button
 				class="factory-button"
 				onclick={() => {
-					chosenFactory = factories.FACTORYNAME;
+					selectedFactory = factories.FACTORYNAME;
 				}}>{factories.FACTORYNAME}</button
 			>
 		{/each}
