@@ -2,37 +2,39 @@ import type { PageServerLoad } from './$types';
 import { fail, redirect } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '$lib/server/login';
-import { getAllFactory, getSingleFactoryLine } from '$lib/server/crudWithAuth';
+import { getAllItem, getAllFactory, getSingleDelivery } from '$lib/server/crudWithAuth';
 import { addRow, editRow } from '$lib/server/crudWithAuth';
 
 export const load: PageServerLoad = async ({ cookies, params }) => {
 	const { id } = params;
 	const rowFrame = {
-		ROWID: null,
-		FACTORYID: null,
-		RECIPEKEY: null,
-		LINEAMOUNT: 0,
-		TODOAMOUNT: 0,
+		DELIVERYID: null,
+		SOURCEID: null,
+		DESTINATIONID: null,
+		ITEMKEY: null,
+		METHOD: '',
+		AMOUNT: 0,
 	};
 
-	const rowId = id; // rowId
+	const deliveryId = id;
 
 	const token = cookies.get('jwt');
 	const decoded = jwt.verify(token, SECRET_KEY) as { userId: string };
 	const userId = decoded.userId; // userId
 
 	if (id) {
-		const factoryLineResponse = await getSingleFactoryLine({ rowId, userId });
-		if (!factoryLineResponse.ok) {
-			throw new Error(`error during fetching FACTORYLINE! status: ${factoryLineResponse.status}`);
+		const deliveryResponse = await getSingleDelivery({ deliveryId, userId });
+		if (!deliveryResponse.ok) {
+			throw new Error(`error during fetching FACTORYLINE! status: ${deliveryResponse.status}`);
 		}
 
-		const row = await factoryLineResponse.json();
-		rowFrame.ROWID = parseInt(id);
-		rowFrame.FACTORYID = row.FACTORYID;
-		rowFrame.RECIPEKEY = row.RECIPEKEY;
-		rowFrame.LINEAMOUNT = row.LINEAMOUNT;
-		rowFrame.TODOAMOUNT = row.TODOAMOUNT;
+		const row = await deliveryResponse.json();
+		rowFrame.DELIVERYID = parseInt(id);
+		rowFrame.SOURCEID = row.SOURCEID;
+		rowFrame.DESTINATIONID = row.DESTINATIONID;
+		rowFrame.ITEMKEY = row.ITEMKEY;
+		rowFrame.METHOD = row.METHOD;
+		rowFrame.AMOUNT = row.AMOUNT;
 	}
 
 	const factoryResponse = await getAllFactory({ userId });
@@ -41,7 +43,13 @@ export const load: PageServerLoad = async ({ cookies, params }) => {
 	}
 	const factoryList = await factoryResponse.json();
 
-	return { factoryList: factoryList, userId: userId, rowFrame: rowFrame };
+	const itemResponse = await getAllItem();
+	if (!itemResponse.ok) {
+		throw new Error(`error during fetching ITEMLIST! status: ${itemResponse.status}`);
+	}
+	const itemList = await itemResponse.json();
+
+	return { factoryList: factoryList, itemList: itemList, userId: userId, rowFrame: rowFrame };
 };
 
 export const actions = {
@@ -79,7 +87,7 @@ export const actions = {
 				console.error('Error in editRow action:', error);
 				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
 			}
-			redirect(303, `/factories`);
+			redirect(303, `/factory-line`);
 		}
 		else {
 			try {
@@ -100,7 +108,7 @@ export const actions = {
 				console.error('Error in addRow action:', error);
 				return fail(500, { error: 'An unexpected error occurred. Please try again.' });
 			}
-			redirect(303, `/factories`);
+			redirect(303, `/factory-line`);
 		}
 	}
 };
