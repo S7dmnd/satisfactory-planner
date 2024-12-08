@@ -2,10 +2,10 @@
 	import Deliveries from '$lib/components/factory-line/Deliveries.svelte';
 	import FactoryLines from '$lib/components/factory-line/FactoryLines.svelte';
 	import ItemAmount from '$lib/components/factory-line/ItemAmount.svelte';
-	import { getItemAmount } from '$lib/logic.js';
+	import { getItemAmountByFactory } from '$lib/logic.js';
 
 	let { data } = $props();
-	let [itemFactoryAmount, itemDeliveryAmmount] = getItemAmount(data.factoryLines, data.deliveries);
+	let itemAmountByFactory = getItemAmountByFactory(data.factoryLines, data.deliveries);
 
 	let chosenFactory = $state('');
 	let factoryLines = $derived.by(() => {
@@ -41,36 +41,20 @@
 	});
 	let itemAmount = $derived.by(() => {
 		if (chosenFactory === '') {
-			return itemFactoryAmount.reduce((acc, factory) => {
-				for (const [itemName, amount] of Object.entries(factory.ITEMAMOUNT)) {
-					if (acc[itemName] === undefined) {
-						acc[itemName] = {
-							amount: 0,
-							todoAmount: 0
-						};
+			return Object.values(itemAmountByFactory)
+				.flat()
+				.reduce((acc, cur) => {
+					const found = acc.find((item) => item.ITEMNAME === cur.ITEMNAME);
+					if (found) {
+						found.AMOUNT += cur.AMOUNT;
+						found.TODOAMOUNT += cur.TODOAMOUNT;
+					} else {
+						acc.push({ ...cur });
 					}
-					acc[itemName].amount += amount.amount;
-					acc[itemName].todoAmount += amount.todoAmount;
-				}
-				return acc;
-			}, {});
-		} else {
-			const factory = itemFactoryAmount.find((factory) => factory.FACTORYNAME === chosenFactory);
-			const deliveryAmount = itemDeliveryAmmount[chosenFactory] || {};
-			return Object.entries(deliveryAmount).reduce(
-				(acc, [itemName, amount]) => {
-					if (acc[itemName] === undefined) {
-						acc[itemName] = {
-							amount: 0,
-							todoAmount: 0
-						};
-					}
-					acc[itemName].amount += amount.amount;
-					acc[itemName].todoAmount += amount.todoAmount;
 					return acc;
-				},
-				factory ? factory.ITEMAMOUNT : {}
-			);
+				}, []);
+		} else {
+			return itemAmountByFactory[chosenFactory] || [];
 		}
 	});
 </script>

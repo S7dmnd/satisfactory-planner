@@ -1,94 +1,100 @@
-export function getItemAmount(factoryLines, deliveries) {
-	let itemFactoryAmount = factoryLines.map((factory) => {
-		let itemAmount = {};
-		for (const line of factory.lines) {
+export function getItemAmountByFactory(factoryLines, deliveries) {
+	let itemFactoryAmount = factoryLines.flatMap((factory) => {
+		return factory.lines.flatMap((line) => {
+			let itemAmount = [];
 			if (line.INITEMNAME1) {
-				if (itemAmount[line.INITEMNAME1] === undefined) {
-					itemAmount[line.INITEMNAME1] = {
-						amount: 0,
-						todoAmount: 0
-					};
-				}
-				itemAmount[line.INITEMNAME1].amount -= line.INAMOUNT1 * line.LINEAMOUNT;
-				itemAmount[line.INITEMNAME1].todoAmount -= line.INAMOUNT1 * line.TODOAMOUNT;
+				itemAmount.push({
+					FACTORYNAME: factory.FACTORYNAME,
+					ITEMNAME: line.INITEMNAME1,
+					AMOUNT: -line.INAMOUNT1 * line.LINEAMOUNT,
+					TODOAMOUNT: -line.INAMOUNT1 * line.TODOAMOUNT
+				});
 			}
 			if (line.INITEMNAME2) {
-				if (itemAmount[line.INITEMNAME2] === undefined) {
-					itemAmount[line.INITEMNAME2] = {
-						amount: 0,
-						todoAmount: 0
-					};
-				}
-				itemAmount[line.INITEMNAME2].amount -= line.INAMOUNT2 * line.LINEAMOUNT;
-				itemAmount[line.INITEMNAME2].todoAmount -= line.INAMOUNT2 * line.TODOAMOUNT;
+				itemAmount.push({
+					FACTORYNAME: factory.FACTORYNAME,
+					ITEMNAME: line.INITEMNAME2,
+					AMOUNT: -line.INAMOUNT2 * line.LINEAMOUNT,
+					TODOAMOUNT: -line.INAMOUNT2 * line.TODOAMOUNT
+				});
 			}
 			if (line.INITEMNAME3) {
-				if (itemAmount[line.INITEMNAME3] === undefined) {
-					itemAmount[line.INITEMNAME3] = {
-						amount: 0,
-						todoAmount: 0
-					};
-				}
-				itemAmount[line.INITEMNAME3].amount -= line.INAMOUNT3 * line.LINEAMOUNT;
-				itemAmount[line.INITEMNAME3].todoAmount -= line.INAMOUNT3 * line.TODOAMOUNT;
+				itemAmount.push({
+					FACTORYNAME: factory.FACTORYNAME,
+					ITEMNAME: line.INITEMNAME3,
+					AMOUNT: -line.INAMOUNT3 * line.LINEAMOUNT,
+					TODOAMOUNT: -line.INAMOUNT3 * line.TODOAMOUNT
+				});
 			}
 			if (line.INITEMNAME4) {
-				if (itemAmount[line.INITEMNAME4] === undefined) {
-					itemAmount[line.INITEMNAME4] = {
-						amount: 0,
-						todoAmount: 0
-					};
-				}
-				itemAmount[line.INITEMNAME4].amount -= line.INAMOUNT4 * line.LINEAMOUNT;
-				itemAmount[line.INITEMNAME4].todoAmount -= line.INAMOUNT4 * line.TODOAMOUNT;
+				itemAmount.push({
+					FACTORYNAME: factory.FACTORYNAME,
+					ITEMNAME: line.INITEMNAME4,
+					AMOUNT: -line.INAMOUNT4 * line.LINEAMOUNT,
+					TODOAMOUNT: -line.INAMOUNT4 * line.TODOAMOUNT
+				});
 			}
 			if (line.OUTITEMNAME1) {
-				if (itemAmount[line.OUTITEMNAME1] === undefined) {
-					itemAmount[line.OUTITEMNAME1] = {
-						amount: 0,
-						todoAmount: 0
-					};
-				}
-				itemAmount[line.OUTITEMNAME1].amount += line.OUTAMOUNT1 * line.LINEAMOUNT;
-				itemAmount[line.OUTITEMNAME1].todoAmount += line.OUTAMOUNT1 * line.TODOAMOUNT;
+				itemAmount.push({
+					FACTORYNAME: factory.FACTORYNAME,
+					ITEMNAME: line.OUTITEMNAME1,
+					AMOUNT: line.OUTAMOUNT1 * line.LINEAMOUNT,
+					TODOAMOUNT: line.OUTAMOUNT1 * line.TODOAMOUNT
+				});
 			}
 			if (line.OUTITEMNAME2) {
-				if (itemAmount[line.OUTITEMNAME2] === undefined) {
-					itemAmount[line.OUTITEMNAME2] = {
-						amount: 0,
-						todoAmount: 0
-					};
-				}
-				itemAmount[line.OUTITEMNAME2].amount += line.OUTAMOUNT2 * line.LINEAMOUNT;
-				itemAmount[line.OUTITEMNAME2].todoAmount += line.OUTAMOUNT2 * line.TODOAMOUNT;
+				itemAmount.push({
+					FACTORYNAME: factory.FACTORYNAME,
+					ITEMNAME: line.OUTITEMNAME2,
+					AMOUNT: line.OUTAMOUNT2 * line.LINEAMOUNT,
+					TODOAMOUNT: line.OUTAMOUNT2 * line.TODOAMOUNT
+				});
 			}
-		}
-
-		return {
-			FACTORYNAME: factory.FACTORYNAME,
-			ITEMAMOUNT: itemAmount
-		};
+			return itemAmount;
+		});
 	});
-	let itemDeliveryAmmount = deliveries.reduce((acc, delivery) => {
+	let itemDeliveryAmmount = deliveries.flatMap((delivery) => {
+		let itemAmount = [];
 		if (delivery.SOURCEFACTORYNAME) {
-			if (acc[delivery.SOURCEFACTORYNAME] === undefined) {
-				acc[delivery.SOURCEFACTORYNAME] = {};
-			}
-			if (acc[delivery.SOURCEFACTORYNAME][delivery.ITEMNAME] === undefined) {
-				acc[delivery.SOURCEFACTORYNAME][delivery.ITEMNAME] = 0;
-			}
-			acc[delivery.SOURCEFACTORYNAME][delivery.ITEMNAME] -= delivery.AMOUNT;
+			itemAmount.push({
+				FACTORYNAME: delivery.SOURCEFACTORYNAME,
+				ITEMNAME: delivery.ITEMNAME,
+				AMOUNT: -delivery.AMOUNT,
+				TODOAMOUNT: 0
+			});
 		}
 		if (delivery.DESTINATIONFACTORYNAME) {
-			if (acc[delivery.DESTINATIONFACTORYNAME] === undefined) {
-				acc[delivery.DESTINATIONFACTORYNAME] = {};
-			}
-			if (acc[delivery.DESTINATIONFACTORYNAME][delivery.ITEMNAME] === undefined) {
-				acc[delivery.DESTINATIONFACTORYNAME][delivery.ITEMNAME] = 0;
-			}
-			acc[delivery.DESTINATIONFACTORYNAME][delivery.ITEMNAME] += delivery.AMOUNT;
+			itemAmount.push({
+				FACTORYNAME: delivery.DESTINATIONFACTORYNAME,
+				ITEMNAME: delivery.ITEMNAME,
+				AMOUNT: delivery.AMOUNT,
+				TODOAMOUNT: 0
+			});
 		}
+		return itemAmount;
+	});
+	let itemAmount = itemFactoryAmount.concat(itemDeliveryAmmount);
+
+	return itemAmount.reduce((acc, item) => {
+		let factoryName = item.FACTORYNAME;
+		let itemName = item.ITEMNAME;
+
+		if (!acc[factoryName]) {
+			acc[factoryName] = [];
+		}
+
+		const found = acc[factoryName].find((i) => i.ITEMNAME === itemName);
+		if (found) {
+			found.AMOUNT += item.AMOUNT;
+			found.TODOAMOUNT += item.TODOAMOUNT;
+		} else {
+			acc[factoryName].push({
+				ITEMNAME: itemName,
+				AMOUNT: item.AMOUNT,
+				TODOAMOUNT: item.TODOAMOUNT
+			});
+		}
+
 		return acc;
 	}, {});
-	return [itemFactoryAmount, itemDeliveryAmmount];
 }
