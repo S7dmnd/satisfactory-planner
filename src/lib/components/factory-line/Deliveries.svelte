@@ -17,8 +17,8 @@
 		<tbody>
 			{#each deliveries as delivery}
 				<tr class="table-row">
-					<td>{delivery.SOURCENAME}</td>
-					<td>{delivery.DESTINATIONNAME}</td>
+					<td>{delivery.SOURCEFACTORYNAME}</td>
+					<td>{delivery.DESTINATIONFACTORYNAME}</td>
 					<td>{delivery.ITEMNAME}</td>
 					<td
 						>{#if delivery.AMOUNT > 0}
@@ -27,7 +27,6 @@
 							<span style="color: red;">←{delivery.AMOUNT}</span>
 						{/if}</td
 					>
-					<td>{delivery.AMOUNT}</td>
 					<td>{delivery.METHOD}</td>
 					<!-- TODO -->
 					<td>

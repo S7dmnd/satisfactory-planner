@@ -21,14 +21,15 @@
 			return data.deliveries
 				.filter(
 					(delivery) =>
-						delivery.SOURCENAME === chosenFactory || delivery.DESTINATIONNAME === chosenFactory
+						delivery.SOURCEFACTORYNAME === chosenFactory ||
+						delivery.DESTINATIONFACTORYNAME === chosenFactory
 				)
 				.map((delivery) => {
-					if (delivery.SOURCENAME === chosenFactory) {
+					if (delivery.SOURCEFACTORYNAME === chosenFactory) {
 						return {
 							...delivery,
-							SOURCENAME: delivery.DESTINATIONNAME,
-							DESTINATIONNAME: delivery.SOURCENAME,
+							SOURCEFACTORYNAME: delivery.DESTINATIONFACTORYNAME,
+							DESTINATIONFACTORYNAME: delivery.SOURCEFACTORYNAME,
 							AMOUNT: -delivery.AMOUNT
 						};
 					}

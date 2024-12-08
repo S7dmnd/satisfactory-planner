@@ -338,3 +338,21 @@ export async function createFactory({ request }) {
         });
     }
 }
+
+export async function getAllDeliveryView({ userId }) {
+    try {
+        const query = `SELECT * FROM DELIVERYVIEW WHERE USERID = '${userId}'`;
+        const [rows] = await pool.query(query);
+
+        return new Response(JSON.stringify(rows), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        console.error('Databasequery error:', error);
+        return new Response(JSON.stringify({ error: 'Failed to fetch items' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}
