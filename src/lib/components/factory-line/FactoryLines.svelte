@@ -62,14 +62,14 @@
 						{/if}
 					</td>
 					<td>
-						<a href="/edit/{line.ROWID}">Edit</a>
+						<a href="/line/{line.ROWID}">Edit</a>
 					</td>
 				</tr>
 			{/each}
 		</tbody>
 	</table>
 	<div class="button-container">
-		<a href="/edit">+</a>
+		<a href="/line">+</a>
 	</div>
 </div>
 

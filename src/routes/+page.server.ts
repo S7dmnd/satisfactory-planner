@@ -42,7 +42,7 @@ export const actions = {
 			return fail(500, { error: 'An unexpected error occurred. Please try again.' });
 		}
 
-		redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
+		redirect(303, url.searchParams.get('redirectTo') ?? '/factories');
 	},
 };
 
@@ -65,6 +65,6 @@ export const load: PageServerLoad = async ({ cookies, url }) => {
 	const isValidUser = await validateUserId(userId);
 	if (isValidUser) {
 		//console.log(isValidUser);
-		redirect(303, url.searchParams.get('redirectTo') ?? '/factory-line');
+		redirect(303, url.searchParams.get('redirectTo') ?? '/factories');
 	}
 };
