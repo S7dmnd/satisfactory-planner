@@ -29,14 +29,14 @@
 					>
 					<td>{delivery.METHOD}</td>
 					<td>
-						<a href="/delivery/{delivery.DELIVERYID}">Edit</a>
+						<a href="/edit/delivery/{delivery.DELIVERYID}">Edit</a>
 					</td>
 				</tr>
 			{/each}
 		</tbody>
 	</table>
 	<div class="button-container">
-		<a href="/delivery">+</a>
+		<a href="/edit/delivery">+</a>
 	</div>
 </div>
 
