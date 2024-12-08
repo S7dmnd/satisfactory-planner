@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Deliveries from '$lib/components/factory-line/Deliveries.svelte';
 	import FactoryLines from '$lib/components/factory-line/FactoryLines.svelte';
-	import ItemList from '$lib/components/factory-line/ItemList.svelte';
+	import ItemAmount from '$lib/components/factory-line/ItemAmount.svelte';
+	import { getItemAmount } from '$lib/logic.js';
 
 	let { data } = $props();
+	let [itemFactoryAmount, itemDeliveryAmmount] = getItemAmount(data.factoryLines, data.deliveries);
 
 	let chosenFactory = $state('');
 	let factoryLines = $derived.by(() => {
@@ -37,6 +39,40 @@
 				});
 		}
 	});
+	let itemAmount = $derived.by(() => {
+		if (chosenFactory === '') {
+			return itemFactoryAmount.reduce((acc, factory) => {
+				for (const [itemName, amount] of Object.entries(factory.ITEMAMOUNT)) {
+					if (acc[itemName] === undefined) {
+						acc[itemName] = {
+							amount: 0,
+							todoAmount: 0
+						};
+					}
+					acc[itemName].amount += amount.amount;
+					acc[itemName].todoAmount += amount.todoAmount;
+				}
+				return acc;
+			}, {});
+		} else {
+			const factory = itemFactoryAmount.find((factory) => factory.FACTORYNAME === chosenFactory);
+			const deliveryAmount = itemDeliveryAmmount[chosenFactory] || {};
+			return Object.entries(deliveryAmount).reduce(
+				(acc, [itemName, amount]) => {
+					if (acc[itemName] === undefined) {
+						acc[itemName] = {
+							amount: 0,
+							todoAmount: 0
+						};
+					}
+					acc[itemName].amount += amount.amount;
+					acc[itemName].todoAmount += amount.todoAmount;
+					return acc;
+				},
+				factory ? factory.ITEMAMOUNT : {}
+			);
+		}
+	});
 </script>
 
 <div class="container">
@@ -58,7 +94,7 @@
 		{/each}
 	</div>
 	<div class="item-list">
-		<ItemList />
+		<ItemAmount {itemAmount} />
 	</div>
 	<div class="content">
 		<div class="factory-lines">
