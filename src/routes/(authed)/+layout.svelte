@@ -11,12 +11,12 @@
 		>Factories</a
 	>
 	<a
-		href={activePage.startsWith('/line') ? activePage : '/line'}
-		class="nav-link {activePage.startsWith('/line') ? 'active' : ''}">Line</a
+		href={activePage.startsWith('/edit/line') ? activePage : '/edit/line'}
+		class="nav-link {activePage.startsWith('/edit/line') ? 'active' : ''}">Line</a
 	>
 	<a
-		href={activePage.startsWith('/delivery') ? activePage : '/delivery'}
-		class="nav-link {activePage.startsWith('/delivery') ? 'active' : ''}">Delivery</a
+		href={activePage.startsWith('/edit/delivery') ? activePage : '/edit/delivery'}
+		class="nav-link {activePage.startsWith('/edit/delivery') ? 'active' : ''}">Delivery</a
 	>
 	<a href="/logout" class="nav-link">Log out</a>
 </nav>
