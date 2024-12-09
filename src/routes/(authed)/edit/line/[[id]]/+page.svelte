@@ -132,9 +132,9 @@
 	</select>
 </div>
 
-<div>
+<div class="recipe-frame-container">
 	<h3>Input & Output Items</h3>
-	<div>
+	<div class="recipe-frame">
 		<!-- IN ITEMS -->
 		{#if recipeFrame?.INITEMNAME1}
 			<ItemCard
@@ -145,7 +145,7 @@
 			/>
 		{/if}
 		{#if recipeFrame?.INITEMNAME2}
-			<div>+</div>
+			<div class="highlighted-text">+</div>
 			<ItemCard
 				itemName={recipeFrame.INITEMNAME2}
 				itemAmount={recipeFrame.INAMOUNT2}
@@ -154,7 +154,7 @@
 			/>
 		{/if}
 		{#if recipeFrame?.INITEMNAME3}
-			<div>+</div>
+			<div class="highlighted-text">+</div>
 			<ItemCard
 				itemName={recipeFrame.INITEMNAME3}
 				itemAmount={recipeFrame.INAMOUNT3}
@@ -163,7 +163,7 @@
 			/>
 		{/if}
 		{#if recipeFrame?.INITEMNAME4}
-			<div>+</div>
+			<div class="highlighted-text">+</div>
 			<ItemCard
 				itemName={recipeFrame.INITEMNAME4}
 				itemAmount={recipeFrame.INAMOUNT4}
@@ -172,7 +172,7 @@
 			/>
 		{/if}
 		{#if recipeFrame}
-			<div>-></div>
+			<div class="highlighted-text">→</div>
 		{/if}
 		<!-- OUT ITEMS -->
 		{#if recipeFrame?.OUTITEMNAME1}
@@ -184,7 +184,7 @@
 			/>
 		{/if}
 		{#if recipeFrame?.OUTITEMNAME2}
-			<div>+</div>
+			<div class="highlighted-text">+</div>
 			<ItemCard
 				itemName={recipeFrame.OUTITEMNAME2}
 				itemAmount={recipeFrame.OUTAMOUNT2}
@@ -283,6 +283,26 @@
 
 	.search-bar input::placeholder {
 		color: rgba(14, 14, 14, 0.7);
+	}
+
+	.recipe-frame-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.recipe-frame {
+		display: flex;
+		align-items: center;
+		overflow-x: auto; /* 가로 스크롤 활성화 */
+		white-space: nowrap; /* 자식 요소들이 한 줄로 정렬 */
+		padding: 10px;
+	}
+
+	.recipe-frame .highlighted-text {
+		font-size: 3rem;
+		font-weight: bold;
+		color: rgba(250, 149, 73, 255);
 	}
 
 	/* Row Form Styling */
