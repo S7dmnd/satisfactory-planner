@@ -110,11 +110,20 @@
 	/>
 	<select id="recipe-select" bind:value={recipeKey}>
 		<option value={null} disabled hidden>-- Select a Recipe --</option>
-		{#each filteredRecipes as recipe}
-			<option value={recipe.RECIPEKEY} disabled={isEdit}>
-				{formatRecipeText(recipe)}
-			</option>
-		{/each}
+		<optgroup label="기본 레시피">
+			{#each filteredRecipes.filter((recipe) => !recipe.ALTERNATE) as recipe}
+				<option value={recipe.RECIPEKEY} disabled={isEdit}>
+					{formatRecipeText(recipe)}
+				</option>
+			{/each}
+		</optgroup>
+		<optgroup label="대체 레시피">
+			{#each filteredRecipes.filter((recipe) => recipe.ALTERNATE) as recipe}
+				<option value={recipe.RECIPEKEY} disabled={isEdit}>
+					{formatRecipeText(recipe)}
+				</option>
+			{/each}
+		</optgroup>
 	</select>
 </div>
 
