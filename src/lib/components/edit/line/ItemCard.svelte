@@ -5,8 +5,27 @@
 <div class="item-card-container">
 	<img src="/src/lib/images/{itemName}.webp" alt={itemName} />
 	<div>{itemName}</div>
-	<input type="number" value={itemAmount * lineAmount} />
-	<input type="text" value="({itemAmount * todoAmount})" style="color: red;" />
+	<div class="input-container">
+		<input
+			type="number"
+			value={itemAmount * lineAmount}
+			oninput={(e) => {
+				lineAmount = e.target.value / itemAmount;
+			}}
+		/>
+	</div>
+	<div class="input-container todo-container">
+		<div>
+			(<span style="color:transparent">{itemAmount * todoAmount}</span>)
+		</div>
+		<input
+			type="number"
+			value={itemAmount * todoAmount}
+			oninput={(e) => {
+				todoAmount = e.target.value / itemAmount;
+			}}
+		/>
+	</div>
 </div>
 
 <style>
@@ -27,20 +46,41 @@
 		object-fit: contain;
 	}
 
-	input {
+	.input-container {
 		padding: 10px;
 		border-radius: 5px;
 		border: 1px solid rgba(250, 149, 73, 255);
 		background-color: rgba(250, 149, 73, 0.2);
 		color: black;
 		width: calc(100% - 22px);
+	}
+
+	.todo-container {
+		position: relative;
+		color: red;
+	}
+	.todo-container > div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		pointer-events: none;
+	}
+
+	input {
+		background-color: transparent;
+		width: 100%;
 		appearance: textfield;
 		text-align: center;
 	}
 
 	/* Hide the spinner for Webkit browsers */
-	input[type='number']::-webkit-outer-spin-button,
-	input[type='number']::-webkit-inner-spin-button {
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
