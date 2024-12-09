@@ -6,6 +6,7 @@ import { fail } from '@sveltejs/kit';
 import { updateTodo } from '$lib/server/crudWithAuth';
 
 export const load: PageServerLoad = async ({ cookies }) => {
+    const ready = true;
     const token = cookies.get('jwt');
     const decoded = jwt.verify(token, SECRET_KEY) as { userId: string };
     const userId = decoded.userId;
@@ -16,7 +17,7 @@ export const load: PageServerLoad = async ({ cookies }) => {
     }
 
     const todos = await response.json();
-    return { userId, todos };
+    return { userId, todos, ready };
 };
 
 export const actions = {
