@@ -117,7 +117,7 @@
 	<form method="POST">
 		<div>
 			<label for="amount">AMOUNT:</label>
-			<input id="amount" name="AMOUNT" type="number" bind:value={amount} min="0" />
+			<input id="amount" name="AMOUNT" type="number" bind:value={amount} min="0" step="any" />
 		</div>
 		<div>
 			<label for="method">METHOD:</label>

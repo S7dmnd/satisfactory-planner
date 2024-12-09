@@ -187,7 +187,14 @@
 	<form method="POST">
 		<div>
 			<label for="lineamount">LINE AMOUNT:</label>
-			<input id="lineamount" name="LINEAMOUNT" type="number" bind:value={lineAmount} min="0" />
+			<input
+				id="lineamount"
+				name="LINEAMOUNT"
+				type="number"
+				bind:value={lineAmount}
+				min="0"
+				step="any"
+			/>
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
@@ -198,6 +205,7 @@
 				bind:value={todoAmount}
 				min="0"
 				max={lineAmount}
+				step="any"
 			/>
 		</div>
 
