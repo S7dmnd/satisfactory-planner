@@ -1,13 +1,8 @@
 <script lang="ts">
-	import Loading from '$lib/components/Loading.svelte';
-	let { todos, userId } = $props();
-	let loading = $state(false);
+	let { todos } = $props();
 </script>
 
 <div class="factory-container">
-	{#if loading}
-		<Loading message="데이터를 불러오는 중입니다..." />
-	{/if}
 	<h3 class="factory-title">{todos.FACTORYNAME}</h3>
 	<table class="todo-table">
 		<thead class="todo-table-header">
