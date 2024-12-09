@@ -55,34 +55,42 @@
 	};
 </script>
 
-<div class="dropdown">
+<div class="factory-select-container">
+	<div class="dropdown-container">
+		<!-- SOURCE 공장 선택 드롭다운 -->
+		<div class="dropdown">
+			<label for="source-select">Select Source Factory:</label>
+			<select id="source-select" bind:value={sourceId}>
+				<option value={null} disabled hidden>-- Select a Source Factory --</option>
+				{#each factoryList as factory}
+					<option value={factory.FACTORYID}>
+						{factory.FACTORYNAME}
+					</option>
+				{/each}
+			</select>
+		</div>
+
+		<button
+			onclick={() => {
+				[sourceId, destinationId] = [destinationId, sourceId];
+			}}>⇄</button
+		>
+
+		<!-- DESTINATION 공장 선택 드롭다운 -->
+		<div class="dropdown">
+			<label for="destination-select">Select Destination Factory:</label>
+			<select id="destination-select" bind:value={destinationId}>
+				<option value={null} disabled hidden>-- Select a Destination Factory --</option>
+				{#each factoryList as factory}
+					<option value={factory.FACTORYID}>
+						{factory.FACTORYNAME}
+					</option>
+				{/each}
+			</select>
+		</div>
+	</div>
+
 	<button type="button" onclick={addNewFactory}>Add New Factory</button>
-</div>
-
-<!-- SOURCE 공장 선택 드롭다운 -->
-<div class="dropdown">
-	<label for="source-select">Select Source Factory:</label>
-	<select id="source-select" bind:value={sourceId}>
-		<option value={null} disabled hidden>-- Select a Source Factory --</option>
-		{#each factoryList as factory}
-			<option value={factory.FACTORYID}>
-				{factory.FACTORYNAME}
-			</option>
-		{/each}
-	</select>
-</div>
-
-<!-- DESTINATION 공장 선택 드롭다운 -->
-<div class="dropdown">
-	<label for="destination-select">Select Destination Factory:</label>
-	<select id="destination-select" bind:value={destinationId}>
-		<option value={null} disabled hidden>-- Select a Destination Factory --</option>
-		{#each factoryList as factory}
-			<option value={factory.FACTORYID}>
-				{factory.FACTORYNAME}
-			</option>
-		{/each}
-	</select>
 </div>
 
 <!-- 아이템 선택 드롭다운 및 검색창 -->
@@ -145,6 +153,19 @@
 </form>
 
 <style>
+	.factory-select-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.dropdown-container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 20px;
+	}
+
 	/* Dropdown Styling */
 	.dropdown {
 		margin: 20px auto;
