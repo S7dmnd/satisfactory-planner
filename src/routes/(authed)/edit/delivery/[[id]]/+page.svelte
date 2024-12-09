@@ -86,12 +86,9 @@
 </div>
 
 <!-- 아이템 선택 드롭다운 및 검색창 -->
-<div class="search-bar">
-	<input type="text" placeholder="Search items by KO or EN name" bind:value={searchText} />
-</div>
-
 <div class="dropdown">
 	<label for="item-select">Select Item:</label>
+	<input type="text" placeholder="Search items by KO or EN name" bind:value={searchText} />
 	<select id="item-select" bind:value={itemKey}>
 		<option value={null} disabled hidden>-- Select an Item --</option>
 		{#each filteredItems as item}
@@ -158,15 +155,28 @@
 	.dropdown {
 		margin: 20px auto;
 		display: flex;
+		gap: 20px;
 		flex-direction: column;
 		align-items: center;
-		color: black;
 	}
 
 	.dropdown label {
-		margin-bottom: 5px;
 		font-weight: bold;
 		color: white;
+	}
+
+	.dropdown input {
+		padding: 10px;
+		width: 50%;
+		font-size: 1rem;
+		border-radius: 5px;
+		border: 1px solid rgba(250, 149, 73, 1);
+		background-color: rgba(250, 149, 73, 0.2);
+		color: black;
+	}
+
+	.dropdown input::placeholder {
+		color: rgba(14, 14, 14, 0.7);
 	}
 
 	.dropdown select {
@@ -184,27 +194,6 @@
 	.dropdown select:hover {
 		background-color: rgba(250, 149, 73, 0.3);
 		box-shadow: 0 0 5px rgba(250, 149, 73, 1);
-	}
-
-	/* Search Bar Styling */
-	.search-bar {
-		display: flex;
-		justify-content: center;
-		margin: 20px;
-	}
-
-	.search-bar input {
-		padding: 10px;
-		width: 50%;
-		font-size: 1rem;
-		border-radius: 5px;
-		border: 1px solid rgba(250, 149, 73, 1);
-		background-color: rgba(250, 149, 73, 0.2);
-		color: black;
-	}
-
-	.search-bar input::placeholder {
-		color: rgba(14, 14, 14, 0.7);
 	}
 
 	/* Row Form Styling */
@@ -312,14 +301,11 @@
 
 	/* Responsive Styling */
 	@media (max-width: 768px) {
-		.search-bar input {
-			width: 80%;
-		}
-
 		.row-form {
 			padding: 15px;
 		}
 
+		.dropdown input,
 		.dropdown select {
 			width: 80%;
 		}

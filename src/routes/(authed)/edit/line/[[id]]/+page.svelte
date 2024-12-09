@@ -101,17 +101,13 @@
 </div>
 
 <!-- 레시피 선택 드롭다운 및 검색창 -->
-
-<div class="search-bar">
+<div class="dropdown">
+	<label for="recipe-select">Select Recipe:</label>
 	<input
 		type="text"
 		placeholder="Search recipes by INITEMNAME or OUTITEMNAME"
 		bind:value={searchText}
 	/>
-</div>
-
-<div class="dropdown">
-	<label for="recipe-select">Select Recipe:</label>
 	<select id="recipe-select" bind:value={recipeKey}>
 		<option value={null} disabled hidden>-- Select a Recipe --</option>
 		{#each filteredRecipes as recipe}
@@ -235,13 +231,28 @@
 	.dropdown {
 		margin: 20px auto;
 		display: flex;
+		gap: 20px;
 		flex-direction: column;
 		align-items: center;
 	}
 
 	.dropdown label {
-		margin-bottom: 5px;
 		font-weight: bold;
+		color: white;
+	}
+
+	.dropdown input {
+		padding: 10px;
+		width: 50%;
+		font-size: 1rem;
+		border-radius: 5px;
+		border: 1px solid rgba(250, 149, 73, 255);
+		background-color: rgba(250, 149, 73, 0.2);
+		color: black;
+	}
+
+	.dropdown input::placeholder {
+		color: rgba(14, 14, 14, 0.7);
 	}
 
 	.dropdown select {
@@ -256,27 +267,6 @@
 
 	.dropdown select:hover {
 		background-color: rgba(250, 149, 73, 0.3);
-	}
-
-	/* Search Bar Styling */
-	.search-bar {
-		display: flex;
-		justify-content: center;
-		margin: 20px;
-	}
-
-	.search-bar input {
-		padding: 10px;
-		width: 50%;
-		font-size: 1rem;
-		border-radius: 5px;
-		border: 1px solid rgba(250, 149, 73, 255);
-		background-color: rgba(250, 149, 73, 0.2);
-		color: black;
-	}
-
-	.search-bar input::placeholder {
-		color: rgba(14, 14, 14, 0.7);
 	}
 
 	.recipe-frame-container {
@@ -358,14 +348,11 @@
 
 	/* Responsive Styling */
 	@media (max-width: 768px) {
-		.search-bar input {
-			width: 80%;
-		}
-
 		.row-form {
 			padding: 15px;
 		}
 
+		.dropdown input,
 		.dropdown select {
 			width: 80%;
 		}
@@ -373,14 +360,11 @@
 
 	/* Responsive Styling */
 	@media (max-width: 768px) {
-		.search-bar input {
-			width: 80%;
-		}
-
 		.row-form {
 			padding: 15px;
 		}
 
+		.dropdown input,
 		.dropdown select {
 			width: 80%;
 		}
