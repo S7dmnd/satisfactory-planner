@@ -3,9 +3,13 @@
 </script>
 
 <div class="item-amount-container">
-	{#each itemAmount as item}
+	{#each itemAmount.sort((a, b) => a.AMOUNT - b.AMOUNT) as item}
 		<button
-			class="item-button {selectedItem === item.ITEMNAME ? 'selected' : ''}"
+			class="item-button {item.AMOUNT < 0
+				? 'negative'
+				: item.AMOUNT == 0
+					? 'zero'
+					: 'positive'} {selectedItem === item.ITEMNAME ? 'selected' : ''}"
 			onclick={() => (selectedItem = selectedItem === item.ITEMNAME ? '' : item.ITEMNAME)}
 		>
 			<img src="/src/lib/images/{item.ITEMNAME}.webp" alt={item.ITEMNAME} />
@@ -36,6 +40,16 @@
 		cursor: pointer;
 		align-items: center;
 		border: 2px solid transparent; /* 투명한 border 추가 */
+	}
+
+	.item-button.negative {
+		background-color: rgba(250, 98, 72, 1);
+	}
+	.item-button.zero {
+		background-color: rgba(72, 136, 250, 1);
+	}
+	.item-button.positive {
+		background-color: rgba(250, 149, 73, 1);
 	}
 
 	.item-button:hover {
