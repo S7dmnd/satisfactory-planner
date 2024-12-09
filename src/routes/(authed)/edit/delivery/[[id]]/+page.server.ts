@@ -54,8 +54,12 @@ export const load: PageServerLoad = async ({ cookies, params }) => {
 export const actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
-		const deliveryId = formData.get('DELIVERYID');
+		// Validation
+		if (formData.get('USERID') == null || formData.get('SOURCEID') == null || formData.get('DESTINATIONID') == null || formData.get('ITEMKEY') == null || formData.get('METHOD') == null || formData.get('AMOUNT') == null) {
+			return fail(400, { error: 'Missing required fields' });
+		}
 
+		const deliveryId = formData.get('DELIVERYID');
 		const deliveryData = {
 			SOURCEID: Number(formData.get('SOURCEID')),
 			DESTINATIONID: Number(formData.get('DESTINATIONID')),
@@ -65,9 +69,9 @@ export const actions = {
 		};
 		const userId = formData.get('USERID');
 
-		// 필수 값 검증
-		if (!userId || !deliveryData.SOURCEID || !deliveryData.DESTINATIONID || !deliveryData.ITEMKEY || !deliveryData.METHOD || !deliveryData.AMOUNT) {
-			return fail(400, { error: 'Missing required fields' });
+		// Validation
+		if (deliveryData.AMOUNT <= 0) {
+			return fail(400, { error: 'Amount must be positive' });
 		}
 
 		if (deliveryId !== null) {
