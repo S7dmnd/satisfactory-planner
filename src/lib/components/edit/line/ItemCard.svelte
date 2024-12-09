@@ -10,7 +10,8 @@
 			type="number"
 			value={itemAmount * lineAmount}
 			oninput={(e) => {
-				lineAmount = e.target.value / itemAmount;
+				const target = e.target as HTMLInputElement;
+				lineAmount = parseFloat(target.value) / itemAmount;
 			}}
 		/>
 	</div>
@@ -22,7 +23,8 @@
 			type="number"
 			value={itemAmount * todoAmount}
 			oninput={(e) => {
-				todoAmount = e.target.value / itemAmount;
+				const target = e.target as HTMLInputElement;
+				todoAmount = parseFloat(target.value) / itemAmount;
 			}}
 		/>
 	</div>
