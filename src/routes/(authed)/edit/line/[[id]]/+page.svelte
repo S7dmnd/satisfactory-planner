@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ItemCard from '$lib/components/edit/line/ItemCard.svelte';
 
-	let { data } = $props();
+	let { data, form } = $props();
 	const userId = data.userId;
 	let factoryList = $state(data.factoryList);
 	let recipeList = data.recipeList;
@@ -56,16 +56,6 @@
 		// 텍스트를 "(INITEM) --> (OUTITEM)" 형식으로 반환
 		return `${inItems.join(' + ')} --> ${outItems.join(' + ')}`;
 	}
-
-	const handleTodoAmountChange = (e) => {
-		let newTodoAmount = e.target.value;
-		if (newTodoAmount > lineAmount) {
-			alert(`Todo Amount ${newTodoAmount} must be equal or lower than Line Amount ${lineAmount}!`);
-			todoAmount = lineAmount;
-		} else {
-			todoAmount = newTodoAmount;
-		}
-	};
 
 	const addNewFactory = async () => {
 		const newFactoryName = prompt('Enter the name of the new factory:');
@@ -201,7 +191,7 @@
 	<form method="POST">
 		<div>
 			<label for="lineamount">LINE AMOUNT:</label>
-			<input id="lineamount" name="LINEAMOUNT" type="number" bind:value={lineAmount} />
+			<input id="lineamount" name="LINEAMOUNT" type="number" bind:value={lineAmount} min="0" />
 		</div>
 		<div>
 			<label for="todoamount">TODO AMOUNT:</label>
@@ -210,7 +200,8 @@
 				type="number"
 				name="TODOAMOUNT"
 				bind:value={todoAmount}
-				onchange={(e) => handleTodoAmountChange(e)}
+				min="0"
+				max={lineAmount}
 			/>
 		</div>
 
@@ -226,6 +217,9 @@
 			<input type="hidden" name="ROWID" value={data.rowFrame.ROWID} />
 		{/if}
 
+		{#if form?.error}
+			<p style="color: red;">{form.error}</p>
+		{/if}
 		<button type="submit">Save Row</button>
 	</form>
 </div>

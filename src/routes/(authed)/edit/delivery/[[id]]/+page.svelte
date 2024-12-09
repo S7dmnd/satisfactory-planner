@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { data } = $props();
+	let { data, form } = $props();
 	const userId = data.userId;
 	let factoryList = $state(data.factoryList);
 	let itemList = data.itemList;
@@ -47,7 +47,6 @@
 				const newFactoryID = (await response.json()).id;
 
 				factoryList.push({ FACTORYID: newFactoryID, FACTORYNAME: newFactoryName });
-				factoryId = newFactoryID;
 			} catch (error) {
 				console.error('Error saving newFactory:', error);
 				alert(`Failed to save row: ${error.message}`);
@@ -120,7 +119,7 @@
 			<td>{factoryList.find((f) => f.FACTORYID === destinationId)?.FACTORYNAME || 'N/A'}</td>
 			<td>{itemFrame?.KO || 'N/A'}</td>
 			<td>
-				<input type="number" bind:value={amount} />
+				<input type="number" bind:value={amount} min="0" />
 			</td>
 			<td>
 				<input type="text" bind:value={method} />
@@ -142,6 +141,9 @@
 		<input type="hidden" name="DELIVERYID" value={deliveryId} />
 	{/if}
 
+	{#if form?.error}
+		<p style="color: red;">{form.error}</p>
+	{/if}
 	<button type="submit">{isEdit ? 'Update Delivery' : 'Add Delivery'}</button>
 </form>
 

@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({ cookies, params }) => {
 		ROWID: null,
 		FACTORYID: null,
 		RECIPEKEY: null,
-		LINEAMOUNT: 0,
+		LINEAMOUNT: 1,
 		TODOAMOUNT: 0,
 	};
 
@@ -60,13 +60,19 @@ export const actions = {
 
 		console.log(rowId);
 
+		// Validation
+		if (!userId || !rowData.RECIPEKEY || !rowData.LINEAMOUNT || !rowData.TODOAMOUNT || !rowData.FACTORYID) {
+			return fail(400, { error: 'Missing required fields' });
+		}
+		if (rowData.LINEAMOUNT < 0 || rowData.TODOAMOUNT < 0 || rowData.EXTRAAMOUNT1 < 0 || rowData.EXTRAAMOUNT2 < 0) {
+			return fail(400, { error: 'Amounts cannot be negative' });
+		}
+		if (rowData.LINEAMOUNT < rowData.TODOAMOUNT) {
+			return fail(400, { error: 'Todo Amount must be less than or equal to Line Amount' });
+		}
+
 		if (rowId !== null) {
 			try {
-				// 필수 값 검증
-				if (!userId || !rowData.RECIPEKEY || !rowData.LINEAMOUNT || !rowData.TODOAMOUNT || !rowData.FACTORYID) {
-					return fail(400, { error: 'Missing required fields' });
-				}
-
 				// DB 업데이트
 				const result = await editRow({ userId, rowId, rowData });
 
@@ -83,11 +89,6 @@ export const actions = {
 		}
 		else {
 			try {
-				// 필수 값 검증
-				if (!userId || !rowData.RECIPEKEY || !rowData.LINEAMOUNT || !rowData.TODOAMOUNT || !rowData.FACTORYID) {
-					return fail(400, { error: 'Missing required fields' });
-				}
-
 				// DB에 데이터 추가
 				const result = await addRow({ userId, rowData });
 
