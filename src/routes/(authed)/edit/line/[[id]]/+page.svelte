@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ItemCard from '$lib/components/edit/line/ItemCard.svelte';
+
 	let { data } = $props();
 	const userId = data.userId;
 	let factoryList = $state(data.factoryList);
@@ -130,70 +132,68 @@
 	</select>
 </div>
 
-<h3>Input & Output Items</h3>
-<table class="io-table">
-	<thead>
-		<tr>
-			<th>Type</th>
-			<th>Name</th>
-			<th>Amount</th>
-			<th>Calculated Amount</th>
-		</tr>
-	</thead>
-	<tbody>
+<div>
+	<h3>Input & Output Items</h3>
+	<div>
 		<!-- IN ITEMS -->
 		{#if recipeFrame?.INITEMNAME1}
-			<tr>
-				<td>IN</td>
-				<td>{recipeFrame.INITEMNAME1}</td>
-				<td>{recipeFrame.INAMOUNT1}</td>
-				<td>{recipeFrame.INAMOUNT1 * lineAmount}</td>
-			</tr>
+			<ItemCard
+				itemName={recipeFrame.INITEMNAME1}
+				itemAmount={recipeFrame.INAMOUNT1}
+				bind:lineAmount
+				bind:todoAmount
+			/>
 		{/if}
 		{#if recipeFrame?.INITEMNAME2}
-			<tr>
-				<td>IN</td>
-				<td>{recipeFrame.INITEMNAME2}</td>
-				<td>{recipeFrame.INAMOUNT2}</td>
-				<td>{recipeFrame.INAMOUNT2 * lineAmount}</td>
-			</tr>
+			<div>+</div>
+			<ItemCard
+				itemName={recipeFrame.INITEMNAME2}
+				itemAmount={recipeFrame.INAMOUNT2}
+				bind:lineAmount
+				bind:todoAmount
+			/>
 		{/if}
 		{#if recipeFrame?.INITEMNAME3}
-			<tr>
-				<td>IN</td>
-				<td>{recipeFrame.INITEMNAME3}</td>
-				<td>{recipeFrame.INAMOUNT3}</td>
-				<td>{recipeFrame.INAMOUNT3 * lineAmount}</td>
-			</tr>
+			<div>+</div>
+			<ItemCard
+				itemName={recipeFrame.INITEMNAME3}
+				itemAmount={recipeFrame.INAMOUNT3}
+				bind:lineAmount
+				bind:todoAmount
+			/>
 		{/if}
 		{#if recipeFrame?.INITEMNAME4}
-			<tr>
-				<td>IN</td>
-				<td>{recipeFrame.INITEMNAME4}</td>
-				<td>{recipeFrame.INAMOUNT4}</td>
-				<td>{recipeFrame.INAMOUNT4 * lineAmount}</td>
-			</tr>
+			<div>+</div>
+			<ItemCard
+				itemName={recipeFrame.INITEMNAME4}
+				itemAmount={recipeFrame.INAMOUNT4}
+				bind:lineAmount
+				bind:todoAmount
+			/>
 		{/if}
-
+		{#if recipeFrame}
+			<div>-></div>
+		{/if}
 		<!-- OUT ITEMS -->
 		{#if recipeFrame?.OUTITEMNAME1}
-			<tr>
-				<td>OUT</td>
-				<td>{recipeFrame.OUTITEMNAME1}</td>
-				<td>{recipeFrame.OUTAMOUNT1}</td>
-				<td>{recipeFrame.OUTAMOUNT1 * lineAmount}</td>
-			</tr>
+			<ItemCard
+				itemName={recipeFrame.OUTITEMNAME1}
+				itemAmount={recipeFrame.OUTAMOUNT1}
+				bind:lineAmount
+				bind:todoAmount
+			/>
 		{/if}
 		{#if recipeFrame?.OUTITEMNAME2}
-			<tr>
-				<td>OUT</td>
-				<td>{recipeFrame.OUTITEMNAME2}</td>
-				<td>{recipeFrame.OUTAMOUNT2}</td>
-				<td>{recipeFrame.OUTAMOUNT2 * lineAmount}</td>
-			</tr>
+			<div>+</div>
+			<ItemCard
+				itemName={recipeFrame.OUTITEMNAME2}
+				itemAmount={recipeFrame.OUTAMOUNT2}
+				bind:lineAmount
+				bind:todoAmount
+			/>
 		{/if}
-	</tbody>
-</table>
+	</div>
+</div>
 
 <!-- Row 데이터 입력 -->
 <div class="row-form">
@@ -357,36 +357,6 @@
 		}
 	}
 
-	/* Input & Output Items Table Styling */
-	.io-table {
-		width: 80%;
-		margin: 20px auto;
-		border-collapse: collapse;
-		background-color: rgba(14, 14, 14, 255);
-		border: 1px solid rgba(250, 149, 73, 255);
-		color: white;
-	}
-
-	.io-table thead {
-		background-color: rgba(250, 149, 73, 255);
-		color: black;
-	}
-
-	.io-table th,
-	.io-table td {
-		border: 1px solid rgba(250, 149, 73, 255);
-		padding: 10px;
-		text-align: center;
-	}
-
-	.io-table tbody tr:nth-child(even) {
-		background-color: rgba(250, 149, 73, 0.1);
-	}
-
-	.io-table tbody tr:hover {
-		background-color: rgba(250, 149, 73, 0.2);
-	}
-
 	/* Responsive Styling */
 	@media (max-width: 768px) {
 		.search-bar input {
@@ -399,10 +369,6 @@
 
 		.dropdown select {
 			width: 80%;
-		}
-
-		.io-table {
-			width: 100%;
 		}
 	}
 </style>
