@@ -1,26 +1,50 @@
 <script lang="ts">
 	let { itemAmount, selectedItem = $bindable('') } = $props();
+
+	let searchText = $state('');
+	let filteredItems = $derived.by(() => {
+		if (!searchText || searchText.trim() === '') {
+			return itemAmount;
+		}
+
+		return itemAmount.filter((item) =>
+			item.ITEMNAME.toLowerCase().includes(searchText.toLowerCase())
+		);
+	});
 </script>
 
-<div class="item-amount-container">
-	{#each itemAmount.sort((a, b) => a.AMOUNT - b.AMOUNT) as item}
-		<button
-			class="item-button {item.AMOUNT < 0
-				? 'negative'
-				: item.AMOUNT == 0
-					? 'zero'
-					: 'positive'} {selectedItem === item.ITEMNAME ? 'selected' : ''}"
-			onclick={() => (selectedItem = selectedItem === item.ITEMNAME ? '' : item.ITEMNAME)}
-		>
-			<img src="/src/lib/images/{item.ITEMNAME}.webp" alt={item.ITEMNAME} />
-			<div class="item-name">{item.ITEMNAME}</div>
-			<div class="item-amount">{item.AMOUNT}</div>
-			<div class="item-todo" style="color: red;">({item.TODOAMOUNT})</div>
-		</button>
-	{/each}
+<div>
+	<input type="text" placeholder="Search items" bind:value={searchText} />
+	<div class="item-amount-container">
+		{#each filteredItems.sort((a, b) => a.AMOUNT - b.AMOUNT) as item}
+			<button
+				class="item-button {item.AMOUNT < 0
+					? 'negative'
+					: item.AMOUNT == 0
+						? 'zero'
+						: 'positive'} {selectedItem === item.ITEMNAME ? 'selected' : ''}"
+				onclick={() => (selectedItem = selectedItem === item.ITEMNAME ? '' : item.ITEMNAME)}
+			>
+				<img src="/src/lib/images/{item.ITEMNAME}.webp" alt={item.ITEMNAME} />
+				<div class="item-name">{item.ITEMNAME}</div>
+				<div class="item-amount">{item.AMOUNT}</div>
+				<div class="item-todo" style="color: red;">({item.TODOAMOUNT})</div>
+			</button>
+		{/each}
+	</div>
 </div>
 
 <style>
+	input {
+		padding: 10px;
+		width: 50%;
+		font-size: 1rem;
+		border-radius: 5px;
+		border: 1px solid rgba(250, 149, 73, 255);
+		background-color: rgba(250, 149, 73, 0.2);
+		color: black;
+	}
+
 	.item-amount-container {
 		display: flex;
 	}
