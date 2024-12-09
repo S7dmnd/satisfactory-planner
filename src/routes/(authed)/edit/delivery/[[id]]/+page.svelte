@@ -105,52 +105,41 @@
 			</option>
 		{/each}
 	</select>
+
+	{#if itemFrame}
+		<img src="/src/lib/images/{itemFrame.KO}.webp" alt={itemFrame.KO} />
+	{/if}
 </div>
 
-<!-- 현재 선택된 Delivery 관련 정보 테이블 -->
-<table class="io-table">
-	<thead>
-		<tr>
-			<th>Source Factory</th>
-			<th>Destination Factory</th>
-			<th>Item (KO)</th>
-			<th>Amount</th>
-			<th>Method</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>{factoryList.find((f) => f.FACTORYID === sourceId)?.FACTORYNAME || 'N/A'}</td>
-			<td>{factoryList.find((f) => f.FACTORYID === destinationId)?.FACTORYNAME || 'N/A'}</td>
-			<td>{itemFrame?.KO || 'N/A'}</td>
-			<td>
-				<input type="number" bind:value={amount} min="0" />
-			</td>
-			<td>
-				<input type="text" bind:value={method} />
-			</td>
-		</tr>
-	</tbody>
-</table>
-
 <!-- Delivery 추가/수정 폼 -->
-<form method="POST" class="row-form">
-	<input type="hidden" name="USERID" value={userId} />
-	<input type="hidden" name="SOURCEID" value={sourceId} />
-	<input type="hidden" name="DESTINATIONID" value={destinationId} />
-	<input type="hidden" name="ITEMKEY" value={itemKey} />
-	<input type="hidden" name="AMOUNT" value={amount} />
-	<input type="hidden" name="METHOD" value={method} />
+<div class="row-form">
+	<h3>Row Data</h3>
+	<form method="POST">
+		<div>
+			<label for="amount">AMOUNT:</label>
+			<input id="amount" name="AMOUNT" type="number" bind:value={amount} min="0" />
+		</div>
+		<div>
+			<label for="method">METHOD:</label>
+			<input id="method" type="text" name="METHOD" bind:value={method} />
+		</div>
 
-	{#if isEdit}
-		<input type="hidden" name="DELIVERYID" value={deliveryId} />
-	{/if}
+		<!-- Hidden inputs for additional data -->
+		<input type="hidden" name="USERID" value={userId} />
+		<input type="hidden" name="SOURCEID" value={sourceId} />
+		<input type="hidden" name="DESTINATIONID" value={destinationId} />
+		<input type="hidden" name="ITEMKEY" value={itemKey} />
 
-	{#if form?.error}
-		<p style="color: red;">{form.error}</p>
-	{/if}
-	<button type="submit">{isEdit ? 'Update Delivery' : 'Add Delivery'}</button>
-</form>
+		{#if isEdit}
+			<input type="hidden" name="DELIVERYID" value={deliveryId} />
+		{/if}
+
+		{#if form?.error}
+			<p style="color: red;">{form.error}</p>
+		{/if}
+		<button type="submit">{isEdit ? 'Update Delivery' : 'Add Delivery'}</button>
+	</form>
+</div>
 
 <style>
 	.factory-select-container {
@@ -216,30 +205,37 @@
 		margin: 20px;
 		padding: 20px;
 		border-radius: 10px;
-		background-color: rgba(14, 14, 14, 1);
-		color: black;
-		display: flex; /* 추가 */
-		flex-direction: column; /* 추가 */
-		align-items: center; /* 추가 */
+		background-color: rgba(14, 14, 14, 255);
+		border: 1px solid rgba(250, 149, 73, 255);
 	}
 
-	.io-table input[type='text'],
-	.io-table input[type='number'] {
+	.row-form h3 {
+		color: rgba(250, 149, 73, 255);
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.row-form form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.row-form label {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+
+	.row-form input {
 		padding: 10px;
 		border-radius: 5px;
-		border: 1px solid rgba(250, 149, 73, 1);
+		border: 1px solid rgba(250, 149, 73, 255);
 		background-color: rgba(250, 149, 73, 0.2);
 		color: black;
-		width: 100%;
-	}
-
-	.io-table input[type='text']::placeholder,
-	.io-table input[type='number']::placeholder {
-		color: rgba(14, 14, 14, 0.7);
+		width: calc(100% - 22px);
 	}
 
 	/* Save Button Styling */
-
 	button {
 		padding: 10px;
 		background-color: rgba(250, 149, 73, 255);
@@ -261,34 +257,10 @@
 		transform: scale(0.98);
 	}
 
-	/* Input & Output Items Table Styling */
-	.io-table {
-		width: 80%;
-		margin: 20px auto;
-		border-collapse: collapse;
-		background-color: rgba(14, 14, 14, 1);
-		border: 1px solid rgba(250, 149, 73, 1);
-		color: white;
-	}
-
-	.io-table thead {
-		background-color: rgba(250, 149, 73, 1);
-		color: black;
-	}
-
-	.io-table th,
-	.io-table td {
-		border: 1px solid rgba(250, 149, 73, 1);
-		padding: 10px;
-		text-align: center;
-	}
-
-	.io-table tbody tr:nth-child(even) {
-		background-color: rgba(250, 149, 73, 0.1);
-	}
-
-	.io-table tbody tr:hover {
-		background-color: rgba(250, 149, 73, 0.2);
+	img {
+		width: 256px;
+		height: 256px;
+		object-fit: contain;
 	}
 
 	/* Responsive Styling */
@@ -300,10 +272,6 @@
 		.dropdown input,
 		.dropdown select {
 			width: 80%;
-		}
-
-		.io-table {
-			width: 100%;
 		}
 	}
 </style>

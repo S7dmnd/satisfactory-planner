@@ -350,16 +350,4 @@
 			width: 80%;
 		}
 	}
-
-	/* Responsive Styling */
-	@media (max-width: 768px) {
-		.row-form {
-			padding: 15px;
-		}
-
-		.dropdown input,
-		.dropdown select {
-			width: 80%;
-		}
-	}
 </style>
