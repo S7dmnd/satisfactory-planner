@@ -221,12 +221,6 @@
 </div>
 
 <style>
-	h3 {
-		text-align: center;
-		color: rgba(250, 149, 73, 255);
-		margin-top: 20px;
-	}
-
 	/* Dropdown Styling */
 	.dropdown {
 		margin: 20px auto;
@@ -315,7 +309,6 @@
 		margin-bottom: 5px;
 	}
 
-	.row-form input[type='text'],
 	.row-form input[type='number'] {
 		padding: 10px;
 		border-radius: 5px;

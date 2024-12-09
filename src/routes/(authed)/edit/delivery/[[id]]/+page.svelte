@@ -145,12 +145,6 @@
 </form>
 
 <style>
-	h3 {
-		text-align: center;
-		color: rgba(250, 149, 73, 255);
-		margin-top: 20px;
-	}
-
 	/* Dropdown Styling */
 	.dropdown {
 		margin: 20px auto;
@@ -208,27 +202,6 @@
 		align-items: center; /* 추가 */
 	}
 
-	.row-form form {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-		color: black;
-		align-items: center; /* 버튼 포함 전체를 가운데 정렬 */
-	}
-
-	.row-form h3 {
-		color: black;
-		text-align: center;
-		margin-bottom: 20px;
-	}
-
-	.row-form label {
-		font-weight: bold;
-		color: black;
-	}
-
-	.row-form input[type='text'],
-	.row-form input[type='number'],
 	.io-table input[type='text'],
 	.io-table input[type='number'] {
 		padding: 10px;
@@ -239,8 +212,6 @@
 		width: 100%;
 	}
 
-	.row-form input[type='text']::placeholder,
-	.row-form input[type='number']::placeholder,
 	.io-table input[type='text']::placeholder,
 	.io-table input[type='number']::placeholder {
 		color: rgba(14, 14, 14, 0.7);
