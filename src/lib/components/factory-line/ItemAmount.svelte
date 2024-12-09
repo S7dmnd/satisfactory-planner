@@ -8,6 +8,7 @@
 			class="item-button {selectedItem === item.ITEMNAME ? 'selected' : ''}"
 			onclick={() => (selectedItem = selectedItem === item.ITEMNAME ? '' : item.ITEMNAME)}
 		>
+			<img src="/src/lib/images/{item.ITEMNAME}.webp" alt={item.ITEMNAME} />
 			<div class="item-name">{item.ITEMNAME}</div>
 			<div class="item-amount">{item.AMOUNT}</div>
 			<div class="item-todo" style="color: red;">({item.TODOAMOUNT})</div>
@@ -33,6 +34,8 @@
 			transform 0.2s,
 			box-shadow 0.2s;
 		cursor: pointer;
+		align-items: center;
+		border: 2px solid transparent; /* 투명한 border 추가 */
 	}
 
 	.item-button:hover {
@@ -46,11 +49,18 @@
 	}
 
 	.item-button.selected {
-		border: 2px solid rgba(255, 255, 255, 0.8);
+		border-color: rgba(255, 255, 255, 0.8); /* border 색상 변경 */
 		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 	}
 
 	.item-button > div {
-		/* 필요한 경우 추가 스타일 적용 */
+		min-width: 80px;
+	}
+
+	.item-button img {
+		width: 80px;
+		height: 80px;
+		object-fit: contain;
+		margin-bottom: 5px;
 	}
 </style>
