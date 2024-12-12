@@ -1,5 +1,8 @@
 <script lang="ts">
 	let { lines } = $props();
+	function roundToSixDecimals(num) {
+		return Math.round(num * 1e6) / 1e6;
+	}
 </script>
 
 <div class="table-container">
@@ -21,44 +24,56 @@
 				<tr class="table-row">
 					<td
 						>{#if line.INITEMNAME1}{line.INITEMNAME1}
-							{line.INAMOUNT1 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
-								<span style="color: red;">({line.INAMOUNT1 * line.TODOAMOUNT})</span>
+							{roundToSixDecimals(line.INAMOUNT1 * line.LINEAMOUNT)}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;"
+									>({roundToSixDecimals(line.INAMOUNT1 * line.TODOAMOUNT)})</span
+								>
 							{/if}{/if}</td
 					>
 					<td
 						>{#if line.INITEMNAME2}{line.INITEMNAME2}
-							{line.INAMOUNT2 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
-								<span style="color: red;">({line.INAMOUNT2 * line.TODOAMOUNT})</span>
+							{roundToSixDecimals(line.INAMOUNT2 * line.LINEAMOUNT)}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;"
+									>({roundToSixDecimals(line.INAMOUNT2 * line.TODOAMOUNT)})</span
+								>
 							{/if}{/if}</td
 					>
 					<td
 						>{#if line.INITEMNAME3}{line.INITEMNAME3}
-							{line.INAMOUNT3 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
-								<span style="color: red;">({line.INAMOUNT3 * line.TODOAMOUNT})</span>
+							{roundToSixDecimals(line.INAMOUNT3 * line.LINEAMOUNT)}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;"
+									>({roundToSixDecimals(line.INAMOUNT3 * line.TODOAMOUNT)})</span
+								>
 							{/if}{/if}</td
 					>
 					<td
 						>{#if line.INITEMNAME4}{line.INITEMNAME4}
-							{line.INAMOUNT4 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
-								<span style="color: red;">({line.INAMOUNT4 * line.TODOAMOUNT})</span>
+							{roundToSixDecimals(line.INAMOUNT4 * line.LINEAMOUNT)}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;"
+									>({roundToSixDecimals(line.INAMOUNT4 * line.TODOAMOUNT)})</span
+								>
 							{/if}{/if}</td
 					>
 					<td
 						>{#if line.OUTITEMNAME1}{line.OUTITEMNAME1}
-							{line.OUTAMOUNT1 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
-								<span style="color: red;">({line.OUTAMOUNT1 * line.TODOAMOUNT})</span>
+							{roundToSixDecimals(line.OUTAMOUNT1 * line.LINEAMOUNT)}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;"
+									>({roundToSixDecimals(line.OUTAMOUNT1 * line.TODOAMOUNT)})</span
+								>
 							{/if}{/if}</td
 					>
 					<td
 						>{#if line.OUTITEMNAME2}{line.OUTITEMNAME2}
-							{line.OUTAMOUNT2 * line.LINEAMOUNT}{#if line.TODOAMOUNT > 0}
-								<span style="color: red;">({line.OUTAMOUNT2 * line.TODOAMOUNT})</span>
+							{roundToSixDecimals(line.OUTAMOUNT2 * line.LINEAMOUNT)}{#if line.TODOAMOUNT > 0}
+								<span style="color: red;"
+									>({roundToSixDecimals(line.OUTAMOUNT2 * line.TODOAMOUNT)})</span
+								>
 							{/if}{/if}</td
 					>
 					<td>
-						{line.LINEAMOUNT}
+						{roundToSixDecimals(line.LINEAMOUNT)}
 						{#if line.TODOAMOUNT > 0}
-							<span style="color: red;">({line.TODOAMOUNT})</span>
+							<span style="color: red;">({roundToSixDecimals(line.TODOAMOUNT)})</span>
 						{/if}
 					</td>
 					<td>
