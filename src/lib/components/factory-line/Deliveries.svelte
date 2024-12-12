@@ -1,8 +1,36 @@
 <script lang="ts">
 	let { deliveries } = $props();
+	let currentPage = $state(1);
+	let itemsPerPage = $state(10);
+
+	function getPaginatedDeliveries() {
+		const start = (currentPage - 1) * itemsPerPage;
+		const end = start + itemsPerPage;
+		return deliveries.slice(start, end);
+	}
+
+	function totalPages() {
+		return Math.ceil(deliveries.length / itemsPerPage);
+	}
 </script>
 
 <div class="table-container">
+	<div class="pagination-container">
+		<div>
+			<button
+				onclick={() => (currentPage = Math.max(1, currentPage - 1))}
+				disabled={currentPage === 1}>Previous</button
+			>
+			<span>Page {currentPage} of {totalPages()}</span>
+			<button
+				onclick={() => (currentPage = Math.min(totalPages(), currentPage + 1))}
+				disabled={currentPage === totalPages()}>Next</button
+			>
+		</div>
+		<div class="button-container">
+			<a href="/edit/delivery">+ Add new delivery</a>
+		</div>
+	</div>
 	<table>
 		<thead>
 			<tr>
@@ -15,7 +43,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each deliveries as delivery}
+			{#each getPaginatedDeliveries() as delivery}
 				<tr class="table-row">
 					<td>{delivery.SOURCEFACTORYNAME}</td>
 					<td>{delivery.DESTINATIONFACTORYNAME}</td>
@@ -35,8 +63,21 @@
 			{/each}
 		</tbody>
 	</table>
-	<div class="button-container">
-		<a href="/edit/delivery">+</a>
+	<div class="pagination-container">
+		<div>
+			<button
+				onclick={() => (currentPage = Math.max(1, currentPage - 1))}
+				disabled={currentPage === 1}>Previous</button
+			>
+			<span>Page {currentPage} of {totalPages()}</span>
+			<button
+				onclick={() => (currentPage = Math.min(totalPages(), currentPage + 1))}
+				disabled={currentPage === totalPages()}>Next</button
+			>
+		</div>
+		<div class="button-container">
+			<a href="/edit/delivery">+ Add new delivery</a>
+		</div>
 	</div>
 </div>
 
@@ -50,13 +91,50 @@
 		border: 1px solid rgba(250, 149, 73, 255);
 		padding: 20px;
 		display: flex;
+		flex-direction: column;
 		align-items: flex-start;
+	}
+
+	/* Pagination Styling */
+	.pagination-container {
+		width: 100%;
+		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		margin-top: 10px;
+	}
+
+	.pagination-container button {
+		background-color: rgba(250, 149, 73, 255);
+		color: white;
+		border: none;
+		padding: 10px 10px;
+		margin: 0 5px;
+		border-radius: 5px;
+		cursor: pointer;
+		transition:
+			background-color 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	.pagination-container button:disabled {
+		background-color: gray;
+		cursor: not-allowed;
+	}
+
+	.pagination-container button:hover:not(:disabled) {
+		background-color: rgba(250, 149, 73, 0.8);
+		transform: translateY(-2px);
+	}
+
+	.pagination-container span {
+		margin: 0 10px;
+		font-size: 1rem;
 	}
 
 	/* Button Styling */
 	.button-container {
-		align-self: flex-start;
+		align-self: auto;
 	}
 
 	a {

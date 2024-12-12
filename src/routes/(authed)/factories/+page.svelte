@@ -164,20 +164,21 @@
 	/* Content 영역 스타일 */
 	.content {
 		display: flex;
+		flex-direction: column; /* 위 아래로 정렬 */
 		flex: 1; /* 남은 공간을 차지 */
 		overflow: hidden; /* 불필요한 스크롤 제거 */
 	}
 
 	/* FactoryLines 스타일 */
 	.factory-lines {
-		flex: 2; /* 왼쪽 영역이 차지할 비율 */
+		flex: 1; /* 위쪽 영역이 차지할 비율 */
 		overflow-y: auto; /* 세로 스크롤 활성화 */
 		padding: 10px;
 	}
 
 	/* Deliveries 스타일 */
 	.deliveries {
-		flex: 1; /* 오른쪽 영역이 차지할 비율 */
+		flex: 1; /* 아래쪽 영역이 차지할 비율 */
 		overflow-y: auto; /* 세로 스크롤 활성화 */
 		padding: 10px;
 	}
