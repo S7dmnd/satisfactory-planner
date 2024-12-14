@@ -45,8 +45,8 @@
 		<tbody>
 			{#each getPaginatedDeliveries() as delivery}
 				<tr class="table-row">
-					<td>{delivery.SOURCEFACTORYNAME || '-'}</td>
-					<td>{delivery.DESTINATIONFACTORYNAME || '-'}</td>
+					<td>{delivery.SOURCEFACTORYNAME || '---'}</td>
+					<td>{delivery.DESTINATIONFACTORYNAME || '---'}</td>
 					<td>{delivery.ITEMNAME}</td>
 					<td
 						>{#if delivery.AMOUNT > 0}

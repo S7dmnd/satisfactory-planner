@@ -61,7 +61,7 @@
 		<div class="dropdown">
 			<label for="source-select">Select Source Factory:</label>
 			<select id="source-select" bind:value={sourceId}>
-				<option value={null} disabled hidden>-- Select a Source Factory --</option>
+				<option value={null}>---</option>
 				{#each factoryList as factory}
 					<option value={factory.FACTORYID}>
 						{factory.FACTORYNAME}
@@ -80,7 +80,7 @@
 		<div class="dropdown">
 			<label for="destination-select">Select Destination Factory:</label>
 			<select id="destination-select" bind:value={destinationId}>
-				<option value={null} disabled hidden>-- Select a Destination Factory --</option>
+				<option value={null}>---</option>
 				{#each factoryList as factory}
 					<option value={factory.FACTORYID}>
 						{factory.FACTORYNAME}
