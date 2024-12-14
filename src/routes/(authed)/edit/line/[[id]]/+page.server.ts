@@ -48,7 +48,7 @@ export const actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
 		// Validation
-		if (formData.get('USERID') == null || formData.get('RECIPEKEY') == null || formData.get('LINEAMOUNT') == null || formData.get('TODOAMOUNT') == null || formData.get('FACTORYID') == null) {
+		if (!formData.get('USERID') || !formData.get('RECIPEKEY') || !formData.get('LINEAMOUNT') || !formData.get('TODOAMOUNT') || !formData.get('FACTORYID')) {
 			return fail(400, { error: 'Missing required fields' });
 		}
 
@@ -64,7 +64,7 @@ export const actions = {
 		const userId = formData.get('USERID');
 
 		// Validation
-		if (rowData.LINEAMOUNT < 0 || rowData.TODOAMOUNT < 0 || rowData.EXTRAAMOUNT1 < 0 || rowData.EXTRAAMOUNT2 < 0) {
+		if (rowData.LINEAMOUNT <= 0 || rowData.TODOAMOUNT < 0 || rowData.EXTRAAMOUNT1 < 0 || rowData.EXTRAAMOUNT2 < 0) {
 			return fail(400, { error: 'Amounts cannot be negative' });
 		}
 		if (rowData.LINEAMOUNT < rowData.TODOAMOUNT) {

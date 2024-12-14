@@ -55,8 +55,11 @@ export const actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
 		// Validation
-		if (formData.get('USERID') == null || formData.get('SOURCEID') == null || formData.get('DESTINATIONID') == null || formData.get('ITEMKEY') == null || formData.get('METHOD') == null || formData.get('AMOUNT') == null) {
+		if (!formData.get('USERID') || !formData.get('ITEMKEY') || !formData.get('METHOD') || !formData.get('AMOUNT')) {
 			return fail(400, { error: 'Missing required fields' });
+		}
+		if (!formData.get('SOURCEID') && !formData.get('DESTINATIONID')) {
+			return fail(400, { error: 'Either source or destination must be selected' });
 		}
 
 		const deliveryId = formData.get('DELIVERYID');
