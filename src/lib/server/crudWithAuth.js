@@ -406,6 +406,10 @@ export async function editDelivery({ userId, deliveryId, deliveryData }) {
 
 export async function addDelivery({ userId, deliveryData }) {
     try {
+        if (!userId) {
+            throw new Error('User ID is required');
+        }
+
         const query = `
             INSERT INTO DELIVERYLINE 
             (SOURCEID, DESTINATIONID, ITEMKEY, METHOD, AMOUNT, USERID) 
@@ -413,8 +417,8 @@ export async function addDelivery({ userId, deliveryData }) {
         `;
 
         const values = [
-            deliveryData.SOURCEID,
-            deliveryData.DESTINATIONID,
+            deliveryData.SOURCEID || null,
+            deliveryData.DESTINATIONID || null,
             deliveryData.ITEMKEY,
             deliveryData.METHOD,
             deliveryData.AMOUNT,
@@ -426,7 +430,7 @@ export async function addDelivery({ userId, deliveryData }) {
         return { success: true, deliveryId: result.insertId };
     } catch (error) {
         console.error('Error adding row:', error);
-        return { success: false, error: 'Failed to add row' };
+        return { success: false, error: error.message || 'Failed to add row' };
     }
 }
 

@@ -61,8 +61,8 @@ export const actions = {
 
 		const deliveryId = formData.get('DELIVERYID');
 		const deliveryData = {
-			SOURCEID: Number(formData.get('SOURCEID')),
-			DESTINATIONID: Number(formData.get('DESTINATIONID')),
+			SOURCEID: Number(formData.get('SOURCEID')) || null,
+			DESTINATIONID: Number(formData.get('DESTINATIONID')) || null,
 			ITEMKEY: formData.get('ITEMKEY'),
 			METHOD: formData.get('METHOD'),
 			AMOUNT: Number(formData.get('AMOUNT'))
