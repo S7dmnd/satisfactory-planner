@@ -4,7 +4,9 @@
 	let { itemName, style } = $props();
 </script>
 
-<img src="/src/lib/images/{itemNameMapping[itemName]}.webp" alt={itemName} {style} />
+{#await import(`$lib/images/${itemNameMapping[itemName]}.webp`) then { default: src }}
+	<img {src} alt={itemName} {style} />
+{/await}
 
 <style>
 	img {
