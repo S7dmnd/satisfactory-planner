@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ItemImage from '../ItemImage.svelte';
+
 	let { itemAmount, selectedItem = $bindable('') } = $props();
 
 	let searchText = $state('');
@@ -25,7 +27,7 @@
 						: 'positive'} {selectedItem === item.ITEMNAME ? 'selected' : ''}"
 				onclick={() => (selectedItem = selectedItem === item.ITEMNAME ? '' : item.ITEMNAME)}
 			>
-				<img src="/src/lib/images/{item.ITEMNAME}.webp" alt={item.ITEMNAME} />
+				<ItemImage itemName={item.ITEMNAME} style="width: 80px; height: 80px;" />
 				<div class="item-name">{item.ITEMNAME}</div>
 				<div class="item-amount">{item.AMOUNT}</div>
 				<div class="item-todo" style="color: red;">({item.TODOAMOUNT})</div>
@@ -93,12 +95,5 @@
 
 	.item-button > div {
 		min-width: 80px;
-	}
-
-	.item-button img {
-		width: 80px;
-		height: 80px;
-		object-fit: contain;
-		margin-bottom: 5px;
 	}
 </style>

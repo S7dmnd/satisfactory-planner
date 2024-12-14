@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ItemImage from '$lib/components/ItemImage.svelte';
+
 	let { data, form } = $props();
 	const userId = data.userId;
 	let factoryList = $state(data.factoryList);
@@ -107,7 +109,7 @@
 	</select>
 
 	{#if itemFrame}
-		<img src="/src/lib/images/{itemFrame.KO}.webp" alt={itemFrame.KO} />
+		<ItemImage itemName={itemFrame.KO} style="width: 256px; height: 256px;" />
 	{/if}
 </div>
 
@@ -255,12 +257,6 @@
 
 	button:active {
 		transform: scale(0.98);
-	}
-
-	img {
-		width: 256px;
-		height: 256px;
-		object-fit: contain;
 	}
 
 	/* Responsive Styling */

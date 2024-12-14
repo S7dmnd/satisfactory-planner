@@ -1,9 +1,11 @@
 <script lang="ts">
+	import ItemImage from '$lib/components/ItemImage.svelte';
+
 	let { itemName, itemAmount, lineAmount = $bindable(), todoAmount = $bindable() } = $props();
 </script>
 
 <div class="item-card-container">
-	<img src="/src/lib/images/{itemName}.webp" alt={itemName} />
+	<ItemImage {itemName} style="width: 128px; height: 128px;" />
 	<div>{itemName}</div>
 	<div class="input-container">
 		<input
@@ -40,12 +42,6 @@
 		border-radius: 10px;
 		background-color: rgba(14, 14, 14, 255);
 		border: 1px solid rgba(250, 149, 73, 255);
-	}
-
-	img {
-		width: 128px;
-		height: 128px;
-		object-fit: contain;
 	}
 
 	.input-container {
