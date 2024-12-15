@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { roundDouble } from '$lib/math';
 	import ItemImage from '../ItemImage.svelte';
 
 	let { itemAmount, selectedItem = $bindable('') } = $props();
@@ -29,7 +30,7 @@
 			>
 				<ItemImage itemName={item.ITEMNAME} style="width: 80px; height: 80px;" />
 				<div class="item-name">{item.ITEMNAME}</div>
-				<div class="item-amount">{item.AMOUNT}</div>
+				<div class="item-amount">{roundDouble(item.AMOUNT)}</div>
 			</button>
 		{/each}
 	</div>
