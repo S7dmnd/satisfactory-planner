@@ -30,7 +30,6 @@
 				<ItemImage itemName={item.ITEMNAME} style="width: 80px; height: 80px;" />
 				<div class="item-name">{item.ITEMNAME}</div>
 				<div class="item-amount">{item.AMOUNT}</div>
-				<div class="item-todo" style="color: red;">({item.TODOAMOUNT})</div>
 			</button>
 		{/each}
 	</div>
