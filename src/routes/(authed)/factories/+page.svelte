@@ -152,13 +152,6 @@
 		max-width: 100%;
 	}
 
-	/* ItemList 스타일 */
-	.item-list {
-		overflow-x: auto; /* 가로 스크롤 활성화 */
-		white-space: nowrap; /* 자식 요소들이 한 줄로 정렬 */
-		padding: 10px;
-	}
-
 	/* Content 영역 스타일 */
 	.content {
 		display: flex;

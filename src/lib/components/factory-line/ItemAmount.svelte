@@ -48,7 +48,10 @@
 	}
 
 	.item-amount-container {
+		overflow-x: auto; /* 가로 스크롤 활성화 */
+		white-space: nowrap; /* 자식 요소들이 한 줄로 정렬 */
 		display: flex;
+		padding: 10px;
 	}
 
 	.item-button {
