@@ -50,9 +50,9 @@
 					<td>{delivery.ITEMNAME}</td>
 					<td
 						>{#if delivery.AMOUNT > 0}
-							<span style="color: green;">→{delivery.AMOUNT}</span>
+							<span style="color: green;">{delivery.AMOUNT}</span>
 						{:else}
-							<span style="color: red;">←{delivery.AMOUNT}</span>
+							<span style="color: red;">{-1 * delivery.AMOUNT}</span>
 						{/if}</td
 					>
 					<td>{delivery.METHOD}</td>

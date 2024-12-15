@@ -45,8 +45,6 @@
 					if (delivery.SOURCEFACTORYNAME === selectedFactory) {
 						return {
 							...delivery,
-							SOURCEFACTORYNAME: delivery.DESTINATIONFACTORYNAME,
-							DESTINATIONFACTORYNAME: delivery.SOURCEFACTORYNAME,
 							AMOUNT: -delivery.AMOUNT
 						};
 					}
