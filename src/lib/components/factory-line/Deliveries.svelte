@@ -3,7 +3,7 @@
 
 	let currentPage = $state(1);
 	const ITEMS_PER_PAGE = 10;
-	let totalPages = $derived(Math.ceil(deliveries.length / ITEMS_PER_PAGE));
+	let totalPages = $derived(Math.max(1, Math.ceil(deliveries.length / ITEMS_PER_PAGE)));
 	$effect(() => {
 		currentPage = Math.min(currentPage, totalPages);
 	});
