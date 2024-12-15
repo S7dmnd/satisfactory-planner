@@ -1,17 +1,16 @@
 <script lang="ts">
 	let { deliveries } = $props();
+
 	let currentPage = $state(1);
-	let itemsPerPage = $state(10);
+	const ITEMS_PER_PAGE = 10;
+	let totalPages = $derived(Math.ceil(deliveries.length / ITEMS_PER_PAGE));
+	$effect(() => {
+		currentPage = Math.min(currentPage, totalPages);
+	});
 
-	function getPaginatedDeliveries() {
-		const start = (currentPage - 1) * itemsPerPage;
-		const end = start + itemsPerPage;
-		return deliveries.slice(start, end);
-	}
-
-	function totalPages() {
-		return Math.ceil(deliveries.length / itemsPerPage);
-	}
+	let paginatedDeliveries = $derived(
+		deliveries.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+	);
 </script>
 
 <div class="table-container">
@@ -21,10 +20,10 @@
 				onclick={() => (currentPage = Math.max(1, currentPage - 1))}
 				disabled={currentPage === 1}>Previous</button
 			>
-			<span>Page {currentPage} of {totalPages()}</span>
+			<span>Page {currentPage} of {totalPages}</span>
 			<button
-				onclick={() => (currentPage = Math.min(totalPages(), currentPage + 1))}
-				disabled={currentPage === totalPages()}>Next</button
+				onclick={() => (currentPage = Math.min(totalPages, currentPage + 1))}
+				disabled={currentPage === totalPages}>Next</button
 			>
 		</div>
 		<div class="button-container">
@@ -43,7 +42,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each getPaginatedDeliveries() as delivery}
+			{#each paginatedDeliveries as delivery}
 				<tr class="table-row">
 					<td>{delivery.SOURCEFACTORYNAME || '---'}</td>
 					<td>{delivery.DESTINATIONFACTORYNAME || '---'}</td>
@@ -69,10 +68,10 @@
 				onclick={() => (currentPage = Math.max(1, currentPage - 1))}
 				disabled={currentPage === 1}>Previous</button
 			>
-			<span>Page {currentPage} of {totalPages()}</span>
+			<span>Page {currentPage} of {totalPages}</span>
 			<button
-				onclick={() => (currentPage = Math.min(totalPages(), currentPage + 1))}
-				disabled={currentPage === totalPages()}>Next</button
+				onclick={() => (currentPage = Math.min(totalPages, currentPage + 1))}
+				disabled={currentPage === totalPages}>Next</button
 			>
 		</div>
 		<div class="button-container">

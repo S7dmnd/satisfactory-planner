@@ -2,18 +2,17 @@
 	import { roundDouble } from '$lib/math';
 
 	let { lines } = $props();
+
 	let currentPage = $state(1);
-	let itemsPerPage = $state(10);
+	const ITEMS_PER_PAGE = 10;
+	let totalPages = $derived(Math.ceil(lines.length / ITEMS_PER_PAGE));
+	$effect(() => {
+		currentPage = Math.min(currentPage, totalPages);
+	});
 
-	function getPaginatedLines() {
-		const start = (currentPage - 1) * itemsPerPage;
-		const end = start + itemsPerPage;
-		return lines.slice(start, end);
-	}
-
-	function totalPages() {
-		return Math.ceil(lines.length / itemsPerPage);
-	}
+	let paginatedLines = $derived(
+		lines.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+	);
 </script>
 
 <div class="table-container">
@@ -23,10 +22,10 @@
 				onclick={() => (currentPage = Math.max(1, currentPage - 1))}
 				disabled={currentPage === 1}>Previous</button
 			>
-			<span>Page {currentPage} of {totalPages()}</span>
+			<span>Page {currentPage} of {totalPages}</span>
 			<button
-				onclick={() => (currentPage = Math.min(totalPages(), currentPage + 1))}
-				disabled={currentPage === totalPages()}>Next</button
+				onclick={() => (currentPage = Math.min(totalPages, currentPage + 1))}
+				disabled={currentPage === totalPages}>Next</button
 			>
 		</div>
 		<div class="button-container">
@@ -47,7 +46,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each getPaginatedLines() as line}
+			{#each paginatedLines as line}
 				<tr class="table-row">
 					<td
 						>{#if line.INITEMNAME1}{line.INITEMNAME1}
@@ -104,10 +103,10 @@
 				onclick={() => (currentPage = Math.max(1, currentPage - 1))}
 				disabled={currentPage === 1}>Previous</button
 			>
-			<span>Page {currentPage} of {totalPages()}</span>
+			<span>Page {currentPage} of {totalPages}</span>
 			<button
-				onclick={() => (currentPage = Math.min(totalPages(), currentPage + 1))}
-				disabled={currentPage === totalPages()}>Next</button
+				onclick={() => (currentPage = Math.min(totalPages, currentPage + 1))}
+				disabled={currentPage === totalPages}>Next</button
 			>
 		</div>
 		<div class="button-container">
