@@ -82,14 +82,14 @@
 	<div class="factories-container">
 		<div class="factories-container-text">Factories:</div>
 		<button
-			class="factory-button"
+			class="factory-button {selectedFactory === '' ? 'selected' : ''}"
 			onclick={() => {
 				selectedFactory = '';
 			}}>전체</button
 		>
 		{#each data.factoryLines as factories}
 			<button
-				class="factory-button"
+				class="factory-button {selectedFactory === factories.FACTORYNAME ? 'selected' : ''}"
 				onclick={() => {
 					selectedFactory = factories.FACTORYNAME;
 				}}>{factories.FACTORYNAME}</button
@@ -123,7 +123,7 @@
 	}
 
 	.factory-button {
-		background-color: rgba(250, 149, 73, 255);
+		background-color: rgba(250, 149, 73, 1);
 		color: white;
 		border: none;
 		padding: 10px 15px;
@@ -131,17 +131,24 @@
 		border-radius: 5px;
 		cursor: pointer;
 		transition:
-			background-color 0.3s ease,
-			transform 0.3s ease;
+			transform 0.2s,
+			box-shadow 0.2s;
+		border: 2px solid transparent; /* 투명한 border 추가 */
 	}
 
 	.factory-button:hover {
-		background-color: rgba(250, 149, 73, 0.8);
 		transform: translateY(-2px);
+		box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 	}
 
 	.factory-button:active {
-		transform: scale(0.98);
+		transform: translateY(0);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.factory-button.selected {
+		border-color: rgba(255, 255, 255, 0.8); /* border 색상 변경 */
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 	}
 
 	/* 전체 컨테이너 설정 */
