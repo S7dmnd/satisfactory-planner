@@ -16,7 +16,7 @@
 	});
 </script>
 
-<div>
+<div style="padding:10px">
 	<input type="text" placeholder="Search items" bind:value={searchText} />
 	<div class="item-amount-container">
 		{#each filteredItems.sort((a, b) => a.AMOUNT - b.AMOUNT) as item}
@@ -51,7 +51,7 @@
 		overflow-x: auto; /* 가로 스크롤 활성화 */
 		white-space: nowrap; /* 자식 요소들이 한 줄로 정렬 */
 		display: flex;
-		padding: 10px;
+		padding: 10px 0;
 	}
 
 	.item-button {
